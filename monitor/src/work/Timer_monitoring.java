@@ -8,6 +8,7 @@ import javax.swing.Timer;
 public class Timer_monitoring {
 	
 	private Timer timer;
+	private int time;
 	
 	public Timer_monitoring(){
 		
