@@ -4,10 +4,7 @@
 package ca.uds;
 
 import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
-import javax.mail.internet.InternetAddress;
-
 
 /**
  * @author solenemalledant

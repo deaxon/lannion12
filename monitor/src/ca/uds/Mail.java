@@ -22,12 +22,9 @@ public class Mail {
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.port", "465");
 		try {
-			Session session = Session.getDefaultInstance(props,
-
-			new javax.mail.Authenticator() {
+			Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 				protected PasswordAuthentication getPasswordAuthentication() {
-					return new PasswordAuthentication(
-							"solene.malledant@gmail.com", "duriane01");
+					return new PasswordAuthentication("solene.malledant@gmail.com", "duriane01");
 				}
 			});
 			Message message = new MimeMessage(session);
