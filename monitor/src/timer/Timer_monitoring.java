@@ -1,4 +1,4 @@
-package work;
+package timer;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,33 +7,40 @@ import javax.swing.Timer;
 
 public class Timer_monitoring {
 	
+	public static final int TIME = 10;
+	
 	private Timer timer;
-	private int time;
+	private int timeRemaining = 1;
 	
 	public Timer_monitoring(){
 		
-		this.timer = new Timer(1000, new MyTimerActionListener(30));
+		this.timer = new Timer(1000, new MyTimerActionListener(TIME));
 		
 	}
 	public void startTimer(){
 		
 	    this.timer.start();
-	 
-	    try {
+	    
+	    try{
 	    	
-	    	Thread.sleep(10000); 
+	    	Thread.sleep(1000*TIME);
 	    	
 	    } catch (InterruptedException e) {
 	    	
 	    	System.out.println(e);
-	    	
-	    }
-	    
+	    	    	
+	    }	
+	 
 	    this.timer.stop();
 	    
 	}
-}
-	
+	public int getTimeRemaining() {
+		return timeRemaining;
+	}
+
+	public Timer getTimer(){
+		return timer;
+	}
 
 	class MyTimerActionListener implements ActionListener {
 		
@@ -42,14 +49,23 @@ public class Timer_monitoring {
 	    public MyTimerActionListener(int init) {
 	          super();
 	          this.time = init;
+	          timeRemaining = init;
+	          
 	    }
 
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
-			System.out.println(this.time);
+			
+			//System.out.println(this.time);
+			
 			this.time--;
+			timeRemaining--;
+			
 	        if(this.time==0){
-	        	System.out.println("Timer fini");  
-	          }
+	        	 
+	        	timer.stop();
+	        	
+	        }
 		}
+	}
 }
