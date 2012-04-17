@@ -5,14 +5,41 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class TestURLConnection {
-
+	
+	String url = "http://tictacserver.gel.usherbrooke.ca/sitescrum";
+	String tag = "title";
+	UrlConnection myURLConnection = new UrlConnection();
+	
 	@Test
-	public void test() {
+	public void testURLConnection() {
+
+		assertTrue(myURLConnection.urlConnect(url));
+
+	}
+	
+	@Test
+	public void testGetTag(){
 		
-		UrlConnection myURLConnection = new UrlConnection();
+		String tagContent = myURLConnection.getTag(url, tag);
 		
-		assertTrue(myURLConnection.urlConnect("http://gogle.fr"));
+		String newTagContent = "";
 		
+		int i = 0;
+		while(tagContent.charAt(i)!=':'){
+
+			newTagContent+=tagContent.charAt(i);	
+			i++;
+			
+		};
+		assertEquals(newTagContent,"SiteScrum");
+	}
+	
+	@Test
+	public void testGetHTTPResponseHeader(){
+		
+		Object[] obj = myURLConnection.getHTTPResponseHeader(url);
+		
+		System.out.println(obj[9]);
 	}
 
 }
