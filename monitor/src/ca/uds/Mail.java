@@ -12,7 +12,7 @@ import javax.mail.internet.MimeMessage;
 
 public class Mail {
 
-	public boolean sendMail(String to) throws Exception {
+	public boolean sendMail(String to) {
 		boolean result = false;
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.gmail.com");
@@ -22,11 +22,13 @@ public class Mail {
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.port", "465");
 		try {
-			Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
-				protected PasswordAuthentication getPasswordAuthentication() {
-					return new PasswordAuthentication("solene.malledant@gmail.com", "duriane01");
-				}
-			});
+			Session session = Session.getDefaultInstance(props,
+					new javax.mail.Authenticator() {
+						protected PasswordAuthentication getPasswordAuthentication() {
+							return new PasswordAuthentication(
+									"solene.malledant@gmail.com", "duriane01");
+						}
+					});
 			Message message = new MimeMessage(session);
 			message.setRecipients(Message.RecipientType.TO,
 					InternetAddress.parse(to));

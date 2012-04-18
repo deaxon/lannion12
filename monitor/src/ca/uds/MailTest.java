@@ -8,17 +8,17 @@ import org.junit.Test;
 
 /**
  * @author solenemalledant
- *
+ * 
  */
 public class MailTest {
 
 	@Test
-	public void sendMailTest() throws Exception{
+	public void sendMailTest() {
 		Mail mail = new Mail();
 		String to = "solene.malledant@gmail.com";
 		boolean res = mail.sendMail(to);
 		assertTrue(res == true);
-		
+
 	}
-	
+
 }
