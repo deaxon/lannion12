@@ -19,12 +19,15 @@ public class Trace {
 
 	public static int cptMinute;
 	File FICHIER = new File("application" + ".log");
+	boolean fonctionCharlotte = true;
+	String nameSite;
+	UrlConnection urlconnect = new UrlConnection();
 
 	public boolean createLog(String nameSite) {
 		boolean result = false;
-		boolean fonctionCharlotte = true;
+
 		Calendar Today = Calendar.getInstance();
-		UrlConnection urlconnect = new UrlConnection();
+
 		File FICHIER = new File("application" + ".log");
 		try {
 			FICHIER.createNewFile();
@@ -54,17 +57,19 @@ public class Trace {
 				result = true;
 			} else if (urlconnect.urlConnect(nameSite) == false) {
 				if (fonctionCharlotte == false) {
-					output.write("\n"
-							+ "Application non OK : Access failed and Connection failed");
+					output.write("Application non OK : Access failed and Connection failed "
+							+ cptMinute + "\n");
 					System.out.println("File created");
 					result = true;
 				} else {
-					output.write("\n" + "Application non OK : Access failed");
+					output.write("Application non OK : Access failed "
+							+ cptMinute + "\n");
 					System.out.println("File created");
 					result = true;
 				}
 			} else {
-				output.write("\n" + "Application non OK : Connection failed");
+				output.write("Application non OK : Connection failed "
+						+ cptMinute + "\n");
 				System.out.println("File created");
 				result = true;
 			}
@@ -100,11 +105,11 @@ public class Trace {
 	}
 
 	public String[] replaceCaractFileInTab(String line) {
-		String[] tabC = new String[9];
 		StringTokenizer st = null;
 		line = line.replaceAll("/", " ");
 		line = line.replaceAll(":", " ");
 		st = new StringTokenizer(line);
+		String[] tabC = new String[st.countTokens()];
 		int i = 0;
 		while (st.hasMoreTokens()) {
 			tabC[i] = st.nextToken();
@@ -130,16 +135,38 @@ public class Trace {
 		String[] lastLine = this.replaceCaractFileInTab(tab[cpt]);
 		cpt--;
 		String[] beforeLastLine = this.replaceCaractFileInTab(tab[cpt]);
-		int number = Integer.parseInt(beforeLastLine[8]);
-		if (Integer.parseInt(beforeLastLine[6]) != Today.get(Calendar.MINUTE)) {
-			if (beforeLastLine[1].equals("OK") && lastLine[1].equals("OK")) {
+		if (beforeLastLine[1].equals("OK") && lastLine[1].equals("OK")) {
+			if (Integer.parseInt(beforeLastLine[8]) != Today
+					.get(Calendar.MINUTE)) {
+				int number = Integer.parseInt(beforeLastLine[8]);
+				number++;
+				lastLine[8] = "" + number;
+			}
+		} else if (beforeLastLine[1].equals("OK") && lastLine[1].equals("non")) {
+			if ((urlconnect.urlConnect(nameSite) == false)
+					&& (fonctionCharlotte == false)) {
+				int number = Integer.parseInt(lastLine[8]);
+				number = 0;
+				lastLine[8] = "" + number;
+			} else {
+				int number = Integer.parseInt(beforeLastLine[5]);
+				number = 0;
+				lastLine[5] = "" + number;
+			}
+		} else if (beforeLastLine[1].equals("non") && lastLine[1].equals("non")) {
+			if ((urlconnect.urlConnect(nameSite) == false)
+					&& (fonctionCharlotte == false)) {
+				int number = Integer.parseInt(lastLine[8]);
 				number++;
 				lastLine[8] = "" + number;
 			} else {
-				number = 0;
-				lastLine[8] = "" + number;
+				int number = Integer.parseInt(beforeLastLine[5]);
+				number++;
+				lastLine[5] = "" + number;
 			}
 		} else {
+			int number = Integer.parseInt(beforeLastLine[5]);
+			number = 0;
 			lastLine[8] = "" + number;
 		}
 		return lastLine;
@@ -150,17 +177,22 @@ public class Trace {
 		int cpt = tab.length;
 		cpt--;
 		String[] lastLine = this.replaceCaractFileInTab(tab[cpt]);
-		int number = Integer.parseInt(lastLine[8]);
-		if (Integer.parseInt(lastLine[6]) != Today.get(Calendar.MINUTE)) {
-			if (lastLine[1].equals("OK")) {
+		if (lastLine[1].equals("OK")) {
+			int number = Integer.parseInt(lastLine[8]);
+			number++;
+			lastLine[8] = "" + number;
+		} else {
+			if ((urlconnect.urlConnect(nameSite) == false)
+					&& (fonctionCharlotte == false)) {
+				int number = Integer.parseInt(lastLine[8]);
 				number++;
 				lastLine[8] = "" + number;
 			} else {
-				number = 0;
-				lastLine[8] = "" + number;
+				int number = Integer.parseInt(lastLine[5]);
+				number++;
+				lastLine[5] = "" + number;
 			}
-		} else {
-			lastLine[8] = "" + number;
+
 		}
 		return lastLine;
 	}
@@ -191,11 +223,11 @@ public class Trace {
 	public void incrementLog() {
 		int cpt = countLineFile();
 		String[] lastLine;
-		String[] tab = copyFileTab();
+		String[] tabCopyFile = copyFileTab();
 		if (cpt != 1) {
-			lastLine = changeNumberCounter(tab);
+			lastLine = changeNumberCounter(tabCopyFile);
 		} else {
-			lastLine = changeNumberCounter1Line(tab);
+			lastLine = changeNumberCounter1Line(tabCopyFile);
 		}
 		PrintWriter output = null;
 		try {
@@ -210,9 +242,9 @@ public class Trace {
 			modifiedLine += lastLine[l] + " ";
 		}
 		cpt--;
-		tab[cpt] = modifiedLine;
-		for (int k = 0; k < tab.length; k++) {
-			output.println(tab[k]);
+		tabCopyFile[cpt] = modifiedLine;
+		for (int k = 0; k < tabCopyFile.length; k++) {
+			output.println(tabCopyFile[k]);
 		}
 		output.close();
 	}

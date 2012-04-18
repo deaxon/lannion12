@@ -10,7 +10,7 @@ public class TraceTest {
 	public void testCreateLog() {
 		Trace trace = new Trace();
 		boolean res = false;
-		String website = "http://tictacserver.gel.usherbrooke.ca/sitescrum";
+		String website = "htp://tictacserver.gel.usherbrooke.ca/sitescrum";
 		res = trace.createLog(website);
 		assertTrue(res == true);
 	}
