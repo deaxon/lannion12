@@ -1,4 +1,4 @@
-package ca.uds;
+package trace;
 
 import static org.junit.Assert.assertTrue;
 
@@ -10,6 +10,7 @@ import org.junit.Test;
 public class Trace2Test {
 
 	private Trace2 trace = new Trace2();
+
 	@Test
 	public void createLogTest() {
 		boolean res = false;
@@ -17,16 +18,13 @@ public class Trace2Test {
 		res = trace.createLog(website);
 		assertTrue(res == true);
 	}
-	
-	/*@Test
-	public void countLineFileTest(){
-		int res = 0;
-		res = trace.countLineFile();
-		assertTrue(res == 12);
-	}
-	*/
-	@Test 
-	public void IncrementLogTest(){
+
+	/*
+	 * @Test public void countLineFileTest(){ int res = 0; res =
+	 * trace.countLineFile(); assertTrue(res == 12); }
+	 */
+	@Test
+	public void IncrementLogTest() {
 		trace.incrementLog();
 	}
 }

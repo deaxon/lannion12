@@ -1,4 +1,4 @@
-package ca.uds;
+package trace;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -15,12 +15,13 @@ import java.util.StringTokenizer;
 
 import urlConnection.UrlConnection;
 
-public class Trace {
+public class Trace2 {
 
 	public static int cptMinute;
 	File FICHIER = new File("application" + ".log");
 
 	public boolean createLog(String nameSite) {
+
 		boolean result = false;
 		boolean fonctionCharlotte = true;
 		Calendar Today = Calendar.getInstance();
@@ -28,14 +29,15 @@ public class Trace {
 		File FICHIER = new File("application" + ".log");
 		try {
 			FICHIER.createNewFile();
-
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		FileWriter fw = null;
 		try {
 			fw = new FileWriter(FICHIER, true);
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		BufferedWriter output = new BufferedWriter(fw);
@@ -81,11 +83,11 @@ public class Trace {
 	public int countLineFile() {
 		InputStream ips = null;
 		int cpt = 0;
-		String ligne;
 		try {
 			ips = new FileInputStream("application.log");
 			InputStreamReader ipsr = new InputStreamReader(ips);
 			BufferedReader br = new BufferedReader(ipsr);
+			String ligne;
 			try {
 				while ((ligne = br.readLine()) != null) {
 					cpt++;
@@ -99,52 +101,34 @@ public class Trace {
 		return cpt;
 	}
 
-	public String[] replaceCaractFileInTab(String line) {
-		String[] tabC = new String[9];
-		StringTokenizer st = null;
-		line = line.replaceAll("/", " ");
-		line = line.replaceAll(":", " ");
-		st = new StringTokenizer(line);
-		int i = 0;
-		while (st.hasMoreTokens()) {
-			tabC[i] = st.nextToken();
-			i++;
-		}
-		return tabC;
-	}
-
-	public boolean eraseFile(File file) throws Exception {
-		if (!file.exists()) {
-			throw new Exception("le fichier est introuvable !");
-		}
-		if (!file.canWrite()) {
-			throw new Exception("Droit insuffisant pour accéder au fichier");
-		}
-		return file.delete();
-	}
-
 	public void incrementLog() {
 		InputStream ips = null;
 		Calendar Today = Calendar.getInstance();
 		int cpt = countLineFile();
+
 		try {
 			ips = new FileInputStream("application.log");
 			InputStreamReader ipsr = new InputStreamReader(ips);
 			BufferedReader br = new BufferedReader(ipsr);
+
 			String ligne;
 			String[] tab = new String[cpt];
+
 			int j = 0;
 			while ((ligne = br.readLine()) != null) {
 				tab[j] = ligne;
 				j++;
 			}
+
 			cpt--;
 			String[] lastLine = this.replaceCaractFileInTab(tab[cpt]);
 			cpt--;
 			String[] beforeLastLine = this.replaceCaractFileInTab(tab[cpt]);
 			int number = Integer.parseInt(beforeLastLine[8]);
+
 			if (Integer.parseInt(beforeLastLine[6]) != Today
 					.get(Calendar.MINUTE)) {
+
 				if (beforeLastLine[1].equals("OK") && lastLine[1].equals("OK")) {
 					number++;
 					lastLine[8] = "" + number;
@@ -155,28 +139,67 @@ public class Trace {
 			} else {
 				lastLine[8] = "" + number;
 			}
+
 			br.close();
+
 			try {
 				this.eraseFile(FICHIER);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+
 			File FICHIER = new File("application" + ".log");
 			PrintWriter output = new PrintWriter(new BufferedWriter(
 					new FileWriter(FICHIER)));
 			String modifiedLine = "";
+
 			for (int l = 0; l < lastLine.length; l++) {
 				modifiedLine += lastLine[l] + " ";
 			}
+
 			cpt++;
 			tab[cpt] = modifiedLine;
+
 			for (int k = 0; k < tab.length; k++) {
+
 				output.println(tab[k]);
 				System.out.println("Tab[k] = " + tab[k]);
+
 			}
+
 			output.close();
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+	}
+
+	public String[] replaceCaractFileInTab(String line) {
+		String[] tabC = new String[9];
+
+		StringTokenizer st = null;
+		line = line.replaceAll("/", " ");
+		line = line.replaceAll(":", " ");
+		st = new StringTokenizer(line);
+
+		int i = 0;
+		while (st.hasMoreTokens()) {
+			tabC[i] = st.nextToken();
+			i++;
+		}
+		return tabC;
+	}
+
+	public boolean eraseFile(File file) throws Exception {
+
+		if (!file.exists()) {
+			throw new Exception("le fichier est introuvable !");
+		}
+		if (!file.canWrite()) {
+			throw new Exception("Droit insuffisant pour accéder au fichier");
+		}
+
+		return file.delete();
 	}
 }

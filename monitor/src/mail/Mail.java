@@ -1,4 +1,4 @@
-package ca.uds;
+package mail;
 
 import java.util.Properties;
 

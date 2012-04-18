@@ -1,9 +1,10 @@
 /**
  * 
  */
-package ca.uds;
+package mail;
 
 import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 /**

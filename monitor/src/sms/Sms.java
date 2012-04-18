@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ca.uds;
+package sms;
 
 import java.util.Properties;
 
@@ -15,11 +15,11 @@ import javax.mail.internet.MimeMessage;
 
 /**
  * @author Charlotte
- *
+ * 
  */
 public class Sms {
-		
-	public boolean sendSms(String phoneNumber, String operator){
+
+	public boolean sendSms(String phoneNumber, String operator) {
 		boolean result = false;
 		phoneNumber = phoneNumber.replaceAll(" ", "");
 		Properties props = new Properties();

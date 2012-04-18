@@ -1,15 +1,16 @@
 /**
  * 
  */
-package ca.uds;
+package sms;
 
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+
 /**
  * @author Charlotte
- *
+ * 
  */
 public class TestSms {
 
