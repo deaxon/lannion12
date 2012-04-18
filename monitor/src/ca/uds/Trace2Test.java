@@ -7,27 +7,26 @@ import java.io.IOException;
 import org.junit.Test;
 
 
-public class TraceTest {
+public class Trace2Test {
 
+	private Trace2 trace = new Trace2();
 	@Test
 	public void createLogTest() {
-		Trace trace = new Trace();
 		boolean res = false;
 		String website = "http://tictacserver.gel.usherbrooke.ca/sitescrum";
 		res = trace.createLog(website);
 		assertTrue(res == true);
 	}
 	
-	@Test
+	/*@Test
 	public void countLineFileTest(){
-		Trace trace = new Trace();
 		int res = 0;
 		res = trace.countLineFile();
 		assertTrue(res == 12);
 	}
-	
+	*/
 	@Test 
 	public void IncrementLogTest(){
-		
+		trace.incrementLog();
 	}
 }
