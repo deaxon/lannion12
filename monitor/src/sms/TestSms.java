@@ -15,7 +15,7 @@ import org.junit.Test;
 public class TestSms {
 
 	@Test
-	public void testSendSms() {
+	public void sendSmsTest() {
 		Sms sms = new Sms();
 		String number = "819 581 9150";
 		String operator = "fido";
