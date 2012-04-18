@@ -167,7 +167,6 @@ public class Trace {
 
 	public void incrementLog() {
 		InputStream ips = null;
-		Calendar Today = Calendar.getInstance();
 		int cpt = countLineFile();
 		try {
 			ips = new FileInputStream("application.log");
