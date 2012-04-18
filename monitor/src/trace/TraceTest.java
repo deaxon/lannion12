@@ -38,11 +38,34 @@ public class TraceTest {
 
 	@Test
 	public void eraseFileTest() throws Exception {
+
 		Trace trace = new Trace();
 		File file = new File("application" + ".log");
 		boolean res = false;
 		res = trace.eraseFile(file);
 		assertTrue(res == true);
+	}
+	
+	@Test
+	public void changeNumberCounterTest(){
+		Trace trace = new Trace();
+		String[] tab = trace.copyFileTab();
+		String[] newTab = trace.changeNumberCounter(tab);
+		for (int i = 0; i < newTab.length; i++) {
+			System.out.println(newTab[i]);
+		}
+		assertTrue(newTab[8].equals("1"));
+	}
+	
+	@Test
+	public void changeNumberCounter1LineTest(){
+		Trace trace = new Trace();
+		String[] tab = trace.copyFileTab();
+		String[] newTab = trace.changeNumberCounter1Line(tab);
+		for (int i = 0; i < newTab.length; i++) {
+			System.out.println(newTab[i]);
+		}
+		assertTrue(newTab[8].equals("4"));
 	}
 
 	@Test
