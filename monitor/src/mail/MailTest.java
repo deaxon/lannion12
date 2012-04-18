@@ -14,7 +14,7 @@ import org.junit.Test;
 public class MailTest {
 
 	@Test
-	public void sendMailTest() {
+	public void testSendMail() {
 		Mail mail = new Mail();
 		String to = "solene.malledant@gmail.com";
 		boolean res = mail.sendMail(to);

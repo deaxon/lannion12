@@ -7,7 +7,7 @@ import org.junit.Test;
 public class TraceTest {
 
 	@Test
-	public void createLogTest() {
+	public void testCreateLog() {
 		Trace trace = new Trace();
 		boolean res = false;
 		String website = "http://tictacserver.gel.usherbrooke.ca/sitescrum";
@@ -16,7 +16,7 @@ public class TraceTest {
 	}
 
 	@Test
-	public void countLineFileTest() {
+	public void testCountLineFile() {
 		Trace trace = new Trace();
 		int res = 0;
 		res = trace.countLineFile();
@@ -24,7 +24,7 @@ public class TraceTest {
 	}
 
 	@Test
-	public void replaceCaractFileInTabTest() {
+	public void testReplaceCaractFileInTab() {
 		Trace trace = new Trace();
 		String line = "Application OK : 18/4/2012 9:56:31 0";
 		String[] tab = trace.replaceCaractFileInTab(line);
@@ -37,7 +37,7 @@ public class TraceTest {
 	}
 
 	@Test
-	public void eraseFileTest() throws Exception {
+	public void testEraseFile() throws Exception {
 
 		Trace trace = new Trace();
 		File file = new File("application" + ".log");
@@ -47,7 +47,7 @@ public class TraceTest {
 	}
 	
 	@Test
-	public void changeNumberCounterTest(){
+	public void testChangeNumberCounter(){
 		Trace trace = new Trace();
 		String[] tab = trace.copyFileTab();
 		String[] newTab = trace.changeNumberCounter(tab);
@@ -58,7 +58,7 @@ public class TraceTest {
 	}
 	
 	@Test
-	public void changeNumberCounter1LineTest(){
+	public void testChangeNumberCounter1Line(){
 		Trace trace = new Trace();
 		String[] tab = trace.copyFileTab();
 		String[] newTab = trace.changeNumberCounter1Line(tab);
@@ -69,7 +69,7 @@ public class TraceTest {
 	}
 
 	@Test
-	public void copyFileTabTest() {
+	public void testCopyFileTab() {
 		Trace trace = new Trace();
 		String[] tab = trace.copyFileTab();
 		for (int i = 0; i < tab.length; i++) {
@@ -79,7 +79,7 @@ public class TraceTest {
 	}
 
 	@Test
-	public void IncrementLogTest() {
+	public void testIncrementLog() {
 		Trace trace = new Trace();
 		trace.incrementLog();
 	}
