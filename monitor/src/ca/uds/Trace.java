@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.StringTokenizer;
 
@@ -19,7 +20,6 @@ public class Trace {
 	public static int cptMinute;
 	File FICHIER = new File("application" + ".log");
 
-	
 	public boolean createLog(String nameSite) {
 		boolean result = false;
 		boolean fonctionCharlotte = true;
@@ -28,30 +28,28 @@ public class Trace {
 		File FICHIER = new File("application" + ".log");
 		try {
 			FICHIER.createNewFile();
-			
-			
+
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		FileWriter fw = null;
 		try {
 			fw = new FileWriter(FICHIER, true);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		BufferedWriter output = new BufferedWriter(fw);
 		try {
 			if ((urlconnect.urlConnect(nameSite) == true)
 					&& (fonctionCharlotte == true)) {
-				output.write("\n" + "Application OK : " + " "
+				output.write("Application OK : " + " "
 						+ Today.get(Calendar.DAY_OF_MONTH) + "/"
 						+ String.valueOf(Today.get(Calendar.MONTH) + 1) + "/"
 						+ String.valueOf(Today.get(Calendar.YEAR)) + " "
 						+ String.valueOf(Today.get(Calendar.HOUR_OF_DAY)) + ":"
 						+ String.valueOf(Today.get(Calendar.MINUTE)) + ":"
-						+ String.valueOf(Today.get(Calendar.SECOND)) +" " + cptMinute);
+						+ String.valueOf(Today.get(Calendar.SECOND)) + " "
+						+ cptMinute + "\n");
 				System.out.println("File created");
 				result = true;
 			} else if (urlconnect.urlConnect(nameSite) == false) {
@@ -80,17 +78,17 @@ public class Trace {
 		return result;
 	}
 
-	public int countLineFile(){
+	public int countLineFile() {
 		InputStream ips = null;
 		int cpt = 0;
+		String ligne;
 		try {
 			ips = new FileInputStream("application.log");
 			InputStreamReader ipsr = new InputStreamReader(ips);
 			BufferedReader br = new BufferedReader(ipsr);
-			String ligne;
 			try {
 				while ((ligne = br.readLine()) != null) {
-					cpt ++;
+					cpt++;
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -100,70 +98,85 @@ public class Trace {
 		}
 		return cpt;
 	}
-	
-	public String[] replaceCaractFileInTab(){
-		String ligne = null;
-		InputStream ips = null;
+
+	public String[] replaceCaractFileInTab(String line) {
 		String[] tabC = new String[9];
-		try {
-			ips = new FileInputStream("application.log");
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
-		}
-		InputStreamReader ipsr = new InputStreamReader(ips);
-		BufferedReader br = new BufferedReader(ipsr);
 		StringTokenizer st = null;
-		try {
-			while ((ligne = br.readLine()) != null) {
-				ligne = ligne.replaceAll("/", " ");
-				ligne = ligne.replaceAll(":", " ");
-				st = new StringTokenizer(ligne);
-			}
-			int i=0;
-			while (st.hasMoreTokens()){
-				tabC[i] = st.nextToken();
-	 			i++;	
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
+		line = line.replaceAll("/", " ");
+		line = line.replaceAll(":", " ");
+		st = new StringTokenizer(line);
+		int i = 0;
+		while (st.hasMoreTokens()) {
+			tabC[i] = st.nextToken();
+			i++;
 		}
 		return tabC;
 	}
-	
-	public void IncrementLog() {
+
+	public boolean eraseFile(File file) throws Exception {
+		if (!file.exists()) {
+			throw new Exception("le fichier est introuvable !");
+		}
+		if (!file.canWrite()) {
+			throw new Exception("Droit insuffisant pour accéder au fichier");
+		}
+		return file.delete();
+	}
+
+	public void incrementLog() {
 		InputStream ips = null;
 		Calendar Today = Calendar.getInstance();
-		int j=1;
 		int cpt = countLineFile();
 		try {
 			ips = new FileInputStream("application.log");
 			InputStreamReader ipsr = new InputStreamReader(ips);
 			BufferedReader br = new BufferedReader(ipsr);
-			String[] tabC = replaceCaractFileInTab();
+			String ligne;
 			String[] tab = new String[cpt];
-			if (Integer.parseInt(tabC[6]) != Today.get(Calendar.MINUTE)){
-				if (tabC[1].equals("OK")){
-					int number = Integer.parseInt(tabC[8]);
+			int j = 0;
+			while ((ligne = br.readLine()) != null) {
+				tab[j] = ligne;
+				j++;
+			}
+			cpt--;
+			String[] lastLine = this.replaceCaractFileInTab(tab[cpt]);
+			cpt--;
+			String[] beforeLastLine = this.replaceCaractFileInTab(tab[cpt]);
+			int number = Integer.parseInt(beforeLastLine[8]);
+			if (Integer.parseInt(beforeLastLine[6]) != Today
+					.get(Calendar.MINUTE)) {
+				if (beforeLastLine[1].equals("OK") && lastLine[1].equals("OK")) {
 					number++;
+					lastLine[8] = "" + number;
+				} else {
+					number = 0;
+					lastLine[8] = "" + number;
 				}
+			} else {
+				lastLine[8] = "" + number;
 			}
-			FICHIER.delete();
-			File FICHIER = new File("application" + ".log");
-			BufferedWriter output = new BufferedWriter(new FileWriter(FICHIER));
-			String modifiedLine = null;
-			for(int l=0;l<tabC.length; l++){
-				modifiedLine += " " + tabC[l];
-			}
-			for (int k=0; k<tab.length; k++){
-				
-				output.write(tab[k]);
-			}
-			
-			System.out.println(cptMinute);
 			br.close();
+			try {
+				this.eraseFile(FICHIER);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			File FICHIER = new File("application" + ".log");
+			PrintWriter output = new PrintWriter(new BufferedWriter(
+					new FileWriter(FICHIER)));
+			String modifiedLine = "";
+			for (int l = 0; l < lastLine.length; l++) {
+				modifiedLine += lastLine[l] + " ";
+			}
+			cpt++;
+			tab[cpt] = modifiedLine;
+			for (int k = 0; k < tab.length; k++) {
+				output.println(tab[k]);
+				System.out.println("Tab[k] = " + tab[k]);
+			}
+			output.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 }
