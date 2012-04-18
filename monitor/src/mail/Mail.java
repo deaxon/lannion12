@@ -12,23 +12,24 @@ import javax.mail.internet.MimeMessage;
 
 public class Mail {
 
+	Properties props = new Properties();
+	Session session = Session.getDefaultInstance(props,
+			new javax.mail.Authenticator() {
+				protected PasswordAuthentication getPasswordAuthentication() {
+					return new PasswordAuthentication(
+							"solene.malledant@gmail.com", "duriane01");
+				}
+			});
+	
 	public boolean sendMail(String to) {
 		boolean result = false;
-		Properties props = new Properties();
-		props.put("mail.smtp.host", "smtp.gmail.com");
-		props.put("mail.smtp.socketFactory.port", "465");
-		props.put("mail.smtp.socketFactory.class",
-				"javax.net.ssl.SSLSocketFactory");
-		props.put("mail.smtp.auth", "true");
-		props.put("mail.smtp.port", "465");
 		try {
-			Session session = Session.getDefaultInstance(props,
-					new javax.mail.Authenticator() {
-						protected PasswordAuthentication getPasswordAuthentication() {
-							return new PasswordAuthentication(
-									"solene.malledant@gmail.com", "duriane01");
-						}
-					});
+			props.put("mail.smtp.host", "smtp.gmail.com");
+			props.put("mail.smtp.socketFactory.port", "465");
+			props.put("mail.smtp.socketFactory.class",
+					"javax.net.ssl.SSLSocketFactory");
+			props.put("mail.smtp.auth", "true");
+			props.put("mail.smtp.port", "465");
 			Message message = new MimeMessage(session);
 			message.setRecipients(Message.RecipientType.TO,
 					InternetAddress.parse(to));

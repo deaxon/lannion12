@@ -19,7 +19,6 @@ public class MailTest {
 		String to = "solene.malledant@gmail.com";
 		boolean res = mail.sendMail(to);
 		assertTrue(res == true);
-
 	}
 
 }

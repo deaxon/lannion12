@@ -165,49 +165,55 @@ public class Trace {
 		return lastLine;
 	}
 
-	public void incrementLog() {
+	public String[] copyFileTab() {
 		InputStream ips = null;
+		String ligne;
 		int cpt = countLineFile();
+		String[] tab = new String[cpt];
 		try {
 			ips = new FileInputStream("application.log");
 			InputStreamReader ipsr = new InputStreamReader(ips);
 			BufferedReader br = new BufferedReader(ipsr);
-			String ligne;
-			String[] lastLine;
-			String[] tab = new String[cpt];
 			int j = 0;
 			while ((ligne = br.readLine()) != null) {
 				tab[j] = ligne;
 				j++;
 			}
-			if (cpt != 1) {
-				lastLine = changeNumberCounter(tab);
-			} else {
-				lastLine = changeNumberCounter1Line(tab);
-			}
-
 			br.close();
-			try {
-				this.eraseFile(FICHIER);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			File FICHIER = new File("application" + ".log");
-			PrintWriter output = new PrintWriter(new BufferedWriter(
-					new FileWriter(FICHIER)));
-			String modifiedLine = "";
-			for (int l = 0; l < lastLine.length; l++) {
-				modifiedLine += lastLine[l] + " ";
-			}
-			cpt++;
-			tab[cpt] = modifiedLine;
-			for (int k = 0; k < tab.length; k++) {
-				output.println(tab[k]);
-			}
-			output.close();
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return tab;
+	}
+
+	public void incrementLog() {
+		int cpt = countLineFile();
+		String[] lastLine;
+		String[] tab = copyFileTab();
+		if (cpt != 1) {
+			lastLine = changeNumberCounter(tab);
+		} else {
+			lastLine = changeNumberCounter1Line(tab);
+		}
+		PrintWriter output = null;
+		try {
+			this.eraseFile(FICHIER);
+			output = new PrintWriter(
+					new BufferedWriter(new FileWriter(FICHIER)));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		String modifiedLine = "";
+		for (int l = 0; l < lastLine.length; l++) {
+			modifiedLine += lastLine[l] + " ";
+		}
+		cpt--;
+		tab[cpt] = modifiedLine;
+		for (int k = 0; k < tab.length; k++) {
+			output.println(tab[k]);
+		}
+		output.close();
 	}
 }

@@ -4,7 +4,6 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import org.junit.Test;
 
-
 public class TraceTest {
 
 	@Test
@@ -27,11 +26,14 @@ public class TraceTest {
 	@Test
 	public void replaceCaractFileInTabTest() {
 		Trace trace = new Trace();
-		String line = "Application OK :  18/4/2012 9:56:31 0";
+		String line = "Application OK : 18/4/2012 9:56:31 0";
 		String[] tab = trace.replaceCaractFileInTab(line);
 		for (int i = 0; i < tab.length; i++) {
 			System.out.println(tab[i]);
 		}
+		assertTrue(tab[4].equals("2012"));
+		assertTrue(tab[8].equals("0"));
+		assertTrue(tab[6].equals("90"));
 	}
 
 	@Test
@@ -40,8 +42,17 @@ public class TraceTest {
 		File file = new File("application" + ".log");
 		boolean res = false;
 		res = trace.eraseFile(file);
-
 		assertTrue(res == true);
+	}
+
+	@Test
+	public void copyFileTabTest() {
+		Trace trace = new Trace();
+		String[] tab = trace.copyFileTab();
+		for (int i = 0; i < tab.length; i++) {
+			System.out.println(tab[i]);
+		}
+		assertTrue(tab[0].equals("Application OK :  18/4/2012 14:24:51 0"));
 	}
 
 	@Test

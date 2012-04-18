@@ -19,18 +19,8 @@ import javax.mail.internet.MimeMessage;
  */
 public class Sms {
 
-	public boolean sendSms(String phoneNumber, String operator) {
-		boolean result = false;
-		phoneNumber = phoneNumber.replaceAll(" ", "");
-		Properties props = new Properties();
-		props.put("mail.smtp.host", "smtp.gmail.com");
-		props.put("mail.smtp.socketFactory.port", "465");
-		props.put("mail.smtp.socketFactory.class",
-				"javax.net.ssl.SSLSocketFactory");
-		props.put("mail.smtp.auth", "true");
-		props.put("mail.smtp.port", "465");
-		try {
-			Session session = Session.getDefaultInstance(props,
+	Properties props = new Properties();
+	Session session = Session.getDefaultInstance(props,
 
 			new javax.mail.Authenticator() {
 				protected PasswordAuthentication getPasswordAuthentication() {
@@ -38,6 +28,17 @@ public class Sms {
 							"solene.malledant@gmail.com", "duriane01");
 				}
 			});
+	
+	public boolean sendSms(String phoneNumber, String operator) {
+		boolean result = false;
+		phoneNumber = phoneNumber.replaceAll(" ", "");
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.socketFactory.port", "465");
+		props.put("mail.smtp.socketFactory.class",
+				"javax.net.ssl.SSLSocketFactory");
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.port", "465");
+		try {
 			Message message = new MimeMessage(session);
 			message.setRecipients(Message.RecipientType.TO,
 					InternetAddress.parse(phoneNumber + "@" + operator + ".ca"));
