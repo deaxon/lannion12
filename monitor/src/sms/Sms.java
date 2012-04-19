@@ -29,7 +29,7 @@ public class Sms {
 				}
 			});
 	
-	public boolean sendSms(String phoneNumber, String operator) {
+	public boolean sendSms(String phoneNumber, String operator,String subject,String content) {
 		boolean result = false;
 		phoneNumber = phoneNumber.replaceAll(" ", "");
 		props.put("mail.smtp.host", "smtp.gmail.com");
@@ -42,8 +42,8 @@ public class Sms {
 			Message message = new MimeMessage(session);
 			message.setRecipients(Message.RecipientType.TO,
 					InternetAddress.parse(phoneNumber + "@" + operator + ".ca"));
-			message.setSubject("Blablabla");
-			message.setContent("Ceci est un mail.",
+			message.setSubject(subject);
+			message.setContent(content,
 					"text/html; charset=ISO-8859-1");
 			Transport.send(message);
 			result = true;

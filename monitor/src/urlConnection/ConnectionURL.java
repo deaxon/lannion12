@@ -21,7 +21,6 @@ public class ConnectionURL {
 			URL myURL = new URL(url);
 			urlConnection = myURL.openConnection(); // open URL (HTTP query)
 			urlConnection.connect();
-			System.out.println("Connection réussie.");
 			connexionState = true;
 		} catch (java.net.MalformedURLException ex) {
 			System.out.println(ex);

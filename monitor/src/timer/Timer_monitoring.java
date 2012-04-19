@@ -7,7 +7,7 @@ import javax.swing.Timer;
 
 public class Timer_monitoring {
 
-	public static final int TIME = 20;
+	public static final int TIME = 60;
 	private Timer timer;
 	private int timeRemaining = 0;
 

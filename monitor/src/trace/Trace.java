@@ -67,6 +67,7 @@ public class Trace {
 			}
 			output.flush();
 			output.close();
+			this.incrementLog();
 		} catch (IOException ioe) {
 			result = false;
 			ioe.printStackTrace();
@@ -123,11 +124,13 @@ public class Trace {
 		String[] lastLine = this.replaceCaractFileInTab(tab[cpt]);
 		cpt--;
 		String[] beforeLastLine = this.replaceCaractFileInTab(tab[cpt]);
+		int length = beforeLastLine.length;
+		length--;
 		if (beforeLastLine[1].equals("OK")) {
 			int number = 0;
 			lastLine[8] = "" + number;
 		} else {
-			int number = Integer.parseInt(beforeLastLine[8]);
+			int number = Integer.parseInt(beforeLastLine[length]);
 			number++;
 			lastLine[8] = "" + number;
 		}
