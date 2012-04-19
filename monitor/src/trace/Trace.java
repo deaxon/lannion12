@@ -22,8 +22,8 @@ public class Trace {
 	boolean fonctionCharlotte;
 	String nameSite;
 	boolean fonctionArthur;
-	
-	public Trace(File FICHIER, boolean fonctionCharlotte, String nameSite){
+
+	public Trace(File FICHIER, boolean fonctionCharlotte, String nameSite) {
 		this.FICHIER = FICHIER;
 		this.fonctionCharlotte = fonctionCharlotte;
 		this.nameSite = nameSite;
@@ -57,30 +57,25 @@ public class Trace {
 						+ String.valueOf(Today.get(Calendar.MINUTE)) + ":"
 						+ String.valueOf(Today.get(Calendar.SECOND)) + " "
 						+ cptMinute + "\n");
-				System.out.println("File created");
 				result = true;
 			} else if (fonctionArthur == false) {
 				if (fonctionCharlotte == false) {
 					output.write("Application non OK : Access failed and Connection failed "
 							+ cptMinute + "\n");
-					System.out.println("File created");
 					result = true;
 				} else {
 					output.write("Application non OK : Access failed "
 							+ cptMinute + "\n");
-					System.out.println("File created");
 					result = true;
 				}
 			} else {
 				output.write("Application non OK : Connection failed "
 						+ cptMinute + "\n");
-				System.out.println("File created");
 				result = true;
 			}
 			output.flush();
 			output.close();
 		} catch (IOException ioe) {
-			System.out.print("Erreur : File not created");
 			result = false;
 			ioe.printStackTrace();
 		}
@@ -197,21 +192,20 @@ public class Trace {
 		int taille = beforeLastLine.length;
 		taille--;
 		if (beforeLastLine[1].equals("OK")) {
-			if (Integer.parseInt(beforeLastLine[6]) != Today.get(Calendar.MINUTE)) {
+			if (Integer.parseInt(beforeLastLine[6]) != Today
+					.get(Calendar.MINUTE)) {
 				int number = Integer.parseInt(beforeLastLine[taille]);
 				number++;
 				lastLine[8] = "" + number;
-			}else{
-				for(int i = 0; i<lastLine.length; i++){
-					lastLine[i] = "";
-				}
+			} else {
+				lastLine = null;
 			}
 		} else {
 			int number = 0;
 			lastLine[8] = "" + number;
 		}
 		return lastLine;
-	} 
+	}
 
 	public String[] changeNumberCounter(String[] tab) {
 		int cpt = tab.length;
@@ -276,14 +270,21 @@ public class Trace {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		String modifiedLine = "";
-		for (int l = 0; l < lastLine.length; l++) {
-			modifiedLine += lastLine[l] + " ";
-		}
-		cpt--;
-		tabCopyFile[cpt] = modifiedLine;
-		for (int k = 0; k < tabCopyFile.length; k++) {
-			output.println(tabCopyFile[k]);
+		if (lastLine != null) {
+			String modifiedLine = "";
+			for (int l = 0; l < lastLine.length; l++) {
+				modifiedLine += lastLine[l] + " ";
+			}
+			cpt--;
+			tabCopyFile[cpt] = modifiedLine;
+
+			for (int k = 0; k < tabCopyFile.length; k++) {
+				output.println(tabCopyFile[k]);
+			}
+		} else {
+			for (int k = 0; k < (tabCopyFile.length) - 1; k++) {
+				output.println(tabCopyFile[k]);
+			}
 		}
 		output.close();
 	}
