@@ -38,9 +38,9 @@ public class TraceTest {
 	public void testChangeNumberCounter() {
 		trace.createLog();
 		trace.incrementLog();
-		//String[] tab = trace.copyFileTab();
-		//String[] newTab = trace.changeNumberCounter(tab);
-		//assertTrue(newTab[4].equals("2012"));
+		String[] tab = trace.copyFileTab();
+		String[] newTab = trace.changeNumberCounter(tab);
+		assertTrue(newTab[4].equals("2012"));
 	}
 
 	@Test
@@ -55,10 +55,7 @@ public class TraceTest {
 	@Test
 	public void testCopyFileTab() {
 		String[] tab = trace.copyFileTab();
-		for(int i = 0; i<tab.length;i++){
-			System.out.println(tab[i]);
-		}
-		assertTrue(tab[1].equals("Application OK 19 4 2012 12 42 16 1"));
+		assertTrue(tab[1].equals("Application OK 19 4 2012 12 52 5 1"));
 	}
 
 	@Test

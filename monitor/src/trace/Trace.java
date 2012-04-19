@@ -34,20 +34,12 @@ public class Trace {
 	public boolean createLog() {
 		boolean result = false;
 		Calendar Today = Calendar.getInstance();
+		FileWriter fw = null;
+		BufferedWriter output = null;
 		try {
 			FICHIER.createNewFile();
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		FileWriter fw = null;
-		try {
 			fw = new FileWriter(FICHIER, true);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		BufferedWriter output = new BufferedWriter(fw);
-		try {
+			output = new BufferedWriter(fw);
 			if ((fonctionArthur == true) && (fonctionCharlotte == true)) {
 				output.write("Application OK : " + " "
 						+ Today.get(Calendar.DAY_OF_MONTH) + "/"
@@ -90,14 +82,12 @@ public class Trace {
 			ips = new FileInputStream("application.log");
 			InputStreamReader ipsr = new InputStreamReader(ips);
 			BufferedReader br = new BufferedReader(ipsr);
-			try {
-				while ((ligne = br.readLine()) != null) {
-					cpt++;
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
+			while ((ligne = br.readLine()) != null) {
+				cpt++;
 			}
 		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return cpt;
