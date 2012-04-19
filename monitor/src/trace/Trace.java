@@ -279,6 +279,38 @@ public class Trace {
 				output.println(tabCopyFile[k]);
 			}
 		}
+		for (int i = 0; i < tabCopyFile.length; i++) {
+			String line = "" + tabCopyFile[i];
+			for (int j = 0; j < line.length(); j++) {
+				//System.out.println(line.charAt(j));
+				if (line.charAt(12) == 'O') {
+					System.out.println(line.charAt(16));
+					if (j > 16 && j < 25) {
+						//line[j]  = '/';
+						//line.valueOf('/');
+					} else if (j > 28 && j < 34) {
+						//line.charAt(j) = '';
+						//line = line.replaceAll(" ", ":");
+					}
+				}
+			}
+		}
+		/*String[] line = new String[40];
+		for (int i = 0; i < tabCopyFile.length; i++) {
+			line[i] += tabCopyFile[i];
+			String str = toString(line[i]);
+		}
+		line[3] = "/";
+		
+		String str1 = "ceci est un string";
+		String str2 = str1.substring(5);
+		String str3 = str1.substring(5,7);
+		
+		String str1 = "ceci est un string";
+		String str2 = str1.replace('e','o');
+		
+		String str1 = "ceci est un string";
+		String str2 = str1.concat(" concaténé");*/
 		output.close();
 	}
 }
