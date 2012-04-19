@@ -24,7 +24,7 @@ public class TestURLConnection {
 			newTagContent += tagContent.charAt(i);
 			i++;
 		}
-		;
+		
 		assertEquals(newTagContent, "SiteScrum");
 	}
 
