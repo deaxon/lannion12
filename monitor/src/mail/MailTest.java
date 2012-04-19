@@ -16,8 +16,7 @@ public class MailTest {
 	@Test
 	public void testSendMail() {
 		Mail mail = new Mail();
-		String to = "solene.malledant@gmail.com";
-		boolean res = mail.sendMail(to);
+		boolean res = mail.sendMail();
 		assertTrue(res == true);
 	}
 

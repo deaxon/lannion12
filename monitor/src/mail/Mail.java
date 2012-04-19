@@ -21,7 +21,7 @@ public class Mail {
 				}
 			});
 	
-	public boolean sendMail(String to) {
+	public boolean sendMail() {
 		boolean result = false;
 		try {
 			props.put("mail.smtp.host", "smtp.gmail.com");
@@ -31,8 +31,12 @@ public class Mail {
 			props.put("mail.smtp.auth", "true");
 			props.put("mail.smtp.port", "465");
 			Message message = new MimeMessage(session);
+			
+			InternetAddress toAddrs[] = new InternetAddress[2];
+			toAddrs[0] = new InternetAddress("solene.malledant@gmail.com");
+			toAddrs[1] = new InternetAddress("crenn.arthur@gmail.com");
 			message.setRecipients(Message.RecipientType.TO,
-					InternetAddress.parse(to));
+					toAddrs);
 			message.setSubject("Blablabla");
 			message.setContent("Ceci est un mail.",
 					"text/html; charset=ISO-8859-1");
