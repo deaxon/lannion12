@@ -18,17 +18,22 @@ import urlConnection.UrlConnection;
 public class Trace {
 
 	public static int cptMinute;
-	File FICHIER = new File("application" + ".log");
-	boolean fonctionCharlotte = true;
+	File FICHIER;
+	boolean fonctionCharlotte;
 	String nameSite;
-	UrlConnection urlconnect = new UrlConnection();
+	boolean fonctionArthur;
+	
+	public Trace(File FICHIER, boolean fonctionCharlotte, String nameSite){
+		this.FICHIER = FICHIER;
+		this.fonctionCharlotte = fonctionCharlotte;
+		this.nameSite = nameSite;
+		UrlConnection urlconnect = new UrlConnection();
+		this.fonctionArthur = urlconnect.urlConnect(nameSite);
+	}
 
-	public boolean createLog(String nameSite) {
+	public boolean createLog() {
 		boolean result = false;
-
 		Calendar Today = Calendar.getInstance();
-
-		File FICHIER = new File("application" + ".log");
 		try {
 			FICHIER.createNewFile();
 
@@ -43,8 +48,7 @@ public class Trace {
 		}
 		BufferedWriter output = new BufferedWriter(fw);
 		try {
-			if ((urlconnect.urlConnect(nameSite) == true)
-					&& (fonctionCharlotte == true)) {
+			if ((fonctionArthur == true) && (fonctionCharlotte == true)) {
 				output.write("Application OK : " + " "
 						+ Today.get(Calendar.DAY_OF_MONTH) + "/"
 						+ String.valueOf(Today.get(Calendar.MONTH) + 1) + "/"
@@ -55,7 +59,7 @@ public class Trace {
 						+ cptMinute + "\n");
 				System.out.println("File created");
 				result = true;
-			} else if (urlconnect.urlConnect(nameSite) == false) {
+			} else if (fonctionArthur == false) {
 				if (fonctionCharlotte == false) {
 					output.write("Application non OK : Access failed and Connection failed "
 							+ cptMinute + "\n");
@@ -128,72 +132,107 @@ public class Trace {
 		return file.delete();
 	}
 
-	public String[] changeNumberCounter(String[] tab) {
+	public String[] connexionAccessFailed(String[] tab) {
+		int cpt = tab.length;
+		cpt--;
+		String[] lastLine = this.replaceCaractFileInTab(tab[cpt]);
+		cpt--;
+		String[] beforeLastLine = this.replaceCaractFileInTab(tab[cpt]);
+		if (beforeLastLine[1].equals("OK")) {
+			int number = 0;
+			lastLine[8] = "" + number;
+		} else {
+			int number = Integer.parseInt(beforeLastLine[8]);
+			number++;
+			lastLine[8] = "" + number;
+		}
+		return lastLine;
+	}
+
+	public String[] connexionFailed(String[] tab) {
+		int cpt = tab.length;
+		cpt--;
+		String[] lastLine = this.replaceCaractFileInTab(tab[cpt]);
+		cpt--;
+		String[] beforeLastLine = this.replaceCaractFileInTab(tab[cpt]);
+		int taille = beforeLastLine.length;
+		taille--;
+		if (beforeLastLine[1].equals("OK")) {
+			int number = 0;
+			lastLine[5] = "" + number;
+		} else {
+			int number = Integer.parseInt(beforeLastLine[taille]);
+			number++;
+			lastLine[5] = "" + number;
+		}
+		return lastLine;
+	}
+
+	public String[] accessFailed(String[] tab) {
+		int cpt = tab.length;
+		cpt--;
+		String[] lastLine = this.replaceCaractFileInTab(tab[cpt]);
+		cpt--;
+		String[] beforeLastLine = this.replaceCaractFileInTab(tab[cpt]);
+		int taille = beforeLastLine.length;
+		taille--;
+		if (beforeLastLine[1].equals("OK")) {
+			int number = 0;
+			lastLine[5] = "" + number;
+		} else {
+			int number = Integer.parseInt(beforeLastLine[taille]);
+			number++;
+			lastLine[5] = "" + number;
+		}
+		return lastLine;
+	}
+
+	public String[] accessConnexionSuccess(String[] tab) {
 		Calendar Today = Calendar.getInstance();
 		int cpt = tab.length;
 		cpt--;
 		String[] lastLine = this.replaceCaractFileInTab(tab[cpt]);
 		cpt--;
 		String[] beforeLastLine = this.replaceCaractFileInTab(tab[cpt]);
-		if (beforeLastLine[1].equals("OK") && lastLine[1].equals("OK")) {
-			if (Integer.parseInt(beforeLastLine[8]) != Today
-					.get(Calendar.MINUTE)) {
-				int number = Integer.parseInt(beforeLastLine[8]);
+		int taille = beforeLastLine.length;
+		taille--;
+		if (beforeLastLine[1].equals("OK")) {
+			if (Integer.parseInt(beforeLastLine[6]) != Today.get(Calendar.MINUTE)) {
+				int number = Integer.parseInt(beforeLastLine[taille]);
 				number++;
 				lastLine[8] = "" + number;
-			}
-		} else if (beforeLastLine[1].equals("OK") && lastLine[1].equals("non")) {
-			if ((urlconnect.urlConnect(nameSite) == false)
-					&& (fonctionCharlotte == false)) {
-				int number = Integer.parseInt(lastLine[8]);
-				number = 0;
-				lastLine[8] = "" + number;
-			} else {
-				int number = Integer.parseInt(beforeLastLine[5]);
-				number = 0;
-				lastLine[5] = "" + number;
-			}
-		} else if (beforeLastLine[1].equals("non") && lastLine[1].equals("non")) {
-			if ((urlconnect.urlConnect(nameSite) == false)
-					&& (fonctionCharlotte == false)) {
-				int number = Integer.parseInt(lastLine[8]);
-				number++;
-				lastLine[8] = "" + number;
-			} else {
-				int number = Integer.parseInt(beforeLastLine[5]);
-				number++;
-				lastLine[5] = "" + number;
+			}else{
+				for(int i = 0; i<lastLine.length; i++){
+					lastLine[i] = "";
+				}
 			}
 		} else {
-			int number = Integer.parseInt(beforeLastLine[5]);
-			number = 0;
+			int number = 0;
 			lastLine[8] = "" + number;
+		}
+		return lastLine;
+	} 
+
+	public String[] changeNumberCounter(String[] tab) {
+		int cpt = tab.length;
+		cpt--;
+		String[] lastLine = this.replaceCaractFileInTab(tab[cpt]);
+		if ((fonctionArthur == false) && (fonctionCharlotte == false)) {
+			lastLine = connexionAccessFailed(tab);
+		} else if (fonctionCharlotte == false) {
+			lastLine = connexionFailed(tab);
+		} else if (fonctionArthur == false) {
+			lastLine = accessFailed(tab);
+		} else {
+			lastLine = accessConnexionSuccess(tab);
 		}
 		return lastLine;
 	}
 
-	public String[] changeNumberCounter1Line(String[] tab) {
-		Calendar Today = Calendar.getInstance();
+	public String[] changeFormat1Line(String[] tab) {
 		int cpt = tab.length;
 		cpt--;
 		String[] lastLine = this.replaceCaractFileInTab(tab[cpt]);
-		if (lastLine[1].equals("OK")) {
-			int number = Integer.parseInt(lastLine[8]);
-			number++;
-			lastLine[8] = "" + number;
-		} else {
-			if ((urlconnect.urlConnect(nameSite) == false)
-					&& (fonctionCharlotte == false)) {
-				int number = Integer.parseInt(lastLine[8]);
-				number++;
-				lastLine[8] = "" + number;
-			} else {
-				int number = Integer.parseInt(lastLine[5]);
-				number++;
-				lastLine[5] = "" + number;
-			}
-
-		}
 		return lastLine;
 	}
 
@@ -227,7 +266,7 @@ public class Trace {
 		if (cpt != 1) {
 			lastLine = changeNumberCounter(tabCopyFile);
 		} else {
-			lastLine = changeNumberCounter1Line(tabCopyFile);
+			lastLine = changeFormat1Line(tabCopyFile);
 		}
 		PrintWriter output = null;
 		try {

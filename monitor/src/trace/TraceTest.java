@@ -6,18 +6,20 @@ import org.junit.Test;
 
 public class TraceTest {
 
+	File FICHIER = new File("application" + ".log");
+	boolean fonctionCharlotte = true;
+	String nameSite = "http://tictacserver.gel.usherbrooke.ca/sitescrum";
+	Trace trace = new Trace(FICHIER, fonctionCharlotte, nameSite);
+	
 	@Test
 	public void testCreateLog() {
-		Trace trace = new Trace();
 		boolean res = false;
-		String website = "htp://tictacserver.gel.usherbrooke.ca/sitescrum";
-		res = trace.createLog(website);
+		res = trace.createLog();
 		assertTrue(res == true);
 	}
 
 	@Test
 	public void testCountLineFile() {
-		Trace trace = new Trace();
 		int res = 0;
 		res = trace.countLineFile();
 		assertTrue(res == 8);
@@ -25,7 +27,6 @@ public class TraceTest {
 
 	@Test
 	public void testReplaceCaractFileInTab() {
-		Trace trace = new Trace();
 		String line = "Application OK : 18/4/2012 9:56:31 0";
 		String[] tab = trace.replaceCaractFileInTab(line);
 		for (int i = 0; i < tab.length; i++) {
@@ -38,8 +39,6 @@ public class TraceTest {
 
 	@Test
 	public void testEraseFile() throws Exception {
-
-		Trace trace = new Trace();
 		File file = new File("application" + ".log");
 		boolean res = false;
 		res = trace.eraseFile(file);
@@ -48,7 +47,6 @@ public class TraceTest {
 	
 	@Test
 	public void testChangeNumberCounter(){
-		Trace trace = new Trace();
 		String[] tab = trace.copyFileTab();
 		String[] newTab = trace.changeNumberCounter(tab);
 		for (int i = 0; i < newTab.length; i++) {
@@ -58,10 +56,9 @@ public class TraceTest {
 	}
 	
 	@Test
-	public void testChangeNumberCounter1Line(){
-		Trace trace = new Trace();
+	public void testChangeFormat1Line(){
 		String[] tab = trace.copyFileTab();
-		String[] newTab = trace.changeNumberCounter1Line(tab);
+		String[] newTab = trace.changeFormat1Line(tab);
 		for (int i = 0; i < newTab.length; i++) {
 			System.out.println(newTab[i]);
 		}
@@ -70,7 +67,6 @@ public class TraceTest {
 
 	@Test
 	public void testCopyFileTab() {
-		Trace trace = new Trace();
 		String[] tab = trace.copyFileTab();
 		for (int i = 0; i < tab.length; i++) {
 			System.out.println(tab[i]);
@@ -80,7 +76,27 @@ public class TraceTest {
 
 	@Test
 	public void testIncrementLog() {
-		Trace trace = new Trace();
 		trace.incrementLog();
 	}
+	
+	@Test
+	public void testAccessConnexionSuccess() {
+		
+	}
+
+	@Test
+	public void testAccessFailed() {
+		
+	}
+
+	@Test
+	public void testConnexionFailed() {
+		
+	}
+
+	@Test
+	public void testConnexionAccessFailed() {
+		
+	}
+
 }
