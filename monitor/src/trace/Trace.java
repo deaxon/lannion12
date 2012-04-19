@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.StringTokenizer;
 
-import urlConnection.UrlConnection;
+import urlConnection.ConnectionURL;
 
 public class Trace {
 
@@ -27,7 +27,7 @@ public class Trace {
 		this.FICHIER = FICHIER;
 		this.fonctionCharlotte = fonctionCharlotte;
 		this.nameSite = nameSite;
-		UrlConnection urlconnect = new UrlConnection();
+		ConnectionURL urlconnect = new ConnectionURL();
 		this.fonctionArthur = urlconnect.urlConnect(nameSite);
 	}
 

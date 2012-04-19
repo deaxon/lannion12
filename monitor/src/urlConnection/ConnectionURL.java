@@ -9,9 +9,9 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.regex.*;
 
-public class UrlConnection {
+public class ConnectionURL {
 
-	public UrlConnection() {
+	public ConnectionURL() {
 	}
 
 	public boolean urlConnect(String url) {

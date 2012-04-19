@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class TestURLConnection {
+public class TestConnectionURL {
 
 	String url = "http://tictacserver.gel.usherbrooke.ca/sitescrum";
 	String tag = "title";
-	UrlConnection myURLConnection = new UrlConnection();
+	ConnectionURL myURLConnection = new ConnectionURL();
 
 	@Test
 	public void testURLConnection() {
