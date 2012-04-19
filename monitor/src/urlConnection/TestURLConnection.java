@@ -29,8 +29,10 @@ public class TestURLConnection {
 	}
 
 	@Test
-	public void testGetHTTPResponseHeader() {
-		Object[] obj = myURLConnection.getHTTPResponseHeader(url);
-		System.out.println(obj[9]);
+	public void testGetHTTPResponseHeader(){
+		
+		int status = myURLConnection.getStatus(url);
+
+		assert status == 200;
 	}
 }

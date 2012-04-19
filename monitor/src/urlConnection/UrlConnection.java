@@ -59,9 +59,10 @@ public class UrlConnection {
 		return tagContent;
 	}
 
-	public Object[] getHTTPResponseHeader(String url) {
+	public int getStatus(String url) {
 		java.net.URLConnection urlConnection;
 		Object[] obj = null;
+		int status = 0 ;
 		try {
 			URL myURL = new URL(url);
 			urlConnection = myURL.openConnection();
@@ -73,7 +74,15 @@ public class UrlConnection {
 		} catch (IOException e) {
 			System.out.println(e);
 		}
-		return obj;
+		String  condition = obj[9].toString();
+		String status_temp = "";
+		for(int i = 0;i<condition.length();i++){
+			String s = new Character(condition.charAt(i)).toString();
+			if(s.equals("2") || s.equals("0")){
+				status_temp += condition.charAt(i);
+			}
+		}
+		status = Integer.parseInt(status_temp);
+		return status;
 	}
-
 }
