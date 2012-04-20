@@ -26,8 +26,9 @@ public class Monitor_main {
 	private ConnectionURL myURLConnection;
 	private Sms sms;
 	private Mail mail;
-	
-	public Monitor_main(String url,File FICHIER,InternetAddress toAddrsMail[],String number,String operator){
+
+	public Monitor_main(String url, File FICHIER,
+			InternetAddress toAddrsMail[], String number, String operator) {
 		this.sms = new Sms();
 		this.myURLConnection = new ConnectionURL();
 		this.url = url;
@@ -38,19 +39,19 @@ public class Monitor_main {
 		this.number = number;
 		this.operator = operator;
 	}
-	
-	public void startMonitoring(){
+
+	public boolean startMonitoring() {
 		Timer_monitoring timer_monitoring = new Timer_monitoring();
 		timer_monitoring.getTimer().start();
 		String subject;
-		String content ="";
+		String content = "";
 		boolean finished = false;
 		while (!finished) {
 			try {
 				Thread.sleep(10000);
-				if (urlConnect && logConnect) {;
-					Trace trace = new Trace(FICHIER, logConnect,
-							urlConnect);
+				if (urlConnect && logConnect) {
+					;
+					Trace trace = new Trace(FICHIER, logConnect, urlConnect);
 					subject = "Access to sitescrum success";
 					content = "Congratulations. The website is online and the connexion success.";
 					sms.sendSms(number, operator, subject, content);
@@ -59,8 +60,7 @@ public class Monitor_main {
 					timer_monitoring.getTimer().stop();
 					finished = true;
 				} else if (timer_monitoring.getTimeRemaining() <= 0) {
-					Trace trace = new Trace(FICHIER, logConnect,
-							urlConnect);
+					Trace trace = new Trace(FICHIER, logConnect, urlConnect);
 					subject = "Access to sitescrum fail";
 					if (!urlConnect && logConnect) {
 						content = "The website is not working. The access failed.";
@@ -79,7 +79,9 @@ public class Monitor_main {
 				ex.printStackTrace();
 			}
 		}
+		return finished;
 	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String url = "http://tictacserver.gel.usherbrooke.ca/sitescrum";
@@ -92,7 +94,8 @@ public class Monitor_main {
 		}
 		String number = "819 580 9150";
 		String operator = "fido";
-		Monitor_main monitor = new Monitor_main(url,FICHIER,toAddrsMail,number,operator);
+		Monitor_main monitor = new Monitor_main(url, FICHIER, toAddrsMail,
+				number, operator);
 		monitor.startMonitoring();
 	}
 }
