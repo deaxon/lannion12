@@ -13,22 +13,17 @@ import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.StringTokenizer;
 
-import urlConnection.ConnectionURL;
-
 public class Trace {
 
 	public static int cptMinute;
 	File FICHIER;
-	boolean fonctionCharlotte;
-	String nameSite;
-	boolean fonctionArthur;
+	boolean loginConnect;
+	boolean urlConnect;
 
-	public Trace(File FICHIER, boolean fonctionCharlotte, String nameSite) {
+	public Trace(File FICHIER, boolean loginConnect, boolean urlConnect) {
 		this.FICHIER = FICHIER;
-		this.fonctionCharlotte = fonctionCharlotte;
-		this.nameSite = nameSite;
-		ConnectionURL urlconnect = new ConnectionURL();
-		this.fonctionArthur = urlconnect.urlConnect(nameSite);
+		this.loginConnect = loginConnect;
+		this.urlConnect = urlConnect;
 	}
 
 	public boolean createLog() {
@@ -40,7 +35,7 @@ public class Trace {
 			FICHIER.createNewFile();
 			fw = new FileWriter(FICHIER, true);
 			output = new BufferedWriter(fw);
-			if ((fonctionArthur == true) && (fonctionCharlotte == true)) {
+			if ((urlConnect == true) && (loginConnect == true)) {
 				output.write("Application OK : " + " "
 						+ formatDateTime(Today.get(Calendar.DAY_OF_MONTH)) + "/"
 						+ formatDateTime(Integer.parseInt(String.valueOf(Today.get(Calendar.MONTH) + 1))) + "/"
@@ -50,8 +45,8 @@ public class Trace {
 						+ formatDateTime(Integer.parseInt(String.valueOf(Today.get(Calendar.SECOND)))) + " "
 						+ cptMinute + "\n");
 				result = true;
-			} else if (fonctionArthur == false) {
-				if (fonctionCharlotte == false) {
+			} else if (urlConnect == false) {
+				if (loginConnect == false) {
 					output.write("Application non OK : Access failed and Connection failed "
 							+ cptMinute + "\n");
 					result = true;
@@ -88,7 +83,7 @@ public class Trace {
 		int cpt = 0;
 		String ligne;
 		try {
-			ips = new FileInputStream("application.log");
+			ips = new FileInputStream(FICHIER);
 			InputStreamReader ipsr = new InputStreamReader(ips);
 			BufferedReader br = new BufferedReader(ipsr);
 			while ((ligne = br.readLine()) != null) {
@@ -212,11 +207,11 @@ public class Trace {
 		int cpt = tab.length;
 		cpt--;
 		String[] lastLine = this.replaceCaractFileInTab(tab[cpt]);
-		if ((fonctionArthur == false) && (fonctionCharlotte == false)) {
+		if ((urlConnect == false) && (loginConnect == false)) {
 			lastLine = connexionAccessFailed(tab);
-		} else if (fonctionCharlotte == false) {
+		} else if (loginConnect == false) {
 			lastLine = connexionFailed(tab);
-		} else if (fonctionArthur == false) {
+		} else if (urlConnect == false) {
 			lastLine = accessFailed(tab);
 		} else {
 			lastLine = accessConnexionSuccess(tab);
@@ -237,7 +232,7 @@ public class Trace {
 		int cpt = countLineFile();
 		String[] tab = new String[cpt];
 		try {
-			ips = new FileInputStream("application.log");
+			ips = new FileInputStream(FICHIER);
 			InputStreamReader ipsr = new InputStreamReader(ips);
 			BufferedReader br = new BufferedReader(ipsr);
 			int j = 0;
@@ -262,7 +257,7 @@ public class Trace {
 					if (line.charAt(j) == ' ') {
 						sb.setCharAt(j, '/');
 					}
-				} else if (j > 26 && j < 33) {
+				} else if (j >= 26 && j < 33) {
 					if (line.charAt(j) == ' ') {
 						sb.setCharAt(j, ':');
 					}

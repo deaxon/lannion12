@@ -4,12 +4,16 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import org.junit.Test;
 
+import urlConnection.ConnectionURL;
+
 public class TraceTest {
 
 	File FICHIER = new File("application" + ".log");
-	boolean fonctionCharlotte = true;
+	boolean loginConnect = true;
 	String nameSite = "http://tictacserver.gel.usherbrooke.ca/sitescrum";
-	Trace trace = new Trace(FICHIER, fonctionCharlotte, nameSite);
+	ConnectionURL myURLConnection = new ConnectionURL();
+	boolean urlConnect = myURLConnection.urlConnect(nameSite);
+	Trace trace = new Trace(FICHIER, loginConnect, urlConnect);
 
 	@Test
 	public void testCreateLog() {
@@ -68,9 +72,10 @@ public class TraceTest {
 
 	@Test
 	public void testReplaceFormat() {
-		String line = "Application OK 19 12 2012 12 52 59 1";
+		String line = "Application OK 19 12 2012 91 11 11 1";
 		line = trace.replaceFormat(line);
-		assertTrue(line.equals("Application OK 19/12/2012 12:52:59 1"));
+		System.out.println(line);
+		assertTrue(line.equals("Application OK 19/12/2012 9:1:1 1"));
 	}
 
 	@Test
