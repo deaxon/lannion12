@@ -36,14 +36,25 @@ public class Trace {
 			fw = new FileWriter(FICHIER, true);
 			output = new BufferedWriter(fw);
 			if ((urlConnect == true) && (loginConnect == true)) {
-				output.write("Application OK : " + " "
-						+ formatDateTime(Today.get(Calendar.DAY_OF_MONTH)) + "/"
-						+ formatDateTime(Integer.parseInt(String.valueOf(Today.get(Calendar.MONTH) + 1))) + "/"
-						+ formatDateTime(Integer.parseInt(String.valueOf(Today.get(Calendar.YEAR)))) + " "
-						+ formatDateTime(Integer.parseInt(String.valueOf(Today.get(Calendar.HOUR_OF_DAY)))) + ":"
-						+ formatDateTime(Integer.parseInt(String.valueOf(Today.get(Calendar.MINUTE)))) + ":"
-						+ formatDateTime(Integer.parseInt(String.valueOf(Today.get(Calendar.SECOND)))) + " "
-						+ cptMinute + "\n");
+				output.write("Application OK : "
+						+ " "
+						+ formatDateTime(Today.get(Calendar.DAY_OF_MONTH))
+						+ "/"
+						+ formatDateTime(Integer.parseInt(String.valueOf(Today
+								.get(Calendar.MONTH) + 1)))
+						+ "/"
+						+ formatDateTime(Integer.parseInt(String.valueOf(Today
+								.get(Calendar.YEAR))))
+						+ " "
+						+ formatDateTime(Integer.parseInt(String.valueOf(Today
+								.get(Calendar.HOUR_OF_DAY))))
+						+ ":"
+						+ formatDateTime(Integer.parseInt(String.valueOf(Today
+								.get(Calendar.MINUTE))))
+						+ ":"
+						+ formatDateTime(Integer.parseInt(String.valueOf(Today
+								.get(Calendar.SECOND)))) + " " + cptMinute
+						+ "\n");
 				result = true;
 			} else if (urlConnect == false) {
 				if (loginConnect == false) {
@@ -69,10 +80,10 @@ public class Trace {
 		}
 		return result;
 	}
-	
-	public String formatDateTime(int data){
+
+	public String formatDateTime(int data) {
 		String newData = "" + data;
-		if(data <10){
+		if (data < 10) {
 			newData = "0" + data;
 		}
 		return newData;
@@ -190,6 +201,32 @@ public class Trace {
 		if (beforeLastLine[1].equals("OK")) {
 			if (Integer.parseInt(beforeLastLine[6]) != Today
 					.get(Calendar.MINUTE)) {
+				int number = Integer.parseInt(beforeLastLine[taille]);
+				number++;
+				lastLine[8] = "" + number;
+			} else {
+				lastLine = null;
+			}
+		} else {
+			int number = 0;
+			lastLine[8] = "" + number;
+		}
+		return lastLine;
+	}
+
+	
+	public String[] accessConnexionSuccess2(String[] tab) {
+		Calendar Today = Calendar.getInstance();
+		int cpt = tab.length;
+		cpt--;
+		String[] lastLine = this.replaceCaractFileInTab(tab[cpt]);
+		cpt--;
+		String[] beforeLastLine = this.replaceCaractFileInTab(tab[cpt]);
+		int taille = beforeLastLine.length;
+		taille--;
+		if (beforeLastLine[1].equals("OK")) {
+			if (Integer.parseInt(beforeLastLine[2]) != Today
+					.get(Calendar.DAY_OF_MONTH)) {
 				int number = Integer.parseInt(beforeLastLine[taille]);
 				number++;
 				lastLine[8] = "" + number;
