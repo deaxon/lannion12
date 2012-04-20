@@ -23,9 +23,7 @@ public class ConnectionURL {
 			urlConnection.connect();
 			connexionState = true;
 		} catch (java.net.MalformedURLException ex) {
-			System.out.println(ex);
 		} catch (java.io.IOException e) {
-			System.out.println(e);
 		}
 		return connexionState;
 	}
@@ -51,9 +49,7 @@ public class ConnectionURL {
 			}
 			in.close();
 		} catch (java.net.MalformedURLException ex) {
-			System.out.println(ex);
 		} catch (java.io.IOException e) {
-			System.out.println(e);
 		}
 		return tagContent;
 	}
@@ -69,9 +65,7 @@ public class ConnectionURL {
 			Set<Entry<String, List<String>>> set = map.entrySet();
 			obj = set.toArray();
 		} catch (MalformedURLException e) {
-			System.out.println(e);
 		} catch (IOException e) {
-			System.out.println(e);
 		}
 		String  condition = obj[9].toString();
 		String status_temp = "";
