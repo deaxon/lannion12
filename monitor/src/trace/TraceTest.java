@@ -59,6 +59,13 @@ public class TraceTest {
 	}
 
 	@Test
+	public void testReplaceFormat() {
+		String line = "Application OK 19 12 2012 12 52 59 1";
+		line = trace.replaceFormat(line);
+		assertTrue(line.equals("Application OK 19/12/2012 12:52:59 1"));
+	}
+
+	@Test
 	public void testIncrementLog() {
 		trace.incrementLog();
 	}

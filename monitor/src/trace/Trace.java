@@ -246,6 +246,25 @@ public class Trace {
 		return tab;
 	}
 
+	public String replaceFormat(String line) {
+		StringBuffer sb = new StringBuffer(line);
+		for (int j = 0; j < line.length(); j++) {
+			if (line.charAt(12) != 'n') {
+				if (j > 16 && j < 24) {
+					if (line.charAt(j) == ' ') {
+						sb.setCharAt(j, '/');
+					}
+				} else if (j > 26 && j < 33) {
+					if (line.charAt(j) == ' ') {
+						sb.setCharAt(j, ':');
+					}
+				}
+			}
+		}
+		line = sb.toString();
+		return line;
+	}
+
 	public void incrementLog() {
 		int cpt = countLineFile();
 		String[] lastLine;
@@ -272,20 +291,8 @@ public class Trace {
 			tabCopyFile[cpt] = modifiedLine;
 			for (int i = 0; i < tabCopyFile.length; i++) {
 				String line = tabCopyFile[i];
-			    StringBuffer sb = new StringBuffer(line);
-				for (int j = 0; j < line.length(); j++) {
-					if (j > 16 && j < 24) {
-						if (line.charAt(j) == ' ') {
-							sb.setCharAt(j, '/');
-						}
-					} else if (j > 26 && j < 33) {
-						if (line.charAt(j) == ' ') {
-							sb.setCharAt(j, ':');
-						}
-					}
-
-				}
-				tabCopyFile[i] = sb.toString();
+				line = replaceFormat(line);
+				tabCopyFile[i] = line;
 			}
 			for (int k = 0; k < tabCopyFile.length; k++) {
 				output.println(tabCopyFile[k]);
@@ -293,38 +300,13 @@ public class Trace {
 		} else {
 			for (int i = 0; i < tabCopyFile.length; i++) {
 				String line = tabCopyFile[i];
-				for (int j = 0; j < line.length(); j++) {
-					if (j > 16 && j < 25) {
-						if (line.charAt(j) == ' ') {
-							line.replace(line.charAt(j), '/');
-						}
-					} else if (j > 28 && j < 34) {
-						if (line.charAt(j) == ' ') {
-							line.replace(line.charAt(j), ':');
-						}
-					}
-
-				}
+				line = replaceFormat(line);
 				tabCopyFile[i] = line;
 			}
 			for (int k = 0; k < (tabCopyFile.length) - 1; k++) {
 				output.println(tabCopyFile[k]);
 			}
 		}
-		/*
-		 * String[] line = new String[40]; for (int i = 0; i <
-		 * tabCopyFile.length; i++) { line[i] += tabCopyFile[i]; String str =
-		 * toString(line[i]); } line[3] = "/";
-		 * 
-		 * String str1 = "ceci est un string"; String str2 = str1.substring(5);
-		 * String str3 = str1.substring(5,7);
-		 * 
-		 * String str1 = "ceci est un string"; String str2 =
-		 * str1.replace('e','o');
-		 * 
-		 * String str1 = "ceci est un string"; String str2 =
-		 * str1.concat(" concaténé");
-		 */
 		output.close();
 	}
 }
