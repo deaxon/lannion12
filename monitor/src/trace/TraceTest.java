@@ -17,6 +17,14 @@ public class TraceTest {
 		res = trace.createLog();
 		assertTrue(res == true);
 	}
+	
+	@Test
+	public void testFormatDateTime(){
+		int number = 6;
+		String newNumber = trace.formatDateTime(number);
+		System.out.println(newNumber);
+		assertTrue(newNumber.equals("06"));
+	}
 
 	@Test
 	public void testCountLineFile() {

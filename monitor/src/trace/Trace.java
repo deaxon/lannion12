@@ -41,7 +41,6 @@ public class Trace {
 			fw = new FileWriter(FICHIER, true);
 			output = new BufferedWriter(fw);
 			if ((fonctionArthur == true) && (fonctionCharlotte == true)) {
-				
 				output.write("Application OK : " + " "
 						+ formatDateTime(Today.get(Calendar.DAY_OF_MONTH)) + "/"
 						+ formatDateTime(Integer.parseInt(String.valueOf(Today.get(Calendar.MONTH) + 1))) + "/"
