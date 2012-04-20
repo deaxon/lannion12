@@ -41,13 +41,14 @@ public class Trace {
 			fw = new FileWriter(FICHIER, true);
 			output = new BufferedWriter(fw);
 			if ((fonctionArthur == true) && (fonctionCharlotte == true)) {
+				
 				output.write("Application OK : " + " "
-						+ Today.get(Calendar.DAY_OF_MONTH) + "/"
-						+ String.valueOf(Today.get(Calendar.MONTH) + 1) + "/"
-						+ String.valueOf(Today.get(Calendar.YEAR)) + " "
-						+ String.valueOf(Today.get(Calendar.HOUR_OF_DAY)) + ":"
-						+ String.valueOf(Today.get(Calendar.MINUTE)) + ":"
-						+ String.valueOf(Today.get(Calendar.SECOND)) + " "
+						+ formatDateTime(Today.get(Calendar.DAY_OF_MONTH)) + "/"
+						+ formatDateTime(Integer.parseInt(String.valueOf(Today.get(Calendar.MONTH) + 1))) + "/"
+						+ formatDateTime(Integer.parseInt(String.valueOf(Today.get(Calendar.YEAR)))) + " "
+						+ formatDateTime(Integer.parseInt(String.valueOf(Today.get(Calendar.HOUR_OF_DAY)))) + ":"
+						+ formatDateTime(Integer.parseInt(String.valueOf(Today.get(Calendar.MINUTE)))) + ":"
+						+ formatDateTime(Integer.parseInt(String.valueOf(Today.get(Calendar.SECOND)))) + " "
 						+ cptMinute + "\n");
 				result = true;
 			} else if (fonctionArthur == false) {
@@ -73,6 +74,14 @@ public class Trace {
 			ioe.printStackTrace();
 		}
 		return result;
+	}
+	
+	public String formatDateTime(int data){
+		String newData = null;
+		if(data <10){
+			newData = "0" + data;
+		}
+		return newData;
 	}
 
 	public int countLineFile() {
