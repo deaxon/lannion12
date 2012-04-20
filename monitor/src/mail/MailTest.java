@@ -19,6 +19,8 @@ public class MailTest {
 	@Test
 	public void testSendMail() {
 		Mail mail = new Mail();
+		String subject = "Test Mail.";
+		String content = "This is a test of the function sendMail.";
 		InternetAddress toAddrs[] = new InternetAddress[2];
 		try {
 			toAddrs[0] = new InternetAddress("solene.malledant@gmail.com");
@@ -26,7 +28,7 @@ public class MailTest {
 		} catch (AddressException e) {
 			e.printStackTrace();
 		}
-		boolean res = mail.sendMail(toAddrs);
+		boolean res = mail.sendMail(toAddrs, subject,content);
 		assertTrue(res == true);
 	}
 
