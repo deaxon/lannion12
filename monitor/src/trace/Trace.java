@@ -71,7 +71,7 @@ public class Trace {
 	}
 	
 	public String formatDateTime(int data){
-		String newData = null;
+		String newData = "" + data;
 		if(data <10){
 			newData = "0" + data;
 		}
