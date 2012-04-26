@@ -97,8 +97,8 @@ public class Trace {
 			ips = new FileInputStream(_file);
 			InputStreamReader ipsr = new InputStreamReader(ips);
 			BufferedReader br = new BufferedReader(ipsr);
-			//String ligne="";
-			while ((/*ligne = */br.readLine()) != null) {
+			String line="";
+			while ((line = br.readLine()) != null) {
 				cpt++;
 			}
 		} catch (FileNotFoundException e) {
@@ -216,30 +216,6 @@ public class Trace {
 	}
 
 	
-	public String[] accessConnexionSuccess2(String[] tab) {
-		Calendar Today = Calendar.getInstance();
-		int cpt = tab.length;
-		cpt--;
-		String[] lastLine = this.replaceCaractFileInTab(tab[cpt]);
-		cpt--;
-		String[] beforeLastLine = this.replaceCaractFileInTab(tab[cpt]);
-		int taille = beforeLastLine.length;
-		taille--;
-		if (beforeLastLine[1].equals("OK")) {
-			if (Integer.parseInt(beforeLastLine[2]) != Today
-					.get(Calendar.DAY_OF_MONTH)) {
-				int number = Integer.parseInt(beforeLastLine[taille]);
-				number++;
-				lastLine[8] = "" + number;
-			} else {
-				lastLine = null;
-			}
-		} else {
-			int number = 0;
-			lastLine[8] = "" + number;
-		}
-		return lastLine;
-	}
 
 	public String[] changeNumberCounter(String[] tab) {
 		int cpt = tab.length;
@@ -268,6 +244,7 @@ public class Trace {
 		InputStream ips = null;
 		String ligne;
 		int cpt = countLineFile();
+		
 		String[] tab = new String[cpt];
 		try {
 			ips = new FileInputStream(_file);
@@ -310,6 +287,7 @@ public class Trace {
 		int cpt = countLineFile();
 		String[] lastLine;
 		String[] tabCopyFile = copyFileTab();
+		System.out.println("cpt : "+cpt);
 		if (cpt != 1) {
 			lastLine = changeNumberCounter(tabCopyFile);
 		} else {

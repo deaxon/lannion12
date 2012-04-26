@@ -47,18 +47,9 @@ public class TraceTest {
 	}
 
 	@Test
-	public void testChangeNumberCounter() {
-		trace.createLog();
-		trace.incrementLog();
-		String[] tab = trace.copyFileTab();
-		String[] newTab = trace.changeNumberCounter(tab);
-		assertTrue(newTab[4].equals("2012"));
-	}
-
-	@Test
 	public void testChangeFormat1Line() {
-		trace.createLog();
-		trace.incrementLog();
+		//trace.createLog();
+		//trace.incrementLog();
 		String[] tab = trace.copyFileTab();
 		String[] newTab = trace.changeFormat1Line(tab);
 		assertTrue(newTab[1].equals("OK"));
@@ -85,8 +76,8 @@ public class TraceTest {
 
 	@Test
 	public void testAccessConnexionSuccess() {
-		trace.createLog();
-		trace.incrementLog();
+		//trace.createLog();
+		//trace.incrementLog();
 		String[] tab = trace.copyFileTab();
 		String[] newTab = trace.accessConnexionSuccess(tab);
 		assertTrue(newTab[1].equals("OK"));
@@ -94,8 +85,8 @@ public class TraceTest {
 
 	@Test
 	public void testAccessFailed() {
-		trace.createLog();
-		trace.incrementLog();
+		//trace.createLog();
+		//trace.incrementLog();
 		String[] tab = trace.copyFileTab();
 		String[] newTab = trace.accessFailed(tab);
 		assertTrue(newTab[1].equals("OK"));
@@ -103,8 +94,8 @@ public class TraceTest {
 
 	@Test
 	public void testConnexionFailed() {
-		trace.createLog();
-		trace.incrementLog();
+		//trace.createLog();
+		//trace.incrementLog();
 		String[] tab = trace.copyFileTab();
 		String[] newTab = trace.connexionFailed(tab);
 		assertTrue(newTab[1].equals("OK"));
@@ -112,13 +103,24 @@ public class TraceTest {
 
 	@Test
 	public void testConnexionAccessFailed() {
-		trace.createLog();
-		trace.incrementLog();
+		//trace.createLog();
+		//trace.incrementLog();
 		String[] tab = trace.copyFileTab();
 		String[] newTab = trace.connexionAccessFailed(tab);
 		assertTrue(newTab[1].equals("OK"));
 	}
 
+	@Test
+	public void testChangeNumberCounter() {
+		trace.createLog();
+		//trace.incrementLog();
+		String[] tab = trace.copyFileTab();
+		String[] newTab = trace.changeNumberCounter(tab);
+		System.out.println("newTab[6] : " + newTab[6]);
+		System.out.println("newTab[4] : "+newTab[4]);
+		assertTrue(newTab[8].equals("0"));
+	}
+	
 	@Test
 	public void testEraseFile() throws Exception {
 		//File file = new File("application" + ".log");
