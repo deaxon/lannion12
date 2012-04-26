@@ -8,12 +8,12 @@ import urlConnection.ConnectionURL;
 
 public class TraceTest {
 
-	File FICHIER = new File("application" + ".log");
+	File file = new File("."+ File.separator + "temp4test"+ File.separator + "application" + ".log");
 	boolean loginConnect = true;
 	String nameSite = "http://tictacserver.gel.usherbrooke.ca/sitescrum";
 	ConnectionURL myURLConnection = new ConnectionURL();
 	boolean urlConnect = myURLConnection.urlConnect(nameSite);
-	Trace trace = new Trace(FICHIER, loginConnect, urlConnect);
+	Trace trace = new Trace(file, loginConnect, urlConnect);
 
 	@Test
 	public void testCreateLog() {
@@ -121,7 +121,7 @@ public class TraceTest {
 
 	@Test
 	public void testEraseFile() throws Exception {
-		File file = new File("application" + ".log");
+		//File file = new File("application" + ".log");
 		boolean res = false;
 		res = trace.eraseFile(file);
 		assertTrue(res == true);

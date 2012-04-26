@@ -11,8 +11,8 @@ import java.util.regex.*;
 
 public class ConnectionURL {
 
-//	public ConnectionURL() {
-//	}
+	public ConnectionURL() {
+	}
 
 	public boolean urlConnect(String url) {
 		java.net.URLConnection urlConnection;
@@ -54,28 +54,28 @@ public class ConnectionURL {
 		return tagContent;
 	}
 
-	public int getStatus(String url) {
-		java.net.URLConnection urlConnection;
-		Object[] obj = null;
-		int status = 0 ;
-		try {
-			URL myURL = new URL(url);
-			urlConnection = myURL.openConnection();
-			Map<String, List<String>> map = urlConnection.getHeaderFields();
-			Set<Entry<String, List<String>>> set = map.entrySet();
-			obj = set.toArray();
-		} catch (MalformedURLException e) {
-		} catch (IOException e) {
-		}
-		String  condition = obj[9].toString();
-		String status_temp = "";
-		for(int i = 0;i<condition.length();i++){
-			String s = new Character(condition.charAt(i)).toString();
-			if(s.equals("2") || s.equals("0")){
-				status_temp += condition.charAt(i);
-			}
-		}
-		status = Integer.parseInt(status_temp);
-		return status;
-	}
+//	public int getStatus(String url) {
+//		java.net.URLConnection urlConnection;
+//		Object[] obj = null;
+//		int status = 0 ;
+//		try {
+//			URL myURL = new URL(url);
+//			urlConnection = myURL.openConnection();
+//			Map<String, List<String>> map = urlConnection.getHeaderFields();
+//			Set<Entry<String, List<String>>> set = map.entrySet();
+//			obj = set.toArray();
+//		} catch (MalformedURLException e) {
+//		} catch (IOException e) {
+//		}
+//		String  condition = obj[9].toString();
+//		String status_temp = "";
+//		for(int i = 0;i<condition.length();i++){
+//			String s = new Character(condition.charAt(i)).toString();
+//			if(s.equals("2") || s.equals("0")){
+//				status_temp += condition.charAt(i);
+//			}
+//		}
+//		status = Integer.parseInt(status_temp);
+//		return status;
+//	}
 }

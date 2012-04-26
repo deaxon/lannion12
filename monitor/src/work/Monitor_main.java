@@ -19,10 +19,10 @@ public class Monitor_main {
 	private String _url;
 	private File _file;
 	private boolean _logConnect = true;
-	private boolean urlConnect;
-	private InternetAddress toAddrsMail[];
-	private String number;
-	private String operator;
+	private boolean _urlConnect;
+	private InternetAddress _toAddrsMail[];
+	private String _number;
+	private String _operator;
 	private ConnectionURL myURLConnection;
 	private Sms sms;
 	private Mail mail;
@@ -33,11 +33,11 @@ public class Monitor_main {
 		this.myURLConnection = new ConnectionURL();
 		this._url = url;
 		this._file = file;
-		this.urlConnect = myURLConnection.urlConnect(url);
+		this._urlConnect = myURLConnection.urlConnect(url);
 		this.mail = new Mail();
-		this.toAddrsMail = toAddrsMail;
-		this.number = number;
-		this.operator = operator;
+		this._toAddrsMail = toAddrsMail;
+		this._number = number;
+		this._operator = operator;
 	}
 
 	public boolean startMonitoring(int t, int sleep) {
@@ -49,31 +49,25 @@ public class Monitor_main {
 		while (!finished) {
 			try {
 				Thread.sleep(sleep);
-				if (urlConnect && _logConnect) {
-					Trace trace = new Trace(_file, _logConnect, urlConnect);
+				if (_urlConnect && _logConnect) {
+					Trace trace = new Trace(_file, _logConnect, _urlConnect);
 					subject = "Access to sitescrum success";
 					content = "Congratulations. The website is online and the connexion success.";
-					sms.sendSms(number, operator, subject, content);
-					mail.sendMail(toAddrsMail, subject, content);
-					trace.createLog();
+					finished = sendMessage(subject, content, trace);
 					timer_monitoring.getTimer().stop();
-					finished = true;
 				} else if (timer_monitoring.getTimeRemaining() <= 0) {
-					Trace trace = new Trace(_file, _logConnect, urlConnect);
+					Trace trace = new Trace(_file, _logConnect, _urlConnect);
 					subject = "Access to sitescrum fail";
-					if (!urlConnect && _logConnect) {
+					if (!_urlConnect && _logConnect) {
 						content = "The website is not working. The access failed.";
-					} else if (!_logConnect && urlConnect) {
+					} else if (!_logConnect && _urlConnect) {
 						content = "The connexion to the website failed.";
 					} else {
 						content = "The website is not working. The access and connexion to the website failed";
 					}
-					sms.sendSms(number, operator, subject, content);
-					mail.sendMail(toAddrsMail, subject, content);
-					trace.createLog();
-					finished = true;
+					finished = sendMessage(subject, content, trace);
 				}
-				urlConnect = myURLConnection.urlConnect(_url);
+				_urlConnect = myURLConnection.urlConnect(_url);
 			} catch (InterruptedException ex) {
 				ex.printStackTrace();
 			}
@@ -81,20 +75,29 @@ public class Monitor_main {
 		return finished;
 	}
 
+	private boolean sendMessage(String subject, String content, Trace trace) {
+		boolean finished;
+		sms.sendSms(_number, _operator, subject, content);
+		mail.sendMail(_toAddrsMail, subject, content);
+		trace.createLog();
+		finished = true;
+		return finished;
+	}
+
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		String url = "http://tictacserver.gel.usherbrooke.ca/sitescrum";
-		File FICHIER = new File("/home/exituser/Desktop/application.log");
+		File file = new File("/home/exituser/Desktop/application.log");
 		InternetAddress toAddrsMail[] = new InternetAddress[1];
 		try {
 			toAddrsMail[0] = new InternetAddress("crenn.arthur@gmail.com");
+			toAddrsMail[1] = new InternetAddress("ruben.gonzalez-rubio@gel.usherbrooke.ca");
 		} catch (AddressException e) {
 			e.printStackTrace();
 		}
-		String number = "819 580 9150";
-		String operator = "fido";
-		Monitor_main monitor = new Monitor_main(url, FICHIER, toAddrsMail,
-				number, operator);
+		String phone = "819 572 14 96";
+		String operator = "rogers";
+		Monitor_main monitor = new Monitor_main(url, file, toAddrsMail,
+				phone, operator);
 		monitor.startMonitoring(60, 10000);
 	}
 }

@@ -28,11 +28,11 @@ public class TestConnectionURL {
 		assertEquals(newTagContent, "SiteScrum");
 	}
 
-	@Test
-	public void testGetHTTPResponseHeader(){
-		
-		int status = myURLConnection.getStatus(url);
-
-		assert status == 200;
-	}
+//	@Test
+//	public void testGetHTTPResponseHeader(){
+//		
+//		int status = myURLConnection.getStatus(url);
+//
+//		assert status == 200;
+//	}
 }
