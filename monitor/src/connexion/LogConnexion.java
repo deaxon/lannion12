@@ -25,9 +25,9 @@ public class LogConnexion {
 		if (connState == true) {
 			HttpURLConnection connection = null;
 			try {
-				String donnees = URLEncoder.encode("username", "UTF-8") + "="
+				String donnees = URLEncoder.encode("ndeveloper[cip]", "UTF-8") + "="
 						+ URLEncoder.encode(login, "UTF-8");
-				donnees += "&" + URLEncoder.encode("password", "UTF-8") + "="
+				donnees += "&" + URLEncoder.encode("ndeveloper[password]", "UTF-8") + "="
 						+ URLEncoder.encode(passwd, "UTF-8");
 
 				// Create connection
