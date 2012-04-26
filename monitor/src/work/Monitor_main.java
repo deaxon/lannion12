@@ -50,7 +50,6 @@ public class Monitor_main {
 			try {
 				Thread.sleep(10000);
 				if (urlConnect && logConnect) {
-					;
 					Trace trace = new Trace(FICHIER, logConnect, urlConnect);
 					subject = "Access to sitescrum success";
 					content = "Congratulations. The website is online and the connexion success.";
