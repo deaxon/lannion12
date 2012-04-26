@@ -8,7 +8,7 @@ import urlConnection.ConnectionURL;
 
 public class TraceTest {
 
-	File file = new File("."+ File.separator + "temp4test"+ File.separator + "application" + ".log");
+	File file = new File("."+ File.separator + "temp4test"+ File.separator + "testing_application" + ".log");
 	boolean loginConnect = true;
 	String nameSite = "http://tictacserver.gel.usherbrooke.ca/sitescrum";
 	ConnectionURL myURLConnection = new ConnectionURL();

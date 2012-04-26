@@ -1,7 +1,9 @@
 package mail;
 
+import java.util.ArrayList;
 import java.util.Properties;
 
+import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -21,7 +23,7 @@ public class Mail {
 				}
 			});
 	
-	public boolean sendMail(InternetAddress[] toAddrs, String subject,String content) {
+	public boolean sendMail(ArrayList<InternetAddress> internetAdresses, String subject,String content) {
 		boolean result = false;
 		try {
 			props.put("mail.smtp.host", "smtp.gmail.com");
@@ -31,8 +33,15 @@ public class Mail {
 			props.put("mail.smtp.auth", "true");
 			props.put("mail.smtp.port", "465");
 			Message message = new MimeMessage(session);
+			
+			InternetAddress[] a =new InternetAddress[internetAdresses.size()];   
+			
+			for(int i= 0 ; i < internetAdresses.size(); i++ ) {
+				a[i] = internetAdresses.get(i);
+			}
+					
 			message.setRecipients(Message.RecipientType.TO,
-					toAddrs);
+					a);
 			message.setSubject(subject);
 			message.setContent(content,
 					"text/html; charset=ISO-8859-1");

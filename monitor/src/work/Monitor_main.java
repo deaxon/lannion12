@@ -1,6 +1,7 @@
 package work;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
@@ -20,7 +21,7 @@ public class Monitor_main {
 	private File _file;
 	private boolean _logConnect = true;
 	private boolean _urlConnect;
-	private InternetAddress _toAddrsMail[];
+	private ArrayList<InternetAddress> _internetAdresses;
 	private String _number;
 	private String _operator;
 	private ConnectionURL myURLConnection;
@@ -28,14 +29,14 @@ public class Monitor_main {
 	private Mail mail;
 
 	public Monitor_main(String url, File file,
-			InternetAddress toAddrsMail[], String number, String operator) {
+			ArrayList<InternetAddress> internetAdresses, String number, String operator) {
 		this.sms = new Sms();
 		this.myURLConnection = new ConnectionURL();
 		this._url = url;
 		this._file = file;
 		this._urlConnect = myURLConnection.urlConnect(url);
 		this.mail = new Mail();
-		this._toAddrsMail = toAddrsMail;
+		this._internetAdresses = internetAdresses;
 		this._number = number;
 		this._operator = operator;
 	}
@@ -78,26 +79,30 @@ public class Monitor_main {
 	private boolean sendMessage(String subject, String content, Trace trace) {
 		boolean finished;
 		sms.sendSms(_number, _operator, subject, content);
-		mail.sendMail(_toAddrsMail, subject, content);
+		mail.sendMail(_internetAdresses, subject, content);
 		trace.createLog();
 		finished = true;
 		return finished;
 	}
 
 	public static void main(String[] args) {
+		System.out.println("hello");
 		String url = "http://tictacserver.gel.usherbrooke.ca/sitescrum";
-		File file = new File("/home/exituser/Desktop/application.log");
-		InternetAddress toAddrsMail[] = new InternetAddress[1];
+		//File file = new File("/home/exituser/Desktop/application.log");
+		File file = new File("."+ File.separator + "temp4test"+ File.separator + "application" + ".log");
+		//InternetAddress toAddrsMail[] = new InternetAddress[1];
+		ArrayList<InternetAddress> _internetAdresses = new ArrayList<InternetAddress>();
 		try {
-			toAddrsMail[0] = new InternetAddress("crenn.arthur@gmail.com");
-			toAddrsMail[1] = new InternetAddress("ruben.gonzalez-rubio@gel.usherbrooke.ca");
+			_internetAdresses.add(new InternetAddress("crenn.arthur@gmail.com"));
+			_internetAdresses.add(new InternetAddress("ruben.gonzalez-rubio@gel.usherbrooke.ca"));
 		} catch (AddressException e) {
 			e.printStackTrace();
 		}
 		String phone = "819 572 14 96";
 		String operator = "rogers";
-		Monitor_main monitor = new Monitor_main(url, file, toAddrsMail,
+		Monitor_main monitor = new Monitor_main(url, file, _internetAdresses,
 				phone, operator);
 		monitor.startMonitoring(60, 10000);
+		System.out.println("bye");
 	}
 }
