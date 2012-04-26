@@ -16,9 +16,9 @@ public class Monitor_main {
 	/**
 	 * @param args
 	 */
-	private String url;
-	private File FICHIER;
-	private boolean logConnect = true;
+	private String _url;
+	private File _file;
+	private boolean _logConnect = true;
 	private boolean urlConnect;
 	private InternetAddress toAddrsMail[];
 	private String number;
@@ -31,8 +31,8 @@ public class Monitor_main {
 			InternetAddress toAddrsMail[], String number, String operator) {
 		this.sms = new Sms();
 		this.myURLConnection = new ConnectionURL();
-		this.url = url;
-		this.FICHIER = FICHIER;
+		this._url = url;
+		this._file = FICHIER;
 		this.urlConnect = myURLConnection.urlConnect(url);
 		this.mail = new Mail();
 		this.toAddrsMail = toAddrsMail;
@@ -49,8 +49,8 @@ public class Monitor_main {
 		while (!finished) {
 			try {
 				Thread.sleep(10000);
-				if (urlConnect && logConnect) {
-					Trace trace = new Trace(FICHIER, logConnect, urlConnect);
+				if (urlConnect && _logConnect) {
+					Trace trace = new Trace(_file, _logConnect, urlConnect);
 					subject = "Access to sitescrum success";
 					content = "Congratulations. The website is online and the connexion success.";
 					sms.sendSms(number, operator, subject, content);
@@ -59,11 +59,11 @@ public class Monitor_main {
 					timer_monitoring.getTimer().stop();
 					finished = true;
 				} else if (timer_monitoring.getTimeRemaining() <= 0) {
-					Trace trace = new Trace(FICHIER, logConnect, urlConnect);
+					Trace trace = new Trace(_file, _logConnect, urlConnect);
 					subject = "Access to sitescrum fail";
-					if (!urlConnect && logConnect) {
+					if (!urlConnect && _logConnect) {
 						content = "The website is not working. The access failed.";
-					} else if (!logConnect && urlConnect) {
+					} else if (!_logConnect && urlConnect) {
 						content = "The connexion to the website failed.";
 					} else {
 						content = "The website is not working. The access and connexion to the website failed";
@@ -73,7 +73,7 @@ public class Monitor_main {
 					trace.createLog();
 					finished = true;
 				}
-				urlConnect = myURLConnection.urlConnect(url);
+				urlConnect = myURLConnection.urlConnect(_url);
 			} catch (InterruptedException ex) {
 				ex.printStackTrace();
 			}

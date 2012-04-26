@@ -16,14 +16,14 @@ import java.util.StringTokenizer;
 public class Trace {
 
 	public static int cptMinute;
-	File FICHIER;
-	boolean loginConnect;
-	boolean urlConnect;
+	File _file;
+	boolean _loginConnect;
+	boolean _urlConnect;
 
 	public Trace(File FICHIER, boolean loginConnect, boolean urlConnect) {
-		this.FICHIER = FICHIER;
-		this.loginConnect = loginConnect;
-		this.urlConnect = urlConnect;
+		this._file = FICHIER;
+		this._loginConnect = loginConnect;
+		this._urlConnect = urlConnect;
 	}
 
 	public boolean createLog() {
@@ -32,10 +32,10 @@ public class Trace {
 		FileWriter fw = null;
 		BufferedWriter output = null;
 		try {
-			FICHIER.createNewFile();
-			fw = new FileWriter(FICHIER, true);
+			_file.createNewFile();
+			fw = new FileWriter(_file, true);
 			output = new BufferedWriter(fw);
-			if ((urlConnect == true) && (loginConnect == true)) {
+			if ((_urlConnect == true) && (_loginConnect == true)) {
 				output.write("Application OK : "
 						+ " "
 						+ formatDateTime(Today.get(Calendar.DAY_OF_MONTH))
@@ -56,8 +56,8 @@ public class Trace {
 								.get(Calendar.SECOND)))) + " " + cptMinute
 						+ "\n");
 				result = true;
-			} else if (urlConnect == false) {
-				if (loginConnect == false) {
+			} else if (_urlConnect == false) {
+				if (_loginConnect == false) {
 					output.write("Application non OK : Access failed and Connection failed "
 							+ cptMinute + "\n");
 					result = true;
@@ -92,12 +92,13 @@ public class Trace {
 	public int countLineFile() {
 		InputStream ips = null;
 		int cpt = 0;
-		String ligne;
+		
 		try {
-			ips = new FileInputStream(FICHIER);
+			ips = new FileInputStream(_file);
 			InputStreamReader ipsr = new InputStreamReader(ips);
 			BufferedReader br = new BufferedReader(ipsr);
-			while ((ligne = br.readLine()) != null) {
+			//String ligne="";
+			while ((/*ligne = */br.readLine()) != null) {
 				cpt++;
 			}
 		} catch (FileNotFoundException e) {
@@ -244,11 +245,11 @@ public class Trace {
 		int cpt = tab.length;
 		cpt--;
 		String[] lastLine = this.replaceCaractFileInTab(tab[cpt]);
-		if ((urlConnect == false) && (loginConnect == false)) {
+		if ((_urlConnect == false) && (_loginConnect == false)) {
 			lastLine = connexionAccessFailed(tab);
-		} else if (loginConnect == false) {
+		} else if (_loginConnect == false) {
 			lastLine = connexionFailed(tab);
-		} else if (urlConnect == false) {
+		} else if (_urlConnect == false) {
 			lastLine = accessFailed(tab);
 		} else {
 			lastLine = accessConnexionSuccess(tab);
@@ -269,7 +270,7 @@ public class Trace {
 		int cpt = countLineFile();
 		String[] tab = new String[cpt];
 		try {
-			ips = new FileInputStream(FICHIER);
+			ips = new FileInputStream(_file);
 			InputStreamReader ipsr = new InputStreamReader(ips);
 			BufferedReader br = new BufferedReader(ipsr);
 			int j = 0;
@@ -316,9 +317,9 @@ public class Trace {
 		}
 		PrintWriter output = null;
 		try {
-			this.eraseFile(FICHIER);
+			this.eraseFile(_file);
 			output = new PrintWriter(
-					new BufferedWriter(new FileWriter(FICHIER)));
+					new BufferedWriter(new FileWriter(_file)));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
