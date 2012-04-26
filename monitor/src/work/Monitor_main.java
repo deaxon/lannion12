@@ -94,7 +94,7 @@ public class Monitor_main {
 		ArrayList<InternetAddress> _internetAdresses = new ArrayList<InternetAddress>();
 		try {
 			_internetAdresses.add(new InternetAddress("crenn.arthur@gmail.com"));
-			_internetAdresses.add(new InternetAddress("ruben.gonzalez-rubio@gel.usherbrooke.ca"));
+			_internetAdresses.add(new InternetAddress("ruben.gonzalez-rubio@usherbrooke.ca"));
 		} catch (AddressException e) {
 			e.printStackTrace();
 		}

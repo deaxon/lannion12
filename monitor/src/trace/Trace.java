@@ -20,8 +20,8 @@ public class Trace {
 	boolean _loginConnect;
 	boolean _urlConnect;
 
-	public Trace(File FICHIER, boolean loginConnect, boolean urlConnect) {
-		this._file = FICHIER;
+	public Trace(File file, boolean loginConnect, boolean urlConnect) {
+		this._file = file;
 		this._loginConnect = loginConnect;
 		this._urlConnect = urlConnect;
 	}

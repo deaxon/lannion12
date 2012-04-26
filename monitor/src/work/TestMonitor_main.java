@@ -15,7 +15,7 @@ public class TestMonitor_main {
 	@Test
 	public void test() {
 		String url = "http://tictacserver.gel.usherbrooke.ca/sitescrum";
-		File file = new File("/home/exituser/Desktop/application.log");
+		File file = new File("."+ File.separator + "temp4test"+ File.separator + "testing_application" + ".log");
 		//InternetAddress toAddrsMail[] = new InternetAddress[1];
 		ArrayList<InternetAddress> internetAdresses = new ArrayList<InternetAddress>();
 		try {
