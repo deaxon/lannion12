@@ -27,12 +27,12 @@ public class Monitor_main {
 	private Sms sms;
 	private Mail mail;
 
-	public Monitor_main(String url, File FICHIER,
+	public Monitor_main(String url, File file,
 			InternetAddress toAddrsMail[], String number, String operator) {
 		this.sms = new Sms();
 		this.myURLConnection = new ConnectionURL();
 		this._url = url;
-		this._file = FICHIER;
+		this._file = file;
 		this.urlConnect = myURLConnection.urlConnect(url);
 		this.mail = new Mail();
 		this.toAddrsMail = toAddrsMail;
@@ -40,15 +40,15 @@ public class Monitor_main {
 		this.operator = operator;
 	}
 
-	public boolean startMonitoring() {
-		Timer_monitoring timer_monitoring = new Timer_monitoring();
+	public boolean startMonitoring(int t, int sleep) {
+		Timer_monitoring timer_monitoring = new Timer_monitoring(t);
 		timer_monitoring.getTimer().start();
 		String subject;
 		String content = "";
 		boolean finished = false;
 		while (!finished) {
 			try {
-				Thread.sleep(10000);
+				Thread.sleep(sleep);
 				if (urlConnect && _logConnect) {
 					Trace trace = new Trace(_file, _logConnect, urlConnect);
 					subject = "Access to sitescrum success";
@@ -95,6 +95,6 @@ public class Monitor_main {
 		String operator = "fido";
 		Monitor_main monitor = new Monitor_main(url, FICHIER, toAddrsMail,
 				number, operator);
-		monitor.startMonitoring();
+		monitor.startMonitoring(60, 10000);
 	}
 }

@@ -25,7 +25,7 @@ public class TestMonitor_main {
 		String operator = "fido";
 		Monitor_main monitor = new Monitor_main(url, FICHIER, toAddrsMail,
 				number, operator);
-		assertTrue(monitor.startMonitoring());
+		assertTrue(monitor.startMonitoring(1,1));
 	}
 
 }

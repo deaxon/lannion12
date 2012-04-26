@@ -11,14 +11,14 @@ public class Timer_monitoring {
 	private Timer timer;
 	private int timeRemaining = 0;
 
-	public Timer_monitoring() {
-		this.timer = new Timer(1000, new MyTimerActionListener(TIME));
+	public Timer_monitoring(int t) {
+		this.timer = new Timer(1000, new MyTimerActionListener(t));
 	}
 
-	public void startTimer() {
+	public void startTimer(int t) {
 		this.timer.start();
 		try {
-			Thread.sleep(1000 * TIME);
+			Thread.sleep(1000 * t);
 		} catch (InterruptedException e) {
 			System.out.println(e);
 		}

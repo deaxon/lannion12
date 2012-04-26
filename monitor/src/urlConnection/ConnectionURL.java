@@ -11,8 +11,8 @@ import java.util.regex.*;
 
 public class ConnectionURL {
 
-	public ConnectionURL() {
-	}
+//	public ConnectionURL() {
+//	}
 
 	public boolean urlConnect(String url) {
 		java.net.URLConnection urlConnection;

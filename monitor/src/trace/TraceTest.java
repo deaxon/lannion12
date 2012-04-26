@@ -75,7 +75,7 @@ public class TraceTest {
 		String line = "Application OK 19 12 2012 91 11 11 1";
 		line = trace.replaceFormat(line);
 		System.out.println(line);
-		assertTrue(line.equals("Application OK 19/12/2012 9:1:1 1"));
+		assertTrue(line.equals("Application OK 19/12/2012 91:11:11 1"));
 	}
 
 	@Test
