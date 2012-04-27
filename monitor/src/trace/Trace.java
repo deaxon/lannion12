@@ -287,7 +287,6 @@ public class Trace {
 		int cpt = countLineFile();
 		String[] lastLine;
 		String[] tabCopyFile = copyFileTab();
-		System.out.println("cpt : "+cpt);
 		if (cpt != 1) {
 			lastLine = changeNumberCounter(tabCopyFile);
 		} else {

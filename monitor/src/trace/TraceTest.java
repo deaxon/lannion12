@@ -26,7 +26,6 @@ public class TraceTest {
 	public void testFormatDateTime(){
 		int number = 6;
 		String newNumber = trace.formatDateTime(number);
-		System.out.println(newNumber);
 		assertTrue(newNumber.equals("06"));
 	}
 
@@ -58,14 +57,13 @@ public class TraceTest {
 		File file2 = new File("."+ File.separator + "temp4test"+ File.separator + "testing_application2" + ".log");
 		Trace trace2 = new Trace(file2, loginConnect, urlConnect);
 		String[] tab = trace2.copyFileTab();
-		assertTrue(tab[0].equals("Application OK 27/04/2012 09:27:22 0 "));
+		assertTrue(tab[0].equals("Application OK 27/04/2012 10:01:07 0 "));
 	}
 
 	@Test
 	public void testReplaceFormat() {
 		String line = "Application OK 19 12 2012 91 11 11 1";
 		line = trace.replaceFormat(line);
-		System.out.println(line);
 		assertTrue(line.equals("Application OK 19/12/2012 91:11:11 1"));
 	}
 
@@ -116,8 +114,6 @@ public class TraceTest {
 		Trace trace7 = new Trace(file7, true, urlConnect);
 		String[] tab = trace7.copyFileTab();
 		String[] newTab = trace7.changeNumberCounter(tab);
-		System.out.println("newTab[6] : " + newTab[6]);
-		System.out.println("newTab[4] : "+newTab[4]);
 		assertTrue(newTab[8].equals("1"));
 	}
 	
