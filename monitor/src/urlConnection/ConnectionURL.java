@@ -1,12 +1,9 @@
 package urlConnection;
 
 import java.io.BufferedReader;
-import java.io.IOException;
+
 import java.net.*;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
+
 import java.util.regex.*;
 
 public class ConnectionURL {

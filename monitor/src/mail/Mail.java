@@ -3,7 +3,7 @@ package mail;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import javax.mail.Address;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
