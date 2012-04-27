@@ -20,7 +20,9 @@ public class ConnectionURL {
 			urlConnection.connect();
 			connexionState = true;
 		} catch (java.net.MalformedURLException ex) {
+			System.out.println(ex);
 		} catch (java.io.IOException e) {
+			System.out.println(e);
 		}
 		return connexionState;
 	}
@@ -46,33 +48,10 @@ public class ConnectionURL {
 			}
 			in.close();
 		} catch (java.net.MalformedURLException ex) {
+			System.out.println(ex);
 		} catch (java.io.IOException e) {
+			System.out.println(e);
 		}
 		return tagContent;
 	}
-
-//	public int getStatus(String url) {
-//		java.net.URLConnection urlConnection;
-//		Object[] obj = null;
-//		int status = 0 ;
-//		try {
-//			URL myURL = new URL(url);
-//			urlConnection = myURL.openConnection();
-//			Map<String, List<String>> map = urlConnection.getHeaderFields();
-//			Set<Entry<String, List<String>>> set = map.entrySet();
-//			obj = set.toArray();
-//		} catch (MalformedURLException e) {
-//		} catch (IOException e) {
-//		}
-//		String  condition = obj[9].toString();
-//		String status_temp = "";
-//		for(int i = 0;i<condition.length();i++){
-//			String s = new Character(condition.charAt(i)).toString();
-//			if(s.equals("2") || s.equals("0")){
-//				status_temp += condition.charAt(i);
-//			}
-//		}
-//		status = Integer.parseInt(status_temp);
-//		return status;
-//	}
 }
