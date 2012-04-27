@@ -48,8 +48,6 @@ public class TraceTest {
 
 	@Test
 	public void testChangeFormat1Line() {
-		//trace.createLog();
-		//trace.incrementLog();
 		String[] tab = trace.copyFileTab();
 		String[] newTab = trace.changeFormat1Line(tab);
 		assertTrue(newTab[1].equals("OK"));
@@ -57,8 +55,10 @@ public class TraceTest {
 
 	@Test
 	public void testCopyFileTab() {
-		String[] tab = trace.copyFileTab();
-		assertTrue(tab[1].equals("Application OK 19 4 2012 12 52 5 1"));
+		File file2 = new File("."+ File.separator + "temp4test"+ File.separator + "testing_application2" + ".log");
+		Trace trace2 = new Trace(file2, loginConnect, urlConnect);
+		String[] tab = trace2.copyFileTab();
+		assertTrue(tab[0].equals("Application OK 27/04/2012 09:27:22 0 "));
 	}
 
 	@Test
@@ -76,54 +76,53 @@ public class TraceTest {
 
 	@Test
 	public void testAccessConnexionSuccess() {
-		//trace.createLog();
-		//trace.incrementLog();
-		String[] tab = trace.copyFileTab();
-		String[] newTab = trace.accessConnexionSuccess(tab);
+		File file3 = new File("."+ File.separator + "temp4test"+ File.separator + "testing_application3" + ".log");
+		Trace trace3 = new Trace(file3, loginConnect, urlConnect);
+		String[] tab = trace3.copyFileTab();
+		String[] newTab = trace3.accessConnexionSuccess(tab);
 		assertTrue(newTab[1].equals("OK"));
 	}
 
 	@Test
 	public void testAccessFailed() {
-		//trace.createLog();
-		//trace.incrementLog();
-		String[] tab = trace.copyFileTab();
-		String[] newTab = trace.accessFailed(tab);
-		assertTrue(newTab[1].equals("OK"));
+		File file4 = new File("."+ File.separator + "temp4test"+ File.separator + "testing_application4" + ".log");
+		Trace trace4 = new Trace(file4, loginConnect, false);
+		String[] tab = trace4.copyFileTab();
+		String[] newTab = trace4.accessFailed(tab);
+		assertTrue(newTab[1].equals("non"));
 	}
 
 	@Test
 	public void testConnexionFailed() {
-		//trace.createLog();
-		//trace.incrementLog();
-		String[] tab = trace.copyFileTab();
-		String[] newTab = trace.connexionFailed(tab);
-		assertTrue(newTab[1].equals("OK"));
+		File file5 = new File("."+ File.separator + "temp4test"+ File.separator + "testing_application5" + ".log");
+		Trace trace5 = new Trace(file5, false, urlConnect);
+		String[] tab = trace5.copyFileTab();
+		String[] newTab = trace5.connexionFailed(tab);
+		assertTrue(newTab[1].equals("non"));
 	}
 
 	@Test
 	public void testConnexionAccessFailed() {
-		//trace.createLog();
-		//trace.incrementLog();
-		String[] tab = trace.copyFileTab();
-		String[] newTab = trace.connexionAccessFailed(tab);
-		assertTrue(newTab[1].equals("OK"));
+		File file6 = new File("."+ File.separator + "temp4test"+ File.separator + "testing_application6" + ".log");
+		Trace trace6 = new Trace(file6, false, false);
+		String[] tab = trace6.copyFileTab();
+		String[] newTab = trace6.connexionAccessFailed(tab);
+		assertTrue(newTab[1].equals("non"));
 	}
 
 	@Test
 	public void testChangeNumberCounter() {
-		trace.createLog();
-		//trace.incrementLog();
-		String[] tab = trace.copyFileTab();
-		String[] newTab = trace.changeNumberCounter(tab);
+		File file7 = new File("."+ File.separator + "temp4test"+ File.separator + "testing_application7" + ".log");
+		Trace trace7 = new Trace(file7, true, urlConnect);
+		String[] tab = trace7.copyFileTab();
+		String[] newTab = trace7.changeNumberCounter(tab);
 		System.out.println("newTab[6] : " + newTab[6]);
 		System.out.println("newTab[4] : "+newTab[4]);
-		assertTrue(newTab[8].equals("0"));
+		assertTrue(newTab[8].equals("1"));
 	}
 	
 	@Test
 	public void testEraseFile() throws Exception {
-		//File file = new File("application" + ".log");
 		boolean res = false;
 		res = trace.eraseFile(file);
 		assertTrue(res == true);

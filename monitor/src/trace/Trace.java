@@ -54,7 +54,7 @@ public class Trace {
 						+ ":"
 						+ formatDateTime(Integer.parseInt(String.valueOf(Today
 								.get(Calendar.SECOND)))) + " " + cptMinute
-						+ "\n");
+						);
 				result = true;
 			} else if (_urlConnect == false) {
 				if (_loginConnect == false) {
