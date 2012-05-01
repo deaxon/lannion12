@@ -1,0 +1,91 @@
+\documentclass[12pt,a4paper]{article}
+
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{graphics}
+\usepackage{graphicx} 
+\usepackage{url}
+\title{Différents types de licences Open-Source}
+\author{Solène Malledant}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+Il existe de nombreuses licences pour les projets Open-Source.
+
+Voici un graphique qui indique les licences les plus utilisées des projets présents sur SourceForge :
+\vskip5mm
+\url{http://fplanque.net/2004/pictures/licenses.gif}
+
+\vskip1cm
+Sur ce graphique, on voit que la plus grande partie des projets présents sur SourceForge possèdent la licence GNU GPL (GNU General Public License).
+
+Ce qui est important de savoir est que si l'on intègre du code diffusé sous GPL pour un ou plusieurs de nos projets, il faut obligatoirement que ce projet soit lui aussi sous la licence GPL.
+De plus, la Free Software Foundation (FSF) prétend qu'un plug-in doit \^{e}tre distribué sous la licence GPL si il utilise des classes ou templates type qui sont généralement sous cette m\^{e}me licence. 
+Si le programme utilise des fork et exec pour appeler les plug-ins et que les plug-ins sont des programmes séparés, il n'y a pas d'exigences pour le type de licence à avoir.
+
+Le site de l'Open Source Initiative (OSI) regroupe toutes les licences open-source existantes. 
+
+Nous pouvons retenir 6 licences :
+\vskip5mm
+\begin{itemize}
+	\item GNU General Public License (GNU GPL) : Cette licence utilise la notion de copyleft qui se concentre sur les droits des utilisateurs. Ainsi, le copyleft préserve le droit d'utiliser, d'étudier, de modifier, et de diffuser le logiciel et ses différentes versions. L'objectif de la licence GNU GPL est de garantir à l'utilisateur la liberté d'exécuter le logiciel, d'étudier le fonctionnement du programme et de l'adapter à ses besoins avec l'accès au code source, la liberté de distribuer des copies, et de faire bénéficier la communauté des versions modifiées. Cette licence autorise, contrairement aux autres licences, une utilisation commerciale. Un programme sous GPL peut inclure des modules non GPL à condition que la licence de ceux-ci soit compatible avec la licence GPL. Il n'y a pas de possibilité de rétractation lorsque l'on prend la licence GPL. Si personne n'a modifié le projet, il est possible de sortir les nouvelles versions du logiciel sous une autre licence. Si dès le début, le logiciel est sous licence GPL et qu'il a été modifié par d'autres personnes, il faut obtenir le consentement de tous les contributeurs avant de changer de licence.
+	\vskip3mm
+	\item GNU Lesser General Public License (GNU LGPL) : La licence GNU LGPL a été créée pour permettre à certains logiciels libres de ne pas \^{e}tre entièrement libres. Cette licence s'applique souvent aux bibliothèques (Library). Elle reprend les m\^{e}mes caractéristiques que la licence GNU GPL à quelques différences près. Ces différences sont les suivantes : elle autorise à lier le programme sous cette licence a du code non LGPL sans pour autant révoquer la licence. Toute modification du code source dans la bibliothèque LGPL devra \^{e}tre sous licence LGPL. Il est autorisé de passer à la licence GPL par une simple mise à jour des notifications de licences.
+	\vskip3mm
+	\item Licence BSD : Cette licence est non copyleft. C'est une licence libre utilisée pour la distribution de logiciels. Elle permet de réutiliser tout ou partie du logiciel sans restriction. Cette licence permet l'utilisation commerciale.
+	\vskip3mm	
+	\item Licence Apache : Cette licence n'est pas copyleft. Elle autorise la modification et la distribution du code sous toute forme (libre ou propriétaire, gratuit ou commercial) et oblige le maintien du copyright lors de toute modification.
+	\vskip3mm	
+	\item Mozilla Public License (MPL) : Elle est copyleft. L'utilisation de cette licence se situe entre la licence BSD et la licence GPL. Il est possible de combiner des programmes sous licence MPL et des programmes sous une autre licence dans un m\^{e}me logiciel. Seules les modifications aux fichiers sous licence MPL doivent \^{e}tre publiées sous licence MPL.
+	\vskip3mm	
+	\item MIT License (MIT) : C'est une licence de logiciels open-source et non copyleft. Elle donne la possibilité d'utiliser, copier, modifier, fusionner, publier, distribuer, vendre et changer la licence d'un logiciel. La seule obligation est de mettre le nom des auteurs dans une notice de copyright. Elle est très proche de la licence BSD.
+	
+\end{itemize}
+
+\vskip2cm
+\Large\textbf{ Sources}
+
+\normalsize
+\begin{itemize}
+	\item Site de Open Source Initiative : \\
+	\url{http://www.opensource.org/}
+	\vskip3mm
+	\item Wikipédia - GNU General Public License (en Fran\c{c}ais) : \\
+	\url{http://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9rale_GNU}
+	\vskip3mm
+	\item GNU General Public License (en Anglais) : \\
+	\url{http://www.gnu.org/licenses/gpl.html}
+	\vskip3mm
+	\item Wikipédia - GNU Lesser General Public License (en Fran\c{c}ais) : \\
+	\url{http://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9rale_limit%C3%A9e_GNU}
+	\vskip3mm
+	\item GNU Lesser General Public License (en Anglais) : \\
+	\url{http://www.gnu.org/licenses/lgpl.html}
+	\vskip3mm
+	\item Wikipédia - License BSD (en Anglais) : \\
+	\url{http://en.wikipedia.org/wiki/BSD_licenses}
+	\vskip3mm
+	\item Open Source Initiative - Apache License 2.0 (en Anglais) : \\
+	\url{http://www.opensource.org/licenses/Apache-2.0}
+	\vskip3mm
+	\item Wikipédia - Mozilla Public License (en Fran\c{c}ais) : \\
+	\url{http://fr.wikipedia.org/wiki/Mozilla_Public_License}
+	\vskip3mm
+	\item Mozilla Public License 2.0 (en Anglais) : \\
+	\url{http://www.mozilla.org/MPL/2.0/}
+	\vskip3mm
+	\item Wikipédia - MIT Licence (en Fran\c{c}ais) : \\
+	\url{http://fr.wikipedia.org/wiki/MIT_Licence}
+	\vskip3mm
+	\item Wikipédia - MIT License (en Anglais) : \\
+	\url{http://en.wikipedia.org/wiki/MIT_License}
+	
+
+\end{itemize}
+
+
+\end{document}
