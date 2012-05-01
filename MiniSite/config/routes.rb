@@ -1,10 +1,5 @@
 MiniSite::Application.routes.draw do
-  root :to=> 'main#index'
-  get "main/index"
-
-  get "main/about"
-
-  get "main/contact"
+  root :to=> 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
