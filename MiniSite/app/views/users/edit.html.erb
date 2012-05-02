@@ -1,0 +1,20 @@
+<h1>Edit profile</h1>
+
+<%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages', :object => f.object %>
+    <div class="field">
+      <%= f.label :name, "Name" %><br />
+      <%= f.text_field :nom %>
+    </div>
+    <div class="field">
+      <%= f.label :email, "eMail" %><br />
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :password, "Password" %><br />
+      <%= f.password_field :password %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Update" %>
+    </div>
+<% end %>
