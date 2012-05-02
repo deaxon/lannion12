@@ -1,12 +1,16 @@
 package connexion;
 
+import org.apache.commons.httpclient.Header;
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpException;
+import org.apache.commons.httpclient.HttpStatus;
+import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.httpclient.methods.PostMethod;
 import java.io.BufferedReader;
-import java.io.InputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
+import java.net.URLConnection;
 import java.util.regex.Pattern;
 
 import urlConnection.ConnectionURL;
@@ -18,106 +22,48 @@ public class LogConnexion {
 	public boolean sendLogConnexion(String url, String login, String passwd) {
 		boolean b = false;
 		boolean connState = myURLConnection.urlConnect(url);
-		String tagContent = "";
-		String balise = "form";
-		String attribut = "action";
 
 		if (connState == true) {
-			HttpURLConnection connection = null;
+			HttpClient client = new HttpClient();
+			PostMethod method = new PostMethod(url);
+			Header header = new Header("User-Agent", "Mozilla/3.5.1");
+			method.setRequestHeader(header);
+			method.addParameter("session[email]", login);
+			method.addParameter("session[password]", passwd);
+			GetMethod method_get = null;
 			try {
-				String donnees = URLEncoder.encode("ndeveloper[cip]", "UTF-8") + "="
-						+ URLEncoder.encode(login, "UTF-8");
-				donnees += "&" + URLEncoder.encode("ndeveloper[password]", "UTF-8") + "="
-						+ URLEncoder.encode(passwd, "UTF-8");
-
-				// Create connection
-				URL u = new URL(url);
-				connection = (HttpURLConnection) u.openConnection();
-
-				String myCookie = "username=" + login;
-
-				connection.setRequestProperty("Cookie", myCookie);
-
-				connection.setDoInput(true);
-				connection.setDoOutput(true);
-				connection.setRequestMethod("POST");
-				connection.setUseCaches(false);
-				connection.setInstanceFollowRedirects(true);
-
-				connection.connect();
-
-				System.out.println("\n\n");
-
-				OutputStreamWriter writer = new OutputStreamWriter(
-						connection.getOutputStream());
-				writer.write(donnees);
-				writer.flush();
-
-				// Get Response
-				InputStream is = connection.getInputStream();
-				BufferedReader rd = new BufferedReader(
-						new InputStreamReader(is));
-				String line;
-				StringBuffer response = new StringBuffer();
-				int cpt = 0;
-				while ((line = rd.readLine()) != null) {
-					response.append(line);
-					response.append('\r');
-
-					line = line.replaceAll(" ", "");
-					Pattern p = Pattern.compile("[\t\n\r\f]*<" + balise
-							+ attribut + "=[\"|'](.*)[\"|']>");
-					java.util.regex.Matcher m = p.matcher(line);
-					if (m.matches()) {
-						tagContent = m.group(1);
-						cpt++;
-						if (cpt == 2) {
-							break;
+				int statusCode = client.executeMethod(method);
+				if (statusCode != HttpStatus.SC_OK) {
+					while (statusCode == HttpStatus.SC_MOVED_TEMPORARILY) {
+						String redirectLocation = "";
+						Header locationHeader = method
+								.getResponseHeader("location");
+						if (locationHeader != null) {
+							redirectLocation = locationHeader.getValue();
+							method_get = new GetMethod(redirectLocation);
+							statusCode = client.executeMethod(method_get);
+							System.out.println("Page actuelle : " + method_get.getURI());
+							if (statusCode == HttpStatus.SC_OK) {
+								b = true;
+							}
 						}
 					}
-				}
-				rd.close();
-				String tc = "";
-				for (int i = 0; i < tagContent.length(); i++) {
-					if (tagContent.charAt(i) == '"') {
-						break;
-					}
-					tc += tagContent.charAt(i);
-				}
-				System.out.println("tc : " + tc);
-				myURLConnection.urlConnect(tc);
-
-				String t = myURLConnection.getTag(tc, "title");
-				System.out.println("titre : " + t);
-				URL u2 = new URL(tc);
-				connection = (HttpURLConnection) u2.openConnection();
-
-				InputStream is2 = connection.getInputStream();
-				BufferedReader rd2 = new BufferedReader(new InputStreamReader(
-						is2));
-				String line2;
-				// int cpt2 = 0;
-				while ((line2 = rd2.readLine()) != null) {
-					System.out.println(line2);
-					// cpt2 ++;
-				}
-				
-				if(t == "Projectlannion12Team:lannion12"){
+				}else{
 					b = true;
 				}
-								
-				rd2.close();
-			} catch (Exception e) {
-
+				System.out.println("-------------------------------------------------------------");
+				byte[] responseBody = method_get.getResponseBody();
+				System.out.println(new String(responseBody));
+			} catch (HttpException e) {
+				System.err.println("Fatal protocol violation: "
+						+ e.getMessage());
 				e.printStackTrace();
-
+			} catch (IOException e) {
+				System.err.println("Fatal transport error: " + e.getMessage());
+				e.printStackTrace();
 			} finally {
-
-				if (connection != null) {
-					connection.disconnect();
-				}
+				method.releaseConnection();
 			}
-
 		}
 		return b;
 	}
