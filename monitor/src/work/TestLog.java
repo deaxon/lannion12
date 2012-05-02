@@ -26,7 +26,6 @@ public class TestLog {
 			System.out.println(statusCode);
 			System.out.println(method.getURI());
 			if (statusCode != HttpStatus.SC_OK) {
-				System.err.println("Method failed: " + method.getStatusLine());
 				while (statusCode == HttpStatus.SC_MOVED_TEMPORARILY) {
 					String redirectLocation = "";
 					Header locationHeader = method
