@@ -7,6 +7,7 @@ MiniSite::Application.routes.draw do
 
   match '/signup',  :to => 'users#new'
   match '/contactus', :to => 'contacts#contact'
+  match '/login', :to =>  'sessions#new'
   match '/logout', :to => 'sessions#destroy'
   match '/home', :to => 'home#index'
   match '/project', :to => 'projects#project'
