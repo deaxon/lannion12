@@ -41,7 +41,7 @@ body {
 }
 
 #header {
-  height: 80px;
+  height: 100px;
 }
 
 #user-log {
@@ -109,3 +109,15 @@ div.field, div.actions {
   list-style: square;
 }
 
+#content {
+  padding: 20px;
+  margin: 0px;
+}
+
+#footer {
+  clear: both;
+  border-top: 1px solid black;
+  text-align: center;
+  padding: 5px;
+  border-bottom: 1px solid black;
+}

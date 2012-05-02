@@ -13,10 +13,23 @@
   </p>
   <div id="user-log">
     <% if signed_in? %>
-        <li><%= link_to "Profil", edit_user_path(current_user) %></li>
-        <li><%= link_to "Logout", logout_path, :method => :delete %></li>
+        <table>
+          <tr>
+            <td>Logged in as <%= link_to current_user[:nom], edit_user_path(current_user) %> </td>
+            <td><%= button_to "Logout", logout_path, :method => :delete %></td>
+          </tr>
+        </table>
     <% else %>
-        <li><%= link_to "Login", login_path %></li>
+
+        <%= form_for(:session, :url => sessions_path) do |f| %>
+              <%= f.label :email, "eMail" %>
+              <%= f.text_field :email, :size => 15 %>
+              <%= f.label :password, "Mot de passe" %>
+              <%= f.password_field :password, :size => 15 %>
+              <%= f.submit "Login" %>
+        <% end %>
+
+        <p>Not registrer yet ? <%= link_to "Sign up", signup_path %></p>
     <% end %>
   </div>
 </div>
@@ -24,17 +37,24 @@
 
 <ul class="menu">
   <li class="current"><a href="/home">Welcome</a></li>
-  <li><a href="#">Projects</a></li>
-  <li><a href="#">Contact us</a></li>
+  <li><a href="/project">Projects</a></li>
+  <li><a href="/contactus">Contact us</a></li>
 </ul>
-<%= yield %>
 
-<section class="round">
-  <% flash.each do |key, value| %>
-      <div class="flash <%= key %>"><%= value %></div>
-  <% end %>
+<div id="content">
+    <%= yield %>
 
-</section>
+    <section class="round">
+    <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+    <% end %>
+
+    </section>
+</div>
+
+<div id="footer">
+  © Laboratoire <a href="mailto:Ruben.Gonzalez-Rubio@USherbrooke.ca, bs.gukhool@usherbrooke.ca">eXit</a>, Université de Sherbrooke, 2500, boul. de l'Université, Sherbrooke (Québec) CANADA J1K 2R1.
+</div>
 
 </body>
 </html>

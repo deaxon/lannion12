@@ -1,12 +1,16 @@
 MiniSite::Application.routes.draw do
 
+  get "contacts/contact"
+
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
 
   match '/signup',  :to => 'users#new'
-  match '/login',  :to => 'sessions#new'
+  match '/contactus', :to => 'contacts#contact'
   match '/logout', :to => 'sessions#destroy'
   match '/home', :to => 'home#index'
+  match '/project', :to => 'projects#project'
+
 
 
   root :to=> 'home#index'
