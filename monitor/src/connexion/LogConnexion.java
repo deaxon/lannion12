@@ -51,7 +51,7 @@ public class LogConnexion {
 				}else{
 					b = true;
 				}
-				System.out.println("-------------------------------------------------------------");
+				System.out.println("----------------------------Code source----------------------------");
 				byte[] responseBody = method_get.getResponseBody();
 				System.out.println(new String(responseBody));
 			} catch (HttpException e) {
