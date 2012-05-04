@@ -3,30 +3,32 @@
 <head>
   <title>Welcome</title>
   <%= stylesheet_link_tag "home", :media => "all" %>
+  <%= stylesheet_link_tag "projects", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body >
+<body>
 <div id="header">
   <p id="header-title">
     eXit's projects
   </p>
+
   <div id="user-log">
     <% if signed_in? %>
         <table>
           <tr>
             <td>Logged in as <%= link_to current_user[:nom], user_path(current_user) %> </td>
-            <td><%= button_to "Logout", logout_path, :method => :delete %></td>
+            <td><%= button_to "", logout_path, :method => :delete, :class => "buttonLogOut", :style => "cursor:pointer" %></td>
           </tr>
         </table>
     <% else %>
 
         <%= form_for(:session, :url => sessions_path) do |f| %>
-              <%= f.label :email, "eMail" %>
-              <%= f.text_field :email, :size => 15 %>
-              <%= f.label :password, "Mot de passe" %>
-              <%= f.password_field :password, :size => 15 %>
-              <%= f.submit "Login" %>
+            <%= f.label :email, "eMail" %>
+            <%= f.text_field :email, :size => 15 %>
+            <%= f.label :password, "Mot de passe" %>
+            <%= f.password_field :password, :size => 15 %>
+            <%= f.submit "", :class => "buttonLogIn", :style => "cursor:pointer" %>
         <% end %>
 
         <p>Not registrer yet ? <%= link_to "Sign up", signup_path %></p>
@@ -36,25 +38,18 @@
 
 
 <ul class="menu">
-  <li class="current"><a href="/home">Welcome</a></li>
-  <li><a href="/project">Projects</a></li>
-  <li><a href="/contactus">Contact us</a></li>
+  <li><%= link_to 'Welcome', {:controller => 'home', :action => :index}, :class => selected_class('home') %></li>
+  <li><%= link_to 'Projects', {:controller => 'projects', :action => :project}, :class => selected_class('projects') %></li>
+  <li><%= link_to 'Contact Us', {:controller => 'contacts', :action => :contact}, :class => selected_class('contacts') %></li>
 </ul>
 
 <div id="content">
-    <%= yield %>
-
-    <section class="round">
-    <% flash.each do |key, value| %>
-        <div class="flash <%= key %>"><%= value %></div>
-    <% end %>
-
-    </section>
+  <%= yield %>
 </div>
 
 <div id="footer">
-  © Laboratoire <a href="mailto:Ruben.Gonzalez-Rubio@USherbrooke.ca, bs.gukhool@usherbrooke.ca">eXit</a>, Université de Sherbrooke, 2500, boul. de l'Université, Sherbrooke (Québec) CANADA J1K 2R1.
+  © Laboratoire <a href="mailto:Ruben.Gonzalez-Rubio@USherbrooke.ca, bs.gukhool@usherbrooke.ca">eXit</a>, Université
+  de Sherbrooke, 2500, boul. de l'Université, Sherbrooke (Québec) CANADA J1K 2R1.
 </div>
-
 </body>
 </html>

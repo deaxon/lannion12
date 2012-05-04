@@ -1,3 +1,175 @@
-// Place all the styles related to the projects controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+a:link {
+  -webkit-tap-highlight-color: #07a
+}
+
+a:active, a:focus {
+  outline: none
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  outline: none;
+  color: #07a;
+  text-decoration: none
+}
+
+.main-content-right {
+  display: inline-block;
+  margin-left: -10px;
+  margin-right: -10px;
+  *zoom: 1;
+  width: auto;
+  width: 1000px;
+  display: inline;
+  float: left;
+  *zoom: 1;
+  margin-bottom: 50px;
+}
+.sfdl {
+     background: url("BoutonDownload.png");
+     background-repeat: no-repeat;
+     width: 189px;
+     height: 46px   ;
+     padding: 0;
+}
+
+.main-content-right:after {
+  content: "";
+  display: table;
+  clear: both
+}
+.main-content-right:after {
+  content: "";
+  display: table;
+  clear: both
+}
+
+a:visited {
+  color: #069
+}
+
+a:hover {
+  color: #09c
+}
+
+a:active {
+  color: #07a
+}
+
+a:hover {
+  text-decoration: underline
+}
+
+a:hover, a:active {
+  outline: none
+}
+.row {
+  display: inline-block;
+  margin-left: -10px;
+  margin-right: -10px;
+  *zoom: 1;
+  width: auto;
+  width: 700px;
+  display: inline;
+  float: left;
+  *zoom: 1;
+  margin: 0 10px;
+  width: 720px
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both
+}
+
+.row .card {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+  -ms-border-radius: 0;
+  -khtml-border-radius: 0;
+  border-radius: 0;
+  border: 0 solid #ccc;
+  border-width: 1px 0 0 0;
+  padding: 20px 0 0 0;
+  margin: 20px 0 0 0;
+  position: relative
+}
+
+.row .card.special {
+  border-color: #07a
+}
+
+.row .card .potm {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-weight: bold;
+  background-color: #fff;
+  padding-right: 1em;
+  height: 1.5em
+}
+
+.row .card section {
+  min-height: 48px;
+  overflow: hidden
+}
+
+.row .card .project-icon {
+  float: left;
+  width: 48px;
+  margin: 0
+}
+
+.row .card .project-info {
+  float: left;
+  width: 480px;
+  margin: 0 10px
+}
+
+.row .card .project-info header {
+  display: block
+}
+
+.row .card .project-info header h3 {
+  font-weight: bold;
+  font-size: 1.1em
+}
+
+.row .card .project-info p {
+  margin: 0
+}
+
+.row .card .best-release {
+  float: left;
+  width: 170px
+}
+.buttonLogOut {
+  border: none;
+  background: transparent url("boutonlogout.png");
+  background-repeat: no-repeat;
+  width: 70px;
+  height: 20px   ;
+  padding: 0;
+}
+.buttonLogIn {
+  border: none;
+  background: transparent url("boutonlogin.png");
+  background-repeat: no-repeat;
+  width: 70px;
+  height: 20px   ;
+  padding: 0;
+}
+
+
