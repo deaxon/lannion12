@@ -116,6 +116,7 @@ a:hover, a:active {
   top: -10px;
   left: 0;
   font-weight: bold;
+  font-size: 16pt;
   background-color: #fff;
   padding-right: 1em;
   height: 1.5em
@@ -170,6 +171,73 @@ a:hover, a:active {
   width: 70px;
   height: 20px   ;
   padding: 0;
+}
+
+///////////////////////////
+/////MENU VERTICAL ///////////
+/////////////////////////////////
+
+/* =-=-=-=-=-=-=-[Menu 4]-=-=-=-=-=-=-=- */
+#menu4 {
+  width: 200px; height:100%;
+  background-color: #4c4c4c;
+  border-style: solid solid none solid;
+  border-color: black;
+  border-size: 1px;
+  border-width: 1px;
+  margin: 10px;
+  margin-top: 20px;
+  margin-left: -20px;
+  font-size: 10pt;
+}
+#menu4 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#menu4 li a {
+  height: 32px;
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  height: 24px;
+  text-decoration: none;
+}
+
+#menu4 li a:link, #menu4 li a:visited {
+  color: #ffffff;
+  display: block;
+  background-color:#4c4c4c;
+  padding: 8px 0 0 30px;
+}
+
+#menu4 li a:hover {
+  color: black;
+  background: url(boutonmenu.png);
+  padding: 8px 0 0 30px;
+}
+
+#menu4 li a:active {
+  color: black;
+  background: url(boutonmenu.png);
+  padding: 8px 0 0 30px;
+}
+
+.main-content-left {
+  margin-top: -220px;
+  margin-left: 300px;
+  margin-right: -10px;
+}
+
+#slogan{
+  font-style: italic;
+  font-size: 14pt;
+}
+
+#page{
+  height: 100%;
+  width: 100%;
+  margin:0px;
+  list-style:none;
 }
 
 

@@ -10,9 +10,10 @@ MiniSite::Application.routes.draw do
   match '/login', :to =>  'sessions#new'
   match '/logout', :to => 'sessions#destroy'
   match '/home', :to => 'home#index'
-  match '/project', :to => 'projects#project'
+  match '/listprojects', :to => 'projects#listprojects'
   match '/profile', :to => 'users#show'
-
+  match '/detail', :to => 'projects#detail'
+  match '/bugs', :to => 'projects#vide'
 
 
 

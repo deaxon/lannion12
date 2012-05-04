@@ -7,7 +7,9 @@ body {
   margin: 0px;
 }
 
-.menu li { float :left ; }
+.menu li {
+  float :left;
+}
 
 .menu li a {
   display:block;
@@ -26,17 +28,17 @@ body {
 
 .menu {
   list-style:none;
-  border-top:#65bb01 solid 5px;
+  border-top:#3cbee8 solid 5px;
   background-color:#4c4c4c;
   width:100%; height:45px;
   margin:0px;
 }
 
 .menu li a:hover {
-  background-color:#65bb01;
+  background-color:#3cbee8;
 }
 .selected{
-  background-color:#65bb01;
+  background-color:#3cbee8;
 }
 
 #header {
@@ -119,6 +121,3 @@ div.field, div.actions {
   border-bottom: 1px solid black;
 }
 
-.sidebar round{
-
-}
