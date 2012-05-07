@@ -28,8 +28,8 @@ public class LogConnexion {
 			PostMethod method = new PostMethod(url);
 			Header header = new Header("User-Agent", "Mozilla/3.5.1");
 			method.setRequestHeader(header);
-			method.addParameter("session[email]", login);
-			method.addParameter("session[password]", passwd);
+			method.addParameter("ndeveloper[cip]", login);
+			method.addParameter("ndeveloper[password]", passwd);
 			GetMethod method_get = null;
 			try {
 				int statusCode = client.executeMethod(method);
