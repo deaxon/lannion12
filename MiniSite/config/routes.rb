@@ -1,7 +1,6 @@
 MiniSite::Application.routes.draw do
 
-  get "contacts/contact"
-
+  resources :projects
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
 

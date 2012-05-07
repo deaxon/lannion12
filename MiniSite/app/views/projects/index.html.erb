@@ -1,0 +1,30 @@
+<div class="main-content-right">
+  <h2>List of projects</h2>
+  <% @projects.each do |project| %>
+      <div class="row">
+
+        <section class="card special">
+
+          <section class="project-icon">
+            <img alt="Luminance HDR Icon" src="http://ocdevel.com/sites/ocdevel.com/files/images/rails.png" height="48" width="48"/>
+          </section>
+          <section class="project-info">
+            <header>
+              <h3><%= link_to project.name, project_path(project.id) %></h3>
+            </header>
+            <p>
+              <%= project.description %>
+              <%= link_to 'Read More', {:controller => 'projects', :action => :show} %>
+            </p>
+          </section>
+
+          <section class="best-release">
+
+            <div class="sfdl"></div>
+          </section>
+        </section>
+      </div>
+  <% end %>
+</div>
+
+
