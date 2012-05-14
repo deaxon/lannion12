@@ -58,7 +58,7 @@
     <% if signed_in? %>
         <li><%=  link_to 'Administration', :controller => 'sessions', :action => 'index' %></li>
     <% else %>
-         <li><%= link_to 'Administration', :controller => 'sessions', :action => 'new' %></li>
+        <li><%= link_to 'Administration', :controller => 'sessions', :action => 'new' %></li>
     <% end %>
     <li><a><%= (t 'lang') %></a>
       <ul id="lang">
