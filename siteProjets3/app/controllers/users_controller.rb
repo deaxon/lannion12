@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate, :authorize
+  before_filter :authenticate, :authorize, :except => [:new, :create]
   #before_filter :correct_user, :only => [:edit, :update]
 
   def show

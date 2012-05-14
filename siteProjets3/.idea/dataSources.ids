@@ -1,25 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?><component name="dataSourceStorage">
-  <data-source source="LOCAL" name="Rails siteProjets3: development" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="4a907f90-5feb-41d6-aff1-e6b2515eebfe">
-    <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-    <jdbc-url>jdbc:sqlite:/home/exituser/RubymineProjects/siteProjets3/db/development.sqlite3</jdbc-url>
+  <data-source source="LOCAL" name="Rails siteProjets3: development" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="5f08f2bf-6db6-4137-a57d-85c94a02a7c1">
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql://tictacServer.gel.usherbrooke.ca:5432/siteProjets3_dev</jdbc-url>
+    <user-name>siteProjets</user-name>
+    <user-password>dfcddfc5dfc4dfd8df9bdf9adf9adf9bdfd9dfdfdfdadfc9df93df9edf9adf9b</user-password>
     <libraries>
       <library>
-        <url>file://$USER_HOME$/.RubyMine40/config/jdbc-drivers/xerial-sqlite-license.txt</url>
+        <url>file://$USER_HOME$/.RubyMine40/config/jdbc-drivers/postgresql-driver-license.txt</url>
       </library>
       <library>
-        <url>jar://$USER_HOME$/.RubyMine40/config/jdbc-drivers/sqlite-jdbc-3.7.2.jar!/</url>
+        <url>jar://$USER_HOME$/.RubyMine40/config/jdbc-drivers/postgresql-9.1-901.jdbc3.jar!/</url>
       </library>
     </libraries>
   </data-source>
-  <data-source source="LOCAL" name="Rails siteProjets3: test" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="2347e65a-8d55-4fbc-b171-71935a9d1ba0">
-    <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-    <jdbc-url>jdbc:sqlite:/home/exituser/RubymineProjects/siteProjets3/db/test.sqlite3</jdbc-url>
+  <data-source source="LOCAL" name="Rails siteProjets3: demo" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="ae465a66-46e2-4f32-8d91-4dfd007c8ee1">
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql://tictacServer.gel.usherbrooke.ca:5432/siteScrum_demo</jdbc-url>
+    <user-name>siteProjets</user-name>
+    <user-password>dfcddfc5dfc4dfd8df9bdf9adf9adf9bdfd9dfdfdfdadfc9df93df9edf9adf9b</user-password>
     <libraries>
       <library>
-        <url>file://$USER_HOME$/.RubyMine40/config/jdbc-drivers/xerial-sqlite-license.txt</url>
+        <url>file://$USER_HOME$/.RubyMine40/config/jdbc-drivers/postgresql-driver-license.txt</url>
       </library>
       <library>
-        <url>jar://$USER_HOME$/.RubyMine40/config/jdbc-drivers/sqlite-jdbc-3.7.2.jar!/</url>
+        <url>jar://$USER_HOME$/.RubyMine40/config/jdbc-drivers/postgresql-9.1-901.jdbc3.jar!/</url>
+      </library>
+    </libraries>
+  </data-source>
+  <data-source source="LOCAL" name="Rails siteProjets3: test" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="e8f1e314-6937-46a4-86fe-bf9a32563808">
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql://tictacServer.gel.usherbrooke.ca:5432/siteScrum_test</jdbc-url>
+    <user-name>siteProjets</user-name>
+    <user-password>dfcddfc5dfc4dfd8df9bdf9adf9adf9bdfd9dfdfdfdadfc9df93df9edf9adf9b</user-password>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine40/config/jdbc-drivers/postgresql-driver-license.txt</url>
+      </library>
+      <library>
+        <url>jar://$USER_HOME$/.RubyMine40/config/jdbc-drivers/postgresql-9.1-901.jdbc3.jar!/</url>
+      </library>
+    </libraries>
+  </data-source>
+  <data-source source="LOCAL" name="Rails siteProjets3: production" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="9e30bc3b-fb29-4739-b93a-09b5df51e00e">
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql://tictacServer.gel.usherbrooke.ca:5432/siteProjets3_prod</jdbc-url>
+    <user-name>siteProjets</user-name>
+    <user-password>dfcddfc5dfc4dfd8df9bdf9adf9adf9bdfd9dfdfdfdadfc9df93df9edf9adf9b</user-password>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine40/config/jdbc-drivers/postgresql-driver-license.txt</url>
+      </library>
+      <library>
+        <url>jar://$USER_HOME$/.RubyMine40/config/jdbc-drivers/postgresql-9.1-901.jdbc3.jar!/</url>
       </library>
     </libraries>
   </data-source>
