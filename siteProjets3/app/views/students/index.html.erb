@@ -1,0 +1,20 @@
+<h1>Listing students</h1>
+
+<% @students.each do |student| %>
+    <p>    <%=h student.studentName %>
+      <%=h student.studentFirstName %>
+      (<%=h student.cip %>) :
+      <%=h student.projects.count %> project(s),
+      <% if student.inactif ==  TRUE %>
+          <%= image_tag("/images/horsligne.png") %>
+      <% else %>
+          <%= image_tag("/images/enligne.png") %>
+      <% end %>
+      <%= link_to 'Voir', student %>
+      <%= link_to 'Editer', edit_student_path(student) %>
+    </p>
+<% end %>
+
+<br />
+
+<p><%= link_to 'Nouvel étudiant', new_student_path %> || <%= link_to "Retour à l'administration", :controller => 'sessions', :action => 'index' %></p>

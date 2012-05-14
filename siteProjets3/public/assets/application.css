@@ -1,0 +1,294 @@
+body
+{
+    margin: 0px 0 ;
+    text-align: center ;
+    font: 0.8em "Trebuchet MS", helvetica, sans-serif ;
+    background: #FFFFFF ;
+}
+
+body a img
+{
+    border: none;
+}
+
+div#header
+{
+    margin: 0;
+    border: 0px solid ;
+    text-decoration: none ;
+    border: none ;
+}
+
+div#header logo a img
+{
+    margin: 0px ;
+    border: none ;
+}
+
+div#header faculte a
+{
+    margin: 0 0 0 90px ;
+    padding: 0 0 0 0 ;
+    font: 1em "Trebuchet MS", helvetica, sans-serif ;
+    text-decoration: none ;
+    color: #000 ;
+    border: 0px solid ;
+}
+
+div#header genie a
+{
+    margin: 0 0 0 0px ;
+    padding: 0 0 0 0 ;
+    font: 1em "Trebuchet MS", helvetica, sans-serif ;
+    text-decoration: none ;
+    color: #000 ;
+    text-align: center ;
+    border: 0px solid ;
+}
+div#header banniere a
+{
+    margin: 0 0 0 0px ;
+    padding: 0 0 0 0 ;
+    font: 1em "Trebuchet MS", helvetica, sans-serif ;
+    text-decoration: none ;
+    color: #000 ;
+    text-align: center ;
+    border: 0px solid ;
+}
+div#footer
+{
+    margin: 30px 0 0 0 ;
+    padding: 0 ;
+    line-height: 0px ;
+    border-top: solid 1px #C6C6C6;
+    font: 0.9em "Trebuchet MS", helvetica, sans-serif ;
+}
+
+div#footer p
+{
+    text-align: center ;
+}
+
+div#footer accueil
+{
+    text-align: left ;
+}
+
+div#bordure
+{
+    width: 800px ;
+    margin: 0 auto ;
+    text-align: left ;
+    border: 1px solid #00532A ;
+    background: #fff ;
+}
+
+div#contenu
+{
+    padding: 0 0 0 25px ;
+    border: 0px dotted;
+}
+
+div#contenu h1
+{
+    padding-left: 10px ;
+    line-height: 25px ;
+    font-size: 1.5em ;
+    color: #00532A;
+    border-bottom: 0px dotted #226 ;
+}
+
+div#contenu h2
+{
+    padding-left: 10px ;
+    line-height: 25px ;
+    font-size: 1.2em ;
+    color: black;
+    border-bottom: 0px dotted #226 ;
+}
+
+div#contenu p
+{
+    text-align: justify ;
+    text-indent: 0em ;
+    padding: 0 25px 0 0 ;
+}
+
+#menu
+{
+
+    list-style: none ;
+    text-align: center ;
+    background: #8EBD8E ;
+    height: 33px;
+    border-bottom: 1px solid #00532A ;
+    border-top: 1px solid #00532A ;
+    margin: 0px 0px 10px 0px ;
+    padding: 0px 0 0px 0px;
+}
+
+#menu li
+{
+    background: #8EBD8E ;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px ;
+    display: inline ;
+    color: #fff ;
+
+}
+
+#menu a
+{
+    color: #FFFFFF ;
+    text-decoration:none ;
+    background: #8EBD8E ;
+    line-height: 1em ;
+    text-align: center ;
+    text-decoration: none ;
+    float: left ;
+    width: 160px;
+    border: 0px solid red ;
+    margin: 0px 0px 0px 0px ;
+    padding: 10px 0px 10px 0px ;
+}
+
+/* Si une balise ul est enfichée dans une balise li, elle ne sera pas affichée */
+#menu li ul, #menu li.sfhover ul
+{
+    display:none;
+}
+
+#menu li:hover ul#lang, #menu li.sfhover ul#lang
+{
+    display: block ;
+    width: 160px ;
+    position: absolute ;
+    border: 1px solid #00532A ;
+    line-height: 2.4em ;
+    background: #8EBD8E ;
+    margin: 33px 0px 0px 639px ;
+    padding: 0px 0px 0px 0px ;
+}
+
+#menu li:hover ul#proj, #menu li.sfhover ul#proj
+{
+    display: block ;
+    width: 160px ;
+    position: absolute ;
+    border: 1px solid #00532A ;
+    line-height: 2.4em ;
+    background: #8EBD8E ;
+    margin: 33px 0px 0px 319px ;
+    padding: 0px 0px 0px 0px ;
+}
+
+#menu li a:hover, #menu li a:focus, #menu li a:active
+{
+    background: #BFD77F ;
+    color: #565656 ;
+}
+
+#menu_vertical
+{
+    float: right ;
+    margin: 0px 0px 15px 15px;
+    list-style: none ;
+    text-align: center ;
+    background: #8EBD8E ;
+    padding: 0px 0px ;
+    width: 100px ;
+    border-bottom: 1px solid #00532A ;
+    border-top: 1px solid #00532A ;
+    border-left: 1px solid #00532A ;
+}
+
+#menu_vertical li a
+{
+    color: #FFFFFF ;
+    text-decoration:none ;
+    padding: 5px 36px ;
+    background: #8EBD8E ;
+    line-height: 2.4em ;
+    text-align: center ;
+    margin: 0px 0px ;
+}
+
+#menu_vertical li a:hover, #menu_vertical li a:focus, #menu_vertical li a:active
+{
+    background: #BFD77F ;
+    color: #565656 ;
+}
+
+ul#menu_vertical titre
+{
+    font-size: 1.2em ;
+    color: #00532A ;
+    line-height: 2em ;
+}
+
+#menu_projet li
+{
+    margin: 0px 0px 0px 0px;
+    padding: 4px 25px 0 0;
+    text-align: center ;
+    display: inline ;
+    text-decoration: none ;
+}
+
+#flash
+{
+    margin: 10px 10px;
+    border: solid 1px red;
+}
+
+div#page
+{
+    position:relative;
+    text-align: justify;
+    border: 0px solid red;
+}
+
+div#page img
+{
+    float: left;
+    margin : 5px 15px 0px 0px;
+    border: 0px solid yellow;
+}
+
+/* Tableau étudiant */
+table#tab_etud
+{
+    background-color:#FFFFFF;
+    border: solid #000 1px;
+    width: 750px;
+}
+
+table#tab_etud td
+{
+    padding: 5px;
+    border: solid #000 0px;
+}
+
+.data
+{
+    color: #000000;
+    text-align: right;
+    background-color: #CCCCCC;
+}
+
+.toprow
+{
+    font-style: italic;
+    text-align: center;
+    background-color: #FFFFCC;
+}
+		
+
+
+
+
+
+
+		
+
+

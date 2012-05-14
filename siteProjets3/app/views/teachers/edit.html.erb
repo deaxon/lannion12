@@ -1,0 +1,27 @@
+<h1>Edition d'un professeur</h1>
+
+<%= form_for(@teacher) do |f| %>
+
+    <p>
+      <%= f.label "Name" %><br />
+      <%= f.text_field :teacherName %>
+    </p>
+    <p>
+      <%= f.label "First name" %><br />
+      <%= f.text_field :teacherFirstName %>
+    </p>
+    <p>
+      <%= f.label "CIP" %><br />
+      <%= f.text_field :cipTeacher %>
+    </p>
+    <p>
+      <%= f.label "Inactif ? (Attention, passer le professeur en 'inactif' efface son (ses) lien(s) avec le(s) projet(s))" %><br />
+      <%= f.check_box :inactifTeacher %>
+    </p>
+    <p>
+      <%= f.submit 'Update' %>
+    </p>
+<% end %>
+
+<%= link_to 'Voir', @teacher %> |
+<%= link_to 'Retour', teachers_path %>

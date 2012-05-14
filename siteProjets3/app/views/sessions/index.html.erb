@@ -1,0 +1,26 @@
+<h1>Administration</h1>
+<p>
+<li>
+  <titre><%= 'Administrateurs' %></titre>
+</li>
+<ul><%= link_to "Liste", :controller => 'sessions', :action => 'list_users' %></ul>
+<ul><%= link_to "Ajouter", :controller => 'sessions', :action => 'add_user' %></ul>
+
+<li>
+  <titre><%= 'Projets' %></titre>
+</li>
+<ul><%= link_to "Gestion des années", :controller => 'annees' %></ul>
+<ul><%= link_to "Gestion des PDFs", :controller => 'pdfs' %></ul>
+<ul><%= link_to "Gestion des professeurs", :controller => 'teachers' %></ul>
+<ul><%= link_to "Gestion des étudiants", :controller => 'students' %></ul>
+<ul>
+  <% @annees.each do |annee| %>
+      <li><%= link_to annee.year, annee_projects_path(annee) %></li>
+  <% end %></ul>
+
+<li>
+  <titre><%= 'Autres' %></titre>
+</li>
+<ul><%= link_to "Statistiques", :controller => 'rail_stat' %></ul>
+<ul><%= link_to "Déconnexion", :controller => 'sessions', :action => 'destroy' %></ul>
+</p>

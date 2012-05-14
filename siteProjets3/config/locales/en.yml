@@ -1,0 +1,23 @@
+en:
+# Layout application
+  index: Home
+  lang: Language
+  accueil: Homepage
+  descript_accueil: "Homepage : presentation..."
+  un_proj: "A project"
+  un_proj_desc:
+  un_proj_format:
+  act_peda: Courses
+  droits: "All rights reserved"
+  equipe: "Developed by"
+  retour: "Back to"
+  
+# Projets
+  list_proj: "Project listing"
+  
+# Menu projet année
+  annees: "Years"
+  
+#Login
+  user: "CIP code"
+  pass: "Password"

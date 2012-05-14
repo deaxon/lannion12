@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Studentname:</b>
+  <%= @student.studentName %>
+</p>
+
+<p>
+  <b>Studentfirstname:</b>
+  <%= @student.studentFirstName %>
+</p>
+
+<p>
+  <b>Cip:</b>
+  <%= @student.cip %>
+</p>
+
+
+<%= link_to "Gérer les projets de l'etudiant", :id => @student, :action => 'projects' %>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>

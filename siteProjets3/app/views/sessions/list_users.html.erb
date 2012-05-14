@@ -1,0 +1,17 @@
+<h1>Gestion des administrateurs</h1>
+<ul>
+  <% for user in @users %>
+      <li><%= link_to "[X]", { # link_to options
+                               :controller => 'sessions',
+                               :action => 'delete_user',
+                               :id => user},
+                      { # html options
+                        :method  => :post,
+                        :confirm => "Voulez-vous vraiment détruire cet administrateur #{user.name} ?"
+                      } %>
+        <%= h(user.name) %>
+      </li>
+  <% end %>
+</ul>
+
+<%= link_to "Retour à l'administration", :controller => 'sessions', :action => 'index' %>

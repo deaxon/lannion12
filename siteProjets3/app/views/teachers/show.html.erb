@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Teachername:</b>
+  <%= @teacher.teacherName %>
+</p>
+
+<p>
+  <b>Teacherfirstname:</b>
+  <%= @teacher.teacherFirstName %>
+</p>
+
+<p>
+  <b>Cipteacher:</b>
+  <%= @teacher.cipTeacher %>
+</p>
+<p>
+  <b>Projets :</b>
+  <% if @teacher.projects.count > 0 %>
+      <%= @teacher.projects.collect {|c| c.projectName}.join(", ") %>
+  <% else %>
+      Ce professeur n'est rattaché à aucun projet.
+  <% end %>
+</p>
+
+
+<%= link_to "Manage teachers' project", :id => @teacher, :action => 'projects' %>
+<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
+<%= link_to 'Back', teachers_path %>

@@ -1,0 +1,26 @@
+<%= form_for [@annee, @project], :html => {:multipart => true} do |f| %>
+    <p>
+      <%= f.label :projectName %><br/>
+      <%= f.text_field :projectName %>
+    </p>
+    <p>
+      <%= f.label :description %><br/>
+      <%= f.text_area :description, :rows => '10', :cols => '40' %>
+    </p>
+    <p>
+      <%= f.label :shortDescription %><br/>
+      <%= f.text_area :shortDescription, :rows => '5', :cols => '40' %>
+    </p>
+    <%= f.hidden_field :invisible, :value => FALSE %>
+    <p>
+      Picture :
+      <%= f.file_field :file %>
+      ( only jpg,png,jpeg,gif )
+    </p>
+    <p>
+      Pdf     :
+      <%= f.file_field :pdf %>
+    </p>
+    <p><%= f.submit %></p>
+<% end %>
+

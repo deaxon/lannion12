@@ -1,0 +1,24 @@
+<%= form_for(@annee) do |f| %>
+  <% if @annee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@annee.errors.count, "error") %> prohibited this annee from being saved:</h2>
+
+      <ul>
+      <% @annee.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :year %><br />
+    <%= f.number_field :year %>
+  </div>
+    </p>
+    <%= f.hidden_field :invisible_annee, :value => TRUE %>
+    <p>
+  <div class="actions">
+    <%= f.submit 'Create' %>
+  </div>
+<% end %>

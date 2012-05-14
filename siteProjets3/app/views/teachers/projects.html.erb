@@ -1,0 +1,36 @@
+<h1>Projet(s) de <%= @teacher.teacherFirstName %> <%= @teacher.teacherName %></h1>
+<p><i>S7 : semestre 7 | S8 : semestre 8 | 78 : semestres 7 et 8</i></p>
+<% if @projects.length > 0 %>
+    <%= form_tag(project_remove_teacher_path(@teacher)) do %>
+
+        <% @semesters.each do |semester| %>
+            <%= semester.getNameProject %> (<%=h semester.semesterTeacher %>)
+            <%= check_box_tag "projects[]", semester.project_id %><br />
+            <br />
+        <% end %>
+
+        <%= submit_tag "Enlever le(s) projet(s) sélectionné(s) pour le prof" %>
+    <% end %>
+<% else %>
+    <p>N'est relié à aucun projet.</p>
+<% end %>
+
+
+<h2>Ajouter un projet</h2>
+
+<% if @teacher.projects.count < Project.count then %>
+    <%= form_tag(project_add_teacher_path, :method => :post, :multipart => true)  do  %>
+        <%= select_tag(:project, options_from_collection_for_select(@teacher.unenrolled_teacher_projects, :id, :projectName)) %>
+        <br /><br />Semestre :<br />
+        <%= label "S7", "S7" %> <%= radio_button_tag :semesterTeacher, 'S7' %><br />
+        <%= label "S8", "S8" %> <%= radio_button_tag :semesterTeacher, 'S8' %><br />
+        <%= label "Les deux", "Les deux" %> <%= radio_button_tag :semesterTeacher, '78', true %><br />
+        <br />
+
+        <%= submit_tag 'Add' %>
+    <% end %>
+<% else %>
+    <p><%=h @teacher.teacherFirstName %> <%=h @teacher.teacherName %> est déjà dans tout les projets</p>
+<% end %>
+
+<p><%= link_to "Retour", @teacher %> </p>

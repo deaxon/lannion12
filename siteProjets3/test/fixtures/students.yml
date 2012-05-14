@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  studentName: MyString
+  studentFirstName: MyString
+  cip: MyString
+  inactif: false
+
+two:
+  studentName: MyString
+  studentFirstName: MyString
+  cip: MyString
+  inactif: false

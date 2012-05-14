@@ -1,0 +1,24 @@
+<h1>Liste des professeurs</h1>
+
+
+<% @teachers.each do |teacher| %>
+    <p>
+      <%=h teacher.teacherFirstName  %>
+      <%=h teacher.teacherName %>
+      (<%=h teacher.cipTeacher  %>) :
+      <%=h teacher.projects.count %> projet(s),
+      <% if teacher.inactifTeacher ==  TRUE %>
+          <%= image_tag("/images/horsligne.png") %>
+      <% else %>
+          <%= image_tag("/images/enligne.png") %>
+      <% end %>
+      <%= link_to 'Voir', teacher %>
+      <%= link_to 'Editer', edit_teacher_path(teacher) %>
+    </p>
+<% end %>
+
+
+<br />
+
+<p><%= link_to 'Nouveau professeur', new_teacher_path %> ||
+  <%= link_to "Retour à l'administration", :controller => 'sessions', :action => 'index' %></p>

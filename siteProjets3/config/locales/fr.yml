@@ -1,0 +1,53 @@
+fr:
+# Layout application
+  index: "Projets de conception avancée en génie électrique et en génie informatique"
+  lang: "Langage"
+  accueil: "Accueil"
+  descript_accueil1: "Durant la dernière année de leur programme de formation universitaire en génie électrique et en génie informatique, les étudiants doivent réaliser un projet majeur de conception s'échelonnant sur deux trimestres dans le cadre des activités pédagogiques Projets de conception spécialisés I et II et Projets d’ingénierie des logiciels I et II."
+  descript_accueil2: "Nous sommes toujours à la recherche de nouveaux projets pour cette activité pédagogique. Les clients potentiels pour ces projets incluent des étudiants, des groupes ou associations étudiantes, des professeurs, des chercheurs, des industriels, etc. Toute personne qui désire soumettre un projet peut le faire. Il suffit de prendre connaissance des directives disponibles sur ce site et de compléter le formulaire de proposition de projet. Les propositions seront évaluées par une équipe professorale mandatée par le Département de génie électrique et de génie informatique qui se réserve le droit de les retenir ou non."
+  un_proj: "Un projet"
+  un_proj_desc: "Description d'un projet"
+  un_proj_format: "Format d'envoi d'un projet"
+  act_peda: "Activités pédagogiques"
+  droits: "Tous droits réservés"
+  equipe: "Site développé par l'équipe"
+  retour: "Retour à l'"
+
+# Projets
+  list_proj: "Listing projets"
+
+# Menu projet année
+  annees: "Années"
+
+# Login
+  user: "Code CIP"
+  pass: "Mot de passe"
+
+# Messages d'erreurs (validation)
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "Impossible d'enregistrer {{model}}: 1 erreur"
+          other: "Impossible d'enregistrer {{model}}: {{count}} erreurs."
+        body: "Veuillez vérifier les champs suivants :"
+      messages:
+        inclusion: "n'est pas inclus(e) dans la liste"
+        exclusion: "n'est pas disponible"
+        invalid: "n'est pas valide"
+        confirmation: "ne concorde pas avec la confirmation"
+        accepted: "doit être accepté(e)"
+        empty: "doit être rempli(e)"
+        blank: "doit être rempli(e)"
+        too_long: "est trop long (pas plus de {{count}} caractères)"
+        too_short: "est trop court (au moins {{count}} caractères)"
+        wrong_length: "ne fait pas la bonne longueur (doit comporter {{count}} caractères)"
+        taken: "n'est pas disponible"
+        not_a_number: "n'est pas un nombre"
+        greater_than: "doit être supérieur à {{count}}"
+        greater_than_or_equal_to: "doit être supérieur ou égal à {{count}}"
+        equal_to: "doit être égal à {{count}}"
+        less_than: "doit être inférieur à {{count}}"
+        less_than_or_equal_to: "doit être inférieur ou égal à {{count}}"
+        odd: "doit être impair"
+        even: "doit être pair"

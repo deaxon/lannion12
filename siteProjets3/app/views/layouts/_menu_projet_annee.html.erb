@@ -1,0 +1,6 @@
+<ul id="menu_vertical">
+	<li><titre><%=t 'annees' %></titre></li>
+	<% @annees.each do |annee| %>
+        <li><%= link_to annee.year, :controller => 'projects', :annee_id => annee %></li>
+	<% end %>
+</ul>	
