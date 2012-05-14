@@ -80,7 +80,6 @@ div#bordure
     text-align: left ;
     border: 1px solid #00532A ;
     background: #fff ;
-    min-width: 1000px;
 }
 
 html>body #bordure {
