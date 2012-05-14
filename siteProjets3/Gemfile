@@ -7,7 +7,7 @@ gem 'rails', '3.2.3'
 
 gem 'carrierwave'
 gem 'rmagick'
-gem 'nested_form'
+#gem 'nested_form'
 gem 'therubyracer'
 gem 'pg'
 # Gems used only for assets and not required
