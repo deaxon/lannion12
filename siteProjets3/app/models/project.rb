@@ -1,9 +1,8 @@
 class Project < ActiveRecord::Base
-  attr_accessible :projectName, :description, :shortDescription, :file, :pdf, :invisible
+  attr_accessible :projectName, :description, :shortDescription, :invisible
   belongs_to :annee
-  belongs_to :attachable
-  mount_uploader :file, FileUploader
-  mount_uploader :pdf, PdfUploader
+
+  has_many :uploads, :foreign_key =>  "project_id"
 
   has_many :students, :through =>  :trimester
   has_many :trimester

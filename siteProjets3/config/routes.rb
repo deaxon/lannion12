@@ -20,10 +20,9 @@ SiteProjets3::Application.routes.draw do
   resources :sessions  do
     get :add_user, :on => :member
   end
-  #resources :annees
-
 
   match '/home', :to => 'home#index'
+  match '/home/course', :to => 'home#course'
   match '/home/format', :to => 'home#format'
   match '/home/project', :to => 'home#project'
   match '/login', :to =>  'sessions#new'

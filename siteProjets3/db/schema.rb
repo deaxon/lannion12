@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120511185810) do
+ActiveRecord::Schema.define(:version => 20120515015809) do
 
   create_table "annees", :force => true do |t|
     t.integer  "year"
@@ -24,12 +24,10 @@ ActiveRecord::Schema.define(:version => 20120511185810) do
     t.string   "projectName"
     t.text     "description"
     t.text     "shortDescription"
-    t.string   "file"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.integer  "annee_id"
     t.boolean  "invisible"
-    t.string   "pdf"
   end
 
   create_table "semesters", :force => true do |t|
@@ -67,12 +65,13 @@ ActiveRecord::Schema.define(:version => 20120511185810) do
   end
 
   create_table "uploads", :force => true do |t|
-    t.integer  "parent_id"
     t.string   "file"
+    t.string   "pdf"
     t.integer  "attachable_id"
     t.string   "attachable_type"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.integer  "project_id"
   end
 
   create_table "users", :force => true do |t|

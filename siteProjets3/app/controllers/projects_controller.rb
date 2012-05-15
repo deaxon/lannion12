@@ -14,7 +14,6 @@ class ProjectsController < ApplicationController
   end
 
   def horsligne
-    @project = @annee.projects.find(params[:id])
     @project.invisible = TRUE
     @project.save
     redirect_to(annee_projects_path(@annee))
@@ -31,7 +30,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = @annee.projects.find(params[:id])
-
+    @upload = Upload.find(@project.id)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @project }
@@ -41,6 +40,7 @@ class ProjectsController < ApplicationController
   def new
     @annee = Annee.find(params[:annee_id])
     @project = @annee.projects.build
+    @upload = @project.uploads.build
     #@uploads = Upload.find(:all, :limit => 10, :order => "updated_at DESC")
     respond_to do |format|
       format.html # index.html.erb
@@ -55,6 +55,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = @annee.projects.build(params[:project])
+    @upload = Upload.new(params[:upload])
     #@uploads = Upload.find(:all, :limit => 10, :order => "updated_at DESC")
 
     respond_to do |format|

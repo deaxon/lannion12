@@ -44,10 +44,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @oldUser = User.authenticate_with_salt(*remember_token)
     @user = User.find(params[:id])
     @user.destroy
-     sign_in(@oldUser)
      redirect_to(:controller => 'sessions', :action => 'list_users')
   end
 

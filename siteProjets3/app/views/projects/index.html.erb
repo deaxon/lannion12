@@ -1,7 +1,7 @@
 <h1>Liste des projets (<%=h @annee.year %>)</h1>
 <br />
 <% if signed_in? %>
-    <%= link_to 'New project', new_annee_project_path(@annee) %> || <%= link_to "Retour à l'administration", :controller => 'sessions', :action => 'index'  %>
+    <%= link_to 'New project', new_annee_project_path %> || <%= link_to "Retour à l'administration", :controller => 'sessions', :action => 'index'  %>
 
 
     <% @projects.each do |project| %>
@@ -24,7 +24,7 @@
     <% end %>
 
 
-    <p><%= link_to 'Nouveau projet', new_annee_project_path %> || <%= link_to "Retour à l'administration", :controller => 'sessions', :action => 'index' %></p>
+    <p><%= link_to 'New Project', new_annee_project_path %> || <%= link_to "Retour à l'administration", :controller => 'sessions', :action => 'index' %></p>
 <% else %>
     <%= render(:partial => "layouts/menu_projet_annee") %>
 
