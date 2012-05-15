@@ -1,18 +1,22 @@
 <h1>Listing students</h1>
 
 <% @students.each do |student| %>
+    <ul><li>
     <p>    <%=h student.studentName %>
       <%=h student.studentFirstName %>
-      (<%=h student.cip %>) :
-      <%=h student.projects.count %> project(s),
+      (CIP : <%=h student.cip %>)     :
       <% if student.inactif ==  TRUE %>
-          <%= image_tag("/images/horsligne.png") %>
+          <%= image_tag("horsligne.png", :size => '20x20') %>
       <% else %>
-          <%= image_tag("/images/enligne.png") %>
+          <%= image_tag("enligne.png", :size => '20x20') %>
       <% end %>
+
       <%= link_to 'Voir', student %>
       <%= link_to 'Editer', edit_student_path(student) %>
+      <p><%=h student.projects.count %> project(s)
+     </p>
     </p>
+        </li></ul>
 <% end %>
 
 <br />
