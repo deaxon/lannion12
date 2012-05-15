@@ -1,6 +1,8 @@
 <h1>Liste des années</h1>
 
+<p><%= link_to 'New year', new_annee_path %> || <%= link_to 'Back', :controller => 'sessions', :action => 'index' %></p>
 
+<br/>
 
 <% @annees.each do |annee| %>
     <p>
