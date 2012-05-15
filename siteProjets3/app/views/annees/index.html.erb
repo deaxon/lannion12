@@ -1,23 +1,25 @@
 <h1>Liste des années</h1>
 
-<%= render(:partial => "layouts/legende_admin") %>
+
 
 <% @annees.each do |annee| %>
     <p>
-    <h2><%=h annee.year %></h2>
-    <div id="projet_admin">
-      <p><%= link_to image_tag("editer.png"), edit_annee_path(annee) %>
-        | <% if annee.invisible_annee ==  TRUE %>
-            <%= image_tag("horsligne.png") %> <%= link_to image_tag("publier.png"), :action => 'publier', :id => annee %>
+    <%=h annee.year %>  :
+        <%= link_to image_tag("editer.png", :size => '20x20'), edit_annee_path(annee) %>
+         <% if annee.invisible_annee ==  TRUE %>
+            <%= image_tag("horsligne.png", :size => '20x20') %> <%= link_to image_tag("publier.png", :size => '20x20'), :action => 'publier', :id => annee %>
         <% else %>
-            <%= image_tag("enligne.png") %> <%= link_to image_tag("publier.png"), :action => 'horsligne', :id => annee %>
+            <%= image_tag("enligne.png", :size => '20x20') %> <%= link_to image_tag("publier.png",:size => '20x20'), :action => 'horsligne', :id => annee %>
         <% end %>
-      </p>
-    </div>
     </p>
 <% end %>
 <br />
 
+
 <p><%= link_to 'New year', new_annee_path %> || <%= link_to 'Back', :controller => 'sessions', :action => 'index' %></p>
+
+
+<%= render(:partial => "layouts/legende_admin") %>
+
 
 
