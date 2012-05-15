@@ -117,7 +117,7 @@ div#contenu p
     padding: 0 25px 0 0 ;
 }
 
-.menu    bggbf
+.menu
 {
     list-style: none ;
     text-align: center ;
@@ -129,20 +129,18 @@ div#contenu p
     padding: 0px 0 0px 0px;
 }
 
-.menu li   bfbgg
+.menu li
 {
-    background-color: #8EBD8E ;
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px ;
     display: inline ;
     color: #fff ;
 }
 
-.menu a    bgbngbfdxc
+.menu a
 {
     color: #FFFFFF ;
     text-decoration:none ;
-    background-color: #8EBD8E ;
     line-height: 1em ;
     text-align: center ;
     text-decoration: none ;
@@ -182,9 +180,10 @@ div#contenu p
     margin: 33px 0px 0px 319px ;
     padding: 0px 0px 0px 0px ;
 }
-bkjbkjb
+
 .selected{
     background-color: #BFD77F ;
+    color: #565656 ;
 }
 
 .menu li a:hover, .menu li a:focus, .menu li a:active

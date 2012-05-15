@@ -49,10 +49,10 @@
   <ul class="menu">
     <li><%= link_to (t 'accueil'), {:controller => 'home', :action => 'index'}, :class => selected_class('home') %></li>
     <li><%= link_to (t 'act_peda'), '404.html' %></li>
-    <li><a><%= (t 'un_proj', :class => selected_class('home')) %></a>
+    <li><a><%= (t 'un_proj', :class => selected_class('projects')) %></a>
       <ul id="proj">
-        <li><%= link_to (t 'un_proj_desc'), :controller => 'home' %></li>
-        <li><%= link_to (t 'un_proj_format'), :controller => 'home' %></li>
+        <li><%= link_to (t 'un_proj_desc'), {:controller => 'home', :action => 'project'} %></li>
+        <li><%= link_to (t 'un_proj_format'), {:controller => 'home', :action => 'format'} %></li>
       </ul>
     </li>
     <% if signed_in? %>

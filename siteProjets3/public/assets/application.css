@@ -131,7 +131,6 @@ div#contenu p
 
 .menu li
 {
-    background-color: #8EBD8E ;
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px ;
     display: inline ;
@@ -142,7 +141,6 @@ div#contenu p
 {
     color: #FFFFFF ;
     text-decoration:none ;
-    background-color: #8EBD8E ;
     line-height: 1em ;
     text-align: center ;
     text-decoration: none ;
@@ -185,6 +183,7 @@ div#contenu p
 
 .selected{
     background-color: #BFD77F ;
+    color: #565656 ;
 }
 
 .menu li a:hover, .menu li a:focus, .menu li a:active
