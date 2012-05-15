@@ -1,9 +1,11 @@
 en:
 # Layout application
-  index: Home
+  index: "Projets de conception avancée en génie électrique et en génie informatique"
   lang: Language
   accueil: Homepage
   descript_accueil: "Homepage : presentation..."
+  descript_accueil1:
+  descript_accueil2:
   un_proj: "A project"
   un_proj_desc: "Project description"
   un_proj_format :
