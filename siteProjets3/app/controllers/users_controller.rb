@@ -10,10 +10,12 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
+
   def new
     @user = User.new
     @titre = "Register"
   end
+
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -39,6 +41,14 @@ class UsersController < ApplicationController
       @titre = "Edit profile"
       render 'edit'
     end
+  end
+
+  def destroy
+    @oldUser = User.authenticate_with_salt(*remember_token)
+    @user = User.find(params[:id])
+    @user.destroy
+     sign_in(@oldUser)
+     redirect_to(:controller => 'sessions', :action => 'list_users')
   end
 
   private

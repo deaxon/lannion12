@@ -27,7 +27,7 @@ SiteProjets3::Application.routes.draw do
   match '/home/format', :to => 'home#format'
   match '/home/project', :to => 'home#project'
   match '/login', :to =>  'sessions#new'
-  match '/logout', :to => 'sessions#destroy'
+  match '/logout', :to => 'sessions#logout'
   match '/signup',  :to => 'users#new'
   match '/students/:id/projects', :to => 'students#projects'
   match '/teachers/:id/projects', :to => 'teachers#projects'

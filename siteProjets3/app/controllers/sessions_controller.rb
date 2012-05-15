@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  #before_filter :authorize, :except => [:new , :create]
+  before_filter :authorize, :except => [:new , :create]
 
   def new
     @titre = "Login"
@@ -23,10 +23,10 @@ class SessionsController < ApplicationController
 
   def delete_user
     if request.post?
-      user = User.find(params[:id])
+      @user = User.find(params[:id])
       begin
-        user.destroy
-        #flash[:notice] = "Utilisateur #{user.name} supprimé"
+       @user.destroy
+       flash[:notice] = "Utilisateur #{@user.name} supprime"
       rescue Exception => e
         flash[:notice] = e.message
       end
@@ -39,7 +39,6 @@ class SessionsController < ApplicationController
                              params[:session][:password])
     if user.nil?
       flash.now[:error] = "Combinaison Email/Mot de passe invalide."
-
       @titre = "S'identifier"
       render 'new'
     else
@@ -52,7 +51,7 @@ class SessionsController < ApplicationController
     @users = User.all
   end
 
-  def destroy
+  def logout
     sign_out
     redirect_to root_path
   end

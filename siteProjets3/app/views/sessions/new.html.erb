@@ -1,6 +1,7 @@
 <h1>Accès à la partie Administration</h1>
 <p>Merci de vous identifier</p>
 <%= form_for(:session, :url => sessions_path) do |f| %>
+
     <div class="field">
       <%= f.label :name, "Code cip" %><br />
       <%= f.text_field :name %>

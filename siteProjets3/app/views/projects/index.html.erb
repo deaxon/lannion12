@@ -16,7 +16,7 @@
             <% else %>
                 <%= image_tag("enligne.png") %> <%= link_to image_tag("publier.png"), :action => 'horsligne', :id => project, :annee_id => @annee %>
             <% end %>
-            | <%= link_to image_tag("detruire.png"), project_delete_url(@annee, project)  %>
+            | <%= link_to image_tag("detruire.png"), project_delete_url(@annee, project),:confirm => "You sure?"  %>
 
           </p>
         </div>

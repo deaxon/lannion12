@@ -9,7 +9,7 @@ class Student < ActiveRecord::Base
   validates_presence_of :studentName
   validates_presence_of :studentFirstName
 
-  #validates_format_of :cip, :with => /\D{4}+\d{4}/, :message => ': doit contenir 4 lettres suivies de 4 chiffres'
+  validates_format_of :cip, :with => /\D{4}\d{4}/, :message => ': doit contenir 4 lettres suivies de 4 chiffres'
 
   def enrolled_in?(project)
     self.projects.include?(project)
