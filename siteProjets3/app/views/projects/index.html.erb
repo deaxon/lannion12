@@ -3,23 +3,23 @@
 <% if signed_in? %>
     <%= link_to 'New project', new_annee_project_path(@annee) %> || <%= link_to "Retour à l'administration", :controller => 'sessions', :action => 'index'  %>
 
-    <%= render(:partial => "layouts/legende_admin") %>
 
     <% @projects.each do |project| %>
 
-        <h2><%= link_to project.projectName, [@annee, project] %> (<%=h project.students.count %> étudiants)</h2>
-
-        <div id="projet_admin">
-          <p><%= link_to image_tag("editer.png"), edit_annee_project_path(@annee, project) %>
+        <ul>
+          <li><p><%= link_to project.projectName, [@annee, project] %>   :
+          <%= link_to image_tag("editer.png", :size => '20x20'), edit_annee_project_path(@annee, project) %>
             | <% if project.invisible ==  TRUE %>
-                <%= image_tag("horsligne.png") %> <%= link_to image_tag("publier.png"), :action => 'publier', :id => project, :annee_id => @annee %>
+                <%= image_tag("horsligne.png", :size => '20x20') %> <%= link_to image_tag("publier.png",:size => '20x20'), :action => 'publier', :id => project, :annee_id => @annee %>
             <% else %>
-                <%= image_tag("enligne.png") %> <%= link_to image_tag("publier.png"), :action => 'horsligne', :id => project, :annee_id => @annee %>
+                <%= image_tag("enligne.png", :size => '20x20') %> <%= link_to image_tag("publier.png", :size => '20x20'), :action => 'horsligne', :id => project, :annee_id => @annee %>
             <% end %>
-            | <%= link_to image_tag("detruire.png"), project_delete_url(@annee, project),:confirm => "You sure?"  %>
+            | <%= link_to image_tag("detruire.png", :size => '20x20'), project_delete_url(@annee, project),:confirm => "You sure?"  %>
 
           </p>
-        </div>
+            <p><%=h project.students.count %> étudiants</p>
+          </li>
+            </ul>
 
     <% end %>
 
@@ -36,3 +36,5 @@
             <% end %>
     <% end %>
 <% end %>
+
+<%= render(:partial => "layouts/legende_project") %>
