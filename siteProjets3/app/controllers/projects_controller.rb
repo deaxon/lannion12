@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = @annee.projects.find(params[:id])
-    @upload = Upload.find(@project.id)
+    @uploads = Upload.where(:project_id => @project.id)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @project }
@@ -55,17 +55,22 @@ class ProjectsController < ApplicationController
 
   def create
     @project = @annee.projects.build(params[:project])
-    @upload = Upload.new(params[:upload])
+    @upload = @project.uploads.build(params[:upload])
     #@uploads = Upload.find(:all, :limit => 10, :order => "updated_at DESC")
 
     respond_to do |format|
-      if @project.save
-        #flash[:notice] = 'Le projet a été créé.'
-        format.html { redirect_to([@annee, @project]) }
-        format.xml  { render :xml => @project, :status => :created, :location => @project }
+      if @upload.save
+        if @project.save
+          flash[:notice] = 'Le projet a ete cree.'
+          format.html { redirect_to([@annee, @project]) }
+          format.xml { render :xml => @project, :status => :created, :location => @project }
+        else
+          format.html { render :action => "new" }
+          format.xml { render :xml => @project.errors, :status => :unprocessable_entity }
+        end
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
+        format.xml { render :xml => @project.errors, :status => :unprocessable_entity }
       end
     end
   end

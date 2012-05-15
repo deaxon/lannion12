@@ -11,26 +11,28 @@
 </div>
 </p
 <p>
-  <% if(@project.file.url) %>
-      <%= link_to image_tag(@project.file.url(:thumb)), @project.file_url%>  <br/>
-      <%= link_to("Enlarge", @project.file_url) %>
-  <% end %>
-  <p>
-  <p>
-    <% if(@project.pdf.url) %>
-        <%= link_to image_tag("PDF_Logo.jpg",  :size => '50x50'), @project.pdf.url %>  <br/>
-        <%= link_to "Download", @project.pdf.url %>
-    <% end %>
-    <p>
-      <br/>
-      <% if signed_in? %>
-        <div id="projet_admin">
-          <p><%= link_to image_tag("editer.png"), edit_annee_project_path(@annee, @project) %>
-            <%= link_to 'Retour', annee_projects_path(@annee) %>
-          </p>
-        </div>
-    <% else %>
+  <% @uploads.each do |upload| %>
+      <% if (upload.file.url) %>
+          <%= link_to image_tag(upload.file.url(:thumb)), upload.file_url %>  <br/>
+          <%= link_to("Enlarge", upload.file_url) %>
+      <% end %>
+      <p>
 
+      <p>
+        <% if (upload.pdf.url) %>
+            <%= link_to image_tag("PDF_Logo.jpg", :size => '50x50'), upload.pdf.url %>  <br/>
+            <%= link_to "Download", upload.pdf.url %>
+        <% end %>
+        <p>
+          <br/>
+          <% if signed_in? %>
+            <div id="projet_admin">
+              <p><%= link_to image_tag("editer.png"), edit_annee_project_path(@annee, @project) %>
+                <%= link_to 'Retour', annee_projects_path(@annee) %>
+              </p>
+            </div>
+        <% else %>
+        <% end %>
         <p><%= link_to 'Retour', :controller => 'projects', :annee_id => @annee %></p>
 
-    <% end %>
+  <% end %>
