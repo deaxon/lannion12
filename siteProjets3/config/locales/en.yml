@@ -5,8 +5,8 @@ en:
   accueil: Homepage
   descript_accueil: "Homepage : presentation..."
   un_proj: "A project"
-  un_proj_desc:
-  un_proj_format:
+  un_proj_desc: "Project description"
+  un_proj_format :
   act_peda: Courses
   droits: "All rights reserved"
   equipe: "Developed by"
@@ -21,3 +21,33 @@ en:
 #Login
   user: "CIP code"
   pass: "Password"
+
+
+# Messages d'erreurs (validation)
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "Impossible to save %{model}: 1 error"
+          other: "Impossible to save %{model}: %{count} errors."
+        body: "Veuillez vérifier les champs suivants :"
+      messages:
+        inclusion: "n'est pas inclus(e) dans la liste"
+        exclusion: "not available"
+        invalid: "n'est pas valide"
+        confirmation: "ne concorde pas avec la confirmation"
+        accepted: "need to be accept"
+        empty: "doit être rempli(e)"
+        blank: "doit être rempli(e)"
+        too_long: "is too long (no more %{count} caractères)"
+        too_short: "is too short (au moins %{count} caractères)"
+        wrong_length: "ne fait pas la bonne longueur (doit comporter %{count} caractères)"
+        taken: "not available"
+        not_a_number: "is not a number"
+        greater_than: "doit être supérieur à %{count}"
+        greater_than_or_equal_to: "doit être supérieur ou égal à %{count}"
+        equal_to: "doit être égal à %{count}"
+        less_than: "doit être inférieur à %{count}"
+        less_than_or_equal_to: "doit être inférieur ou égal à %{count}"
+        odd: "doit être impair"
+        even: "doit être pair"
