@@ -6,4 +6,6 @@ class HomeController < ApplicationController
   end
   def project
   end
+  def course
+  end
 end
