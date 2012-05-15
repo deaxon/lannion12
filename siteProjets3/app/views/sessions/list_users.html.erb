@@ -1,10 +1,10 @@
 <h1>Gestion des administrateurs</h1>
 <ul>
-  <% for admin in @users %>
-      <li><%= link_to "[X]" ,admin, :method => :delete, :confirm => "You sure?",
-              :title => "Delete #{admin.name}" %>
+  <% for user in @users %>
+      <li><%= link_to "[X]" ,user, :method => :delete, :confirm => "You sure?",
+              :title => "Delete #{user.name}" %>
 
-        <%= h(admin.name) %>
+        <%= h(user.name) %>
       </li>
   <% end %>
 </ul>
