@@ -15,4 +15,12 @@ module ApplicationHelper
   def javascript(*args)
     content_for(:head) { javascript_include_tag(*args) }
   end
+  def selected_class (but)
+    case but
+      when 'home'
+        return "selected" if controller.controller_name == "home" and controller.action_name == "index" or controller.action_name == "format" or controller.action_name == "project"
+     when 'sessions'
+        return "selected" if controller.controller_name =="sessions" and controller.action_name == "index" or controller.action_name == "login"
+    end
+  end
 end
