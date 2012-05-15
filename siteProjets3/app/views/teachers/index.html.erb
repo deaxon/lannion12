@@ -2,19 +2,24 @@
 
 
 <% @teachers.each do |teacher| %>
+    <ul><li>
     <p>
       <%=h teacher.teacherFirstName  %>
       <%=h teacher.teacherName %>
-      (<%=h teacher.cipTeacher  %>) :
-      <%=h teacher.projects.count %> projet(s),
+      (CIP : <%=h teacher.cipTeacher  %>)
       <% if teacher.inactifTeacher ==  TRUE %>
-          <%= image_tag("/images/horsligne.png") %>
+          <%= image_tag("horsligne.png", :size => '20x20') %>
       <% else %>
-          <%= image_tag("/images/enligne.png") %>
+          <%= image_tag("enligne.png", :size => '20x20') %>
       <% end %>
+
       <%= link_to 'Voir', teacher %>
       <%= link_to 'Editer', edit_teacher_path(teacher) %>
+
+     <p> <%=h teacher.projects.count %> projet(s)
+       </p>
     </p>
+        </li></ul>
 <% end %>
 
 
