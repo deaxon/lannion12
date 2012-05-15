@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
-  <%= javascript_include_tag "nested_form" %>
+  <%= javascript_include_tag "application" %>
   <title>Projets S7-S8</title>
   <%= stylesheet_link_tag "application", :media => "all" %>
-
+  <%= csrf_meta_tag %>
 
   <script type="text/javascript">
       sfHover = function() {
@@ -46,19 +46,19 @@
   </div>
 
   <!-- Menu principal horizontal -->
-  <ul id="menu">
-    <li><%= link_to (t 'accueil'), :controller => 'home' %></li>
-    <li><%= link_to (t 'act_peda'), '404.html'%></li>
-    <li><a><%= (t 'un_proj') %></a>
+  <ul class="menu">
+    <li><%= link_to (t 'accueil'), {:controller => 'home', :action => 'index'}, :class => selected_class('home') %></li>
+    <li><%= link_to (t 'act_peda'), '404.html' %></li>
+    <li><a><%= (t 'un_proj', :class => selected_class('home')) %></a>
       <ul id="proj">
-        <li><%= link_to (t 'un_proj_desc'), :controller => 'home', :action => 'project' %></li>
-        <li><%= link_to (t 'un_proj_format'), :controller => 'home', :action => 'format' %></li>
+        <li><%= link_to (t 'un_proj_desc'), :controller => 'home' %></li>
+        <li><%= link_to (t 'un_proj_format'), :controller => 'home' %></li>
       </ul>
     </li>
     <% if signed_in? %>
-        <li><%=  link_to 'Administration', :controller => 'sessions', :action => 'index' %></li>
+        <li><%=  link_to 'Administration', {:controller => 'sessions', :action => 'index'}, :class => selected_class('sessions') %></li>
     <% else %>
-        <li><%= link_to 'Administration', :controller => 'sessions', :action => 'new' %></li>
+         <li><%= link_to 'Administration', :controller => 'sessions', :class => selected_class('sessions') %></li>
     <% end %>
     <li><a><%= (t 'lang') %></a>
       <ul id="lang">
@@ -79,8 +79,7 @@
 
   <!-- Pied de page -->
   <div id="footer">
-    <p><%=t 'droits' %> © Université de Sherbrooke, 2500, boul. de l'Université Sherbrooke (Québec) CANADA J1K 2R1<br />
-      <%=t 'retour' %> <%= link_to (t 'accueil'), :controller => 'accueil' %> - <%=t 'equipe' %> <%= link_to 'eXit', :controller => 'erreur' %></p>
+    © Laboratoire eXit, Université de Sherbrooke, 2500, boul. de l'Université, Sherbrooke (Québec) CANADA J1K 2R1. B.V1.1.3
   </div>
 </div>
 
