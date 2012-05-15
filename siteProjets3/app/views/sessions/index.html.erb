@@ -12,6 +12,7 @@
 <ul><%= link_to "Gestion des années", :controller => 'annees' %></ul>
 <ul><%= link_to "Gestion des professeurs", :controller => 'teachers' %></ul>
 <ul><%= link_to "Gestion des étudiants", :controller => 'students' %></ul>
+<li> Liste des projets par année</li>
 <ul>
   <% @annees.each do |annee| %>
       <li><%= link_to annee.year, annee_projects_path(annee) %></li>
