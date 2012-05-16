@@ -118,3 +118,13 @@ fr:
 
 
 #Professeurs
+  nom_prof: "Nom du professeur"
+  prenom_prof: "Prénom du professeur"
+  cip_prof: "CIP du professeur"
+  edit_etu: "Editer un professeur"
+  inactif_prof: "Inactif ? (Attention, passer le professeur en 'inactif' efface son (ses) lien(s) avec le(s) projet(s))"
+  liste_prof: "Liste des professeurs"
+  nouveau_prof: "Nouveau professeur"
+  proj: "projet(s)"
+  prof_aucun_proj: "Ce professeur n'est rattaché à aucun projet."
+  gerer_proj_prof: "Gérer les projets du professeur"

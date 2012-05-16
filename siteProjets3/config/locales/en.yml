@@ -118,3 +118,13 @@ en:
   les_2: "both"
 
 #Professeurs
+  nom_prof: "Teacher Name"
+  prenom_prof: "Teacher First Name"
+  cip_prof: "CIP Teacher"
+  edit_prof: "Editing Teacher"
+  inactif_prof: "Inactive ? (Warning, if you passed the teacher to inactive, you erase his links with the projects)"
+  liste_prof: "List of teachers"
+  nouveau_prof: "New Teacher"
+  proj: "project(s)"
+  prof_aucun_proj: "This teacher is not attached to any project."
+  gerer_proj_prof: "Manage projects of teacher"
