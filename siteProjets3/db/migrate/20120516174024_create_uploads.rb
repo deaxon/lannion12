@@ -2,7 +2,6 @@ class CreateUploads < ActiveRecord::Migration
   def change
     create_table :uploads do |t|
       t.string :file
-      t.string :pdf
       t.references :attachable, :polymorphic => true
 
       t.timestamps

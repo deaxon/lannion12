@@ -1,4 +1,4 @@
-<%= form_for [@annee, @project], :html => {:multipart => true} do |f| %>
+<%= nested_form_for [@annee, @project], :html => {:multipart => true} do |f| %>
     <% if @project.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@project.errors.count, "error") %> prohibited this annee from being saved:</h2>
@@ -24,16 +24,31 @@
       <%= f.text_area :shortDescription, :rows => '5', :cols => '40' %>
     </p>
     <%= f.hidden_field :invisible, :value => FALSE %>
-    <%= form_for @upload do |f2| %>
-        Picture :
-        <%=f2.file_field :file %>
-        ( only jpg,png,jpeg,gif )
+
+    <%= f.fields_for :uploads do |upload| %>
+        <p>
+          <%= image_tag(upload.object.file.url(:thumb)) if upload.object.file? %>
+        </p>
+        <p>
+          Picture :
+          <%= upload.file_field :file %>
+          ( only jpg, png, jpeg, gif )
+        </p>
+        <%= upload.link_to_remove "Remove this image" %>
+    <% end %>
+    <%= f.link_to_add "Add image", :uploads %>   <br/>
+
+    <%= f.fields_for :pdf_uploads do |pdf_upload| %>
+        <p>
+          <%= image_tag("PDF_Logo.jpg", :size => '50x50') if pdf_upload.object.pdf? %>
         </p>
         <p>
           Pdf :
-          <%= f2.file_field :pdf %>
+          <%= pdf_upload.file_field :pdf %>
         </p>
-        <p><%= f2.submit 'Create Project' %></p>
-    <% end  %>
+        <%= pdf_upload.link_to_remove "Remove this pdf" %>
+    <% end %>
+    <%= f.link_to_add "Add pdf", :pdf_uploads %>
+    <p><%= f.submit %></p>
 <% end %>
 

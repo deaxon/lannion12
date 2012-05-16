@@ -1,10 +1,7 @@
 class Upload < ActiveRecord::Base
-  attr_accessible :file, :pdf
+  attr_accessible :file
 
   mount_uploader :file, FileUploader
-  mount_uploader :pdf, PdfUploader
 
-
-  belongs_to :attachable
-  belongs_to :project
+  belongs_to :attachable, :polymorphic => true
 end

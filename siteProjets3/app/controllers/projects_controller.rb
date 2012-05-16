@@ -30,7 +30,6 @@ class ProjectsController < ApplicationController
 
   def show
     @project = @annee.projects.find(params[:id])
-    @uploads = Upload.where(:project_id => @project.id)
     respond_to do |format|
       format.html # show.html.erb
       format.xml { render :xml => @project }
@@ -40,8 +39,6 @@ class ProjectsController < ApplicationController
   def new
     @annee = Annee.find(params[:annee_id])
     @project = @annee.projects.build
-    @upload = @project.uploads.build
-    #@uploads = Upload.find(:all, :limit => 10, :order => "updated_at DESC")
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @projects }
@@ -50,25 +47,15 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = @annee.projects.find(params[:id])
-    @uploads = Upload.where(:project_id => @project.id)
-    #@uploads = Upload.find(:all, :limit => 10, :order => "updated_at DESC")
   end
 
   def create
     @project = @annee.projects.build(params[:project])
-    @upload = @project.uploads.build(params[:upload])
-    #@uploads = Upload.find(:all, :limit => 10, :order => "updated_at DESC")
-
     respond_to do |format|
-      if @upload.save
-        if @project.save
-          flash[:notice] = 'Le projet a ete cree.'
-          format.html { redirect_to([@annee, @project]) }
-          format.xml { render :xml => @project, :status => :created, :location => @project }
-        else
-          format.html { render :action => "new" }
-          format.xml { render :xml => @project.errors, :status => :unprocessable_entity }
-        end
+      if @project.save
+        flash[:notice] = 'Le projet a ete cree.'
+        format.html { redirect_to([@annee, @project]) }
+        format.xml { render :xml => @project, :status => :created, :location => @project }
       else
         format.html { render :action => "new" }
         format.xml { render :xml => @project.errors, :status => :unprocessable_entity }
@@ -78,27 +65,24 @@ class ProjectsController < ApplicationController
 
   def update
     @project = @annee.projects.find(params[:id])
-    @upload = Upload.where(:project_id => @project.id)
-
-    if @upload.update(@upload,params[:upload])
-      respond_to do |format|
-        if @project.update_attributes(params[:project])
-          flash[:notice] = 'Le projet a ete mis a jour.'
-          format.html { redirect_to([@annee, @project]) }
-          format.xml { head :ok }
-        else
-          format.html { render :action => "edit" }
-          format.xml { render :xml => @project.errors, :status => :unprocessable_entity }
-        end
+    respond_to do |format|
+      if @project.update_attributes(params[:project])
+        flash[:notice] = 'Le projet a ete mis a jour.'
+        format.html { redirect_to([@annee, @project]) }
+        format.xml { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml { render :xml => @project.errors, :status => :unprocessable_entity }
       end
     end
   end
 
   def destroy
     @project = @annee.projects.find(params[:id])
-    @upload = Upload.where(:project_id => @project.id)
-    @upload.destroy(@upload)
     @project.destroy
+
+    PdfUpload.where(:attachable_id => @project.id).destroy
+    Upload.where(:attachable_id => @project.id).destroy
     flash[:notice] = 'Le projet a ete detruit.'
 
     respond_to do |format|

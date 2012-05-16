@@ -1,28 +1,40 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <%= javascript_include_tag "application" %>
   <title>Projets S7-S8</title>
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= csrf_meta_tag %>
 
   <script type="text/javascript">
-      sfHover = function() {
+      sfHover = function () {
           var sfEls = document.getElementById("menu").getElementsByTagName("LI");
-          for (var i=0; i<sfEls.length; i++) {
-              sfEls[i].onmouseover=function() {
-                  this.className+=" sfhover";
+          for (var i = 0; i < sfEls.length; i++) {
+              sfEls[i].onmouseover = function () {
+                  this.className += " sfhover";
               }
-              sfEls[i].onmouseout=function() {
-                  this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+              sfEls[i].onmouseout = function () {
+                  this.className = this.className.replace(new RegExp(" sfhover\\b"), "");
               }
           }
       }
       if (window.attachEvent) window.attachEvent("onload", sfHover);
   </script>
-
-
+  <script>
+      function create_field_file(i) {
+          var i2 = i + 1;
+          document.getElementById('image_' + i).innerHTML = 'Picture ' + i + ' : <input id="upload_file" name="upload[file]" type="file"> ( only jpg,png,jpeg,gif )</span>';
+          document.getElementById('image_' + i).innerHTML += (i <= 10) ? '<br /><span id="image_' + i2 + '"><a href="javascript:create_field_file(' + i2 + ')">Add an image</a></span>' : '';
+      }
+  </script>
+  <script>
+      function create_field_pdf(i) {
+          var i2 = i + 1;
+          document.getElementById('pdf_' + i).innerHTML = 'Pdf ' + i + ' : <input type="file" name="pdf' + i + '"></span>';
+          document.getElementById('pdf_' + i).innerHTML += (i <= 10) ? '<br /><span id="pdf_' + i2 + '"><a href="javascript:create_field_pdf(' + i2 + ')">Add a pdf</a></span>' : '';
+      }
+  </script>
 </head>
 
 <body <%= @body_extras %>>
@@ -37,7 +49,7 @@
       <genie>
         <a href="http://www.usherbrooke.ca/gelecinfo/">Département de génie électrique et de génie informatique</a>
       </genie>
-      <br /><br />
+      <br/><br/>
       <!-- Lien pour la bannière -->
       <banniere>
         <%= render(:partial => "layouts/banniere_random") %>
@@ -56,9 +68,9 @@
       </ul>
     </li>
     <% if signed_in? %>
-        <li><%=  link_to 'Administration', {:controller => 'sessions', :action => 'index'}, :class => selected_class('sessions') %></li>
+        <li><%= link_to 'Administration', {:controller => 'sessions', :action => 'index'}, :class => selected_class('sessions') %></li>
     <% else %>
-         <li><%= link_to 'Administration', :controller => 'sessions', :class => selected_class('sessions') %></li>
+        <li><%= link_to 'Administration', :controller => 'sessions', :class => selected_class('sessions') %></li>
     <% end %>
     <li><a><%= (t 'lang') %></a>
       <ul id="lang">
@@ -74,7 +86,7 @@
 
   <!-- Corps de la page -->
   <div id="contenu">
-    <%= yield  %>
+    <%= yield %>
   </div>
 
   <!-- Pied de page -->

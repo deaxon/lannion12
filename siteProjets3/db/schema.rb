@@ -11,11 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120515015809) do
+ActiveRecord::Schema.define(:version => 20120516174820) do
 
   create_table "annees", :force => true do |t|
     t.integer  "year"
     t.boolean  "invisible_annee"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "pdf_uploads", :force => true do |t|
+    t.string   "pdf"
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
@@ -66,12 +74,10 @@ ActiveRecord::Schema.define(:version => 20120515015809) do
 
   create_table "uploads", :force => true do |t|
     t.string   "file"
-    t.string   "pdf"
     t.integer  "attachable_id"
     t.string   "attachable_type"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.integer  "project_id"
   end
 
   create_table "users", :force => true do |t|
