@@ -33,9 +33,9 @@ fr:
 
 # Projets
   list_proj: "Liste des projets"
-  proj_name: "Project Name"
+  proj_name: "Nom du projet"
   descrip: "Description"
-  short_descrip: "Short description"
+  short_descrip: "Courte description"
   img: "Image"
   seul: "Seulement"
   suppr_img: "Supprimer cette image"
@@ -48,6 +48,9 @@ fr:
   etu: "étudiants"
   img_agrandir: "Agrandir"
   pdf_telecharger: "Télécharger"
+  creer_proj: "Créer projet"
+  img_proj: "Image(s) du projet"
+  pdf_proj: "Pdf du projet"
 
 
 

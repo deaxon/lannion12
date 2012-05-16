@@ -32,10 +32,10 @@ en:
   detruire: "Delete"
 
 # Projets
-  list_proj: "Project listing"
-  proj_name: "Nom du projet"
+  proj_name: "Project Name"
   descrip: "Description"
-  short_descrip: "Courte description"
+  short_descrip: "Short description"
+  list_proj: "Project listing"
   img: "Picture"
   seul: "Only"
   suppr_img: "Remove this picture"
@@ -48,6 +48,9 @@ en:
   etu: "students"
   img_agrandir: "Enlarge"
   pdf_telecharger: "Download"
+  creer_proj: "Create project"
+  img_proj: "Project's picture(s)"
+  pdf_proj: "Project's pdf"
   
 # Menu projet année
   annees: "Years"

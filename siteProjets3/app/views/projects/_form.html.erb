@@ -25,30 +25,32 @@
     </p>
     <%= f.hidden_field :invisible, :value => FALSE %>
 
+    <p><b><%= (t :img_proj) %> </b> ( <%= (t :seul) %> jpg, png, jpeg, gif )  </p>
     <%= f.fields_for :uploads do |upload| %>
         <p>
           <%= image_tag(upload.object.file.url(:thumb)) if upload.object.file? %>
         </p>
         <p>
-          <%= (t :img) %> :
           <%= upload.file_field :file %>
-          ( <%= (t :seul) %> jpg, png, jpeg, gif )
+
+          <%= upload.link_to_remove (t :suppr_img) %>
         </p>
-        <%= upload.link_to_remove (t :suppr_img) %>
+
     <% end %>
     <%= f.link_to_add (t :add_img), :uploads %>   <br/>
 
+    <h4><%= (t :pdf_proj) %></h4>
     <%= f.fields_for :pdf_uploads do |pdf_upload| %>
         <p>
           <%= image_tag("PDF_Logo.jpg", :size => '50x50') if pdf_upload.object.pdf? %>
         </p>
         <p>
-          Pdf :
           <%= pdf_upload.file_field :pdf %>
+          <%= pdf_upload.link_to_remove (t :suppr_pdf) %>
         </p>
-        <%= pdf_upload.link_to_remove (t :suppr_pdf) %>
+
     <% end %>
     <%= f.link_to_add (t :add_pdf), :pdf_uploads %>
-    <p><%= f.submit %></p>
+    <p><%= f.submit  (t :creer_proj) %></p>
 <% end %>
 

@@ -45,6 +45,7 @@ class TeachersController < ApplicationController
     end
     redirect_to :action => :projects, :id => @teacher
   end
+
   def index
     @teachers = Teacher.all
 
