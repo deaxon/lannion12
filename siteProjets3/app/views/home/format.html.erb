@@ -1,35 +1,31 @@
-<h1>Format standard d'envoi de la description de votre projet</h1>
-<p>Pour que votre projet soit ajouté sur ce site, vous devez envoyer votre description ainsi que les images et pdf par email à l'adresse suivante : .</p>
-<p>Il faut tout d'abord rédiger une courte description (quelques lignes seulement) puis une description complète de votre projet que vous pouvez choisir de personnaliser.</p>
+<h1><%= (t :title_proj) %></h1>
+<p> <%= (t :descript_proj1) %></p> <%= (t :email) %>
+<p><%= (t :descript_proj2) %></p>
 
-<p>Pour cela, plusieurs balises sont à votre disposition :
-<li>[b] [/b] : <b>texte en gras</b></li>
-<li>[i] [/i] : <i>texte en italique</i></li>
-<li>[u] [/u] : <u>texte souligné</u></li>
-<li>[size=4] [/size] : <font size="4px">pour changer la taille du texte </font></li>
-<li>[color=red] [color] : <font color=red>texte en couleur</font></li>
-<li>[url=http://monsite.com] [/url] : <a href="#">texte sous forme de lien</a></li>
-<li>[email] [/email] : <a href="#">email@nomdomaine</a></li>
-<li>[code] [/code] : <code>texte sous forme de code</code></li>
-<li>[quote] [/quote] : <blockquote>texte sous forme de citation</blockquote></li>
+<p><%= (t :descript_proj3) %>
+<li>[b] [/b] : <b><%= (t :text_b) %></b></li>
+<li>[i] [/i] : <i><%= (t :text_i) %></i></li>
+<li>[u] [/u] : <u><%= (t :text_u) %></u></li>
+<li>[size=4] [/size] : <font size="4px"><%= (t :text_size) %> </font></li>
+<li>[color=red] [color] : <font color=red><%= (t :text_color) %></font></li>
+<li>[url=http://monsite.com] [/url] : <a href="#"><%= (t :text_url) %></a></li>
+<li>[email] [/email] : <a href="#"><%= (t :text_email) %></a></li>
+<li>[code] [/code] : <code><%= (t :text_code) %></code></li>
+<li>[quote] [/quote] : <blockquote><%= (t :text_quote) %></blockquote></li>
 </p>
   </br>
-<p>Exemple de personnalisation d'une page avec les balises :</p>
-<p><i><u>Le projet Exemple</u></i></p>
+<p><%= (t :descript_proj4) %></p>
+<p><i><u><%= (t :text_title) %></u></i></p>
 <p>
-<ul>D'abord une [i]brève[/i] description.</ul>
-<ul>Puis la une description [b]complète[/b] de votre projet, qui devra comporter les informations le
-  concernant. [size=1]Par exemple :[/size] son [color=orange]coût[color], sa [color=green]durée[color] etc...<br/>
-Vous pouvez également communiquer votre [url=http://monsiteprojet.com]site du projet[/url] si vous en avez un, ou encore
-votre adresse mail : [email]adressemail@nomdomaine[/email].</ul>
+<ul><%= (t :descript_proj5_1) %> [i]<%= (t :mot_breve) %> [/i] <%= (t :descript_proj5_2) %> </ul>
+<ul><%= (t :descript_proj6_1) %> [b]<%= (t :mot_complete) %>[/b] <%= (t :descript_proj6_2) %> [size=1]<%= (t :mot_par_exemple) %>[/size] <%= (t :descript_proj6_3) %> [color=orange]<%= (t :mot_cout) %>[color]<%= (t :descript_proj6_4) %> [color=green]<%= (t :mot_duree) %>[color] <%= (t :descript_proj6_5) %><br/>
+  <%= (t :descript_proj6_6) %> [url=http://monsiteprojet.com]<%= (t :mot_site_du_projet) %>[/url]<%= (t :descript_proj6_7) %> [email]<%= (t :mot_adresse_mail) %>[/email].</ul>
 </p>
 
-<p>Ce qui donne :</p>
-<p><i><u>Le projet Exemple</u></i></p>
+<p><%= (t :descript_proj7) %></p>
+<p><i><u><%= (t :text_title) %></u></i></p>
 <p>
-<ul>Une <i>brève</i> description pour présenter succintement votre projet.</ul>
-<ul>Une description <b>complète</b> de votre projet, pouvant être organisée en plusieurs paragraphes,qui devra comporter les informations le
-  concernant.<font size="1px"> Par exemple :</font> son <font color=orange>coût</font>, sa <font color=green> durée</font> etc...<br/>
-  Vous pouvez également communiquer votre <a href="#">site du projet</a> si vous en avez un, ou encore
-  votre adresse mail : <a href="#">adressemail@nomdomaine</a></ul>.
+<ul><%= (t :descript_proj5_1) %><i><%= (t :mot_breve) %></i> <%= (t :descript_proj5_2) %></ul>
+<ul><%= (t :descript_proj6_1) %> <b><%= (t :mot_complete) %></b> <%= (t :descript_proj6_2) %><font size="1px"> <%= (t :mot_par_exemple) %></font> <%= (t :descript_proj6_3) %> <font color=orange><%= (t :mot_cout) %></font><%= (t :descript_proj6_4) %><font color=green> <%= (t :mot_duree) %></font> <%= (t :descript_proj6_5) %><br/>
+  <%= (t :descript_proj6_6) %> <a href="#"><%= (t :mot_site_du_projet) %></a> <%= (t :descript_proj6_7) %> <a href="#"><%= (t :mot_adresse_mail) %></a></ul>.
 </p>
