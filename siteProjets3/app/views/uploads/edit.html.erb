@@ -1,6 +1,6 @@
-<h1>Editing upload</h1>
+<h1><%= (t :edit_upload) %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @upload %> |
-<%= link_to 'Back', uploads_path %>
+<%= link_to (t :voir), @upload %> |
+<%= link_to (t :retour), uploads_path %>
