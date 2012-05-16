@@ -166,37 +166,37 @@ fr:
   lien1: "Projet de conception spécialisé I"
   lien2: "Projet de conception spécialisé II"
 
- #Onglet projet
+#Onglet projet
  title_proj: "Format standard d'envoi de la description de votre projet"
- descript_proj1:  "Pour que votre projet soit ajouté sur ce site, vous devez envoyer votre description ainsi que les images et pdf par email à l'adresse suivante : "
- email:
- descript_proj2:
- descript_proj3:
- text_b:
- text_i:
- text_u:
- text_size:
- text_color:
- text_url:
- text_email:
- text_code:
- text_quote:
- descript_proj4:
- text_title:
- descript_proj5.1:
- mot_breve:
- descript_proj5.2:
- descript_proj6.1:
- mot_complete:
- descript_proj6.2:
- mot_par_exemple:
- descript_proj6.3:
- mot_cout:
- descript_proj6.4:
- mot_duree:
- descript_proj6.5:
- descript_proj6.6:
- mot_site_du_projet:
- descript_proj6.7:
- mot_adresse_mail:
- descript_proj7:
+ descript_proj1: "Pour que votre projet soit ajouté sur ce site, vous devez envoyer votre description ainsi que les images et pdf par email à l'adresse suivante : "
+ email: ""
+ descript_proj2: "Il faut tout d'abord rédiger une courte description (quelques lignes seulement), puis une description complète de votre projet que vous pouvez choisir de personnaliser."
+ descript_proj3: "Pour cela, plusieurs balises sont à votre disposition :"
+ text_b: "texte en gras"
+ text_i: "texte en italique"
+ text_u: "texte souligné"
+ text_size: "pour changer la taille du texte "
+ text_color: "texte en couleur"
+ text_url: "texte sous forme de lien"
+ text_email: "email@nomdomaine"
+ text_code: "texte sous forme de code"
+ text_quote: "texte sous forme de citation"
+ descript_proj4: "Exemple de personnalisation d'une page avec les balises :"
+ text_title: "Le projet Exemple"
+ descript_proj5_1: "Une "
+ mot_breve: "brève"
+ descript_proj5_2: " description pour présenter succintement votre projet."
+ descript_proj6_1: "Une description "
+ mot_complete: "complète"
+ descript_proj6_2: ", pouvant être organisée en plusieurs paragraphes, qui devra comporter les informations concernant votre projet. "
+ mot_par_exemple: "Par exemple"
+ descript_proj6_3: " son "
+ mot_cout: "coût"
+ descript_proj6_4: ", sa "
+ mot_duree: "durée"
+ descript_proj6_5: " etc..."
+ descript_proj6_6: "Vous pouvez également communiquer votre "
+ mot_site_du_projet: "site du projet"
+ descript_proj6_7: " si vous en avez un, ou encore votre adresse mail : "
+ mot_adresse_mail: "adressemail@nomdomaine"
+ descript_proj7: "Ce qui donne :"
