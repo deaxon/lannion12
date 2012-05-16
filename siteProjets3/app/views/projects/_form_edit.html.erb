@@ -31,10 +31,8 @@
           <%= image_tag(upload.object.file.url(:thumb)) if upload.object.file? %>
         </p>
         <p>
-          <%= (t :img) %> :
           <%= upload.file_field :file %>
-
-        <%= upload.link_to_remove (t :suppr_img) %>
+            <%= upload.link_to_remove (t :suppr_img) %>
         </p>
     <% end %>
     <%= f.link_to_add (t :add_img), :uploads %>   <br/>
@@ -45,7 +43,6 @@
           <%= image_tag("PDF_Logo.jpg", :size => '50x50') if pdf_upload.object.pdf? %>
         </p>
         <p>
-          Pdf :
           <%= pdf_upload.file_field :pdf %>
           <%= pdf_upload.link_to_remove (t :suppr_pdf) %>
         </p>
