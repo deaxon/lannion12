@@ -1,10 +1,10 @@
-<h1>Listing students</h1>
+<h1><%= (t :liste_etu) %></h1>
 
 <% @students.each do |student| %>
     <ul><li>
     <p> <b>   <%=h student.studentName %>
       <%=h student.studentFirstName %>  </b>
-      (CIP : <%=h student.cip %>)     :
+      (<%= (t :cip) %> : <%=h student.cip %>)     :
       <% if student.inactif ==  TRUE %>
           <%= image_tag("horsligne.png", :size => '20x20') %>
       <% else %>
@@ -21,4 +21,4 @@
 
 <br />
 
-<p><%= link_to 'Nouvel étudiant', new_student_path %> || <%= link_to "Retour à l'administration", :controller => 'sessions', :action => 'index' %></p>
+<p><%= link_to (t :nouveau_etu), new_student_path %> || <%= link_to (t :retour_admin), :controller => 'sessions', :action => 'index' %></p>

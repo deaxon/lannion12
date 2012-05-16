@@ -1,6 +1,6 @@
-<h1>Editing student</h1>
+<h1><%= (t :edit_etu) %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @student %> |
-<%= link_to 'Back', students_path %>
+<%= link_to (t :voir), @student %> |
+<%= link_to (t :retour), students_path %>
