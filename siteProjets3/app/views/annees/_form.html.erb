@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :year %><br />
+    <%= f.label (t :annee) %><br />
     <%= f.number_field :year %>
   </div>
     </p>
     <%= f.hidden_field :invisible_annee, :value => TRUE %>
     <p>
   <div class="actions">
-    <%= f.submit "Créer" %>
+    <%= f.submit (t :creer)%>
   </div>
 <% end %>

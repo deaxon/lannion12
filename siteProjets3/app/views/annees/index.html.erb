@@ -1,6 +1,6 @@
-<h1>Liste des années</h1>
+<h1><%= (t :liste_annee) %></h1>
 
-<p><%= link_to 'New year', new_annee_path %> || <%= link_to 'Back', :controller => 'sessions', :action => 'index' %></p>
+<p><%= link_to (t :nouvelle_annee), new_annee_path %> || <%= link_to (t :retour), :controller => 'sessions', :action => 'index' %></p>
 
 <br/>
 
@@ -18,7 +18,7 @@
 <br />
 
 
-<p><%= link_to 'New year', new_annee_path %> || <%= link_to 'Back', :controller => 'sessions', :action => 'index' %></p>
+<p><%= link_to (t :nouvelle_annee), new_annee_path %> || <%= link_to (t :retour), :controller => 'sessions', :action => 'index' %></p>
 
 
 <%= render(:partial => "layouts/legende_admin") %>
