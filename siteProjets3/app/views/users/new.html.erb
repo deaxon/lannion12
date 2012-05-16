@@ -1,4 +1,4 @@
-<h1>Inscription</h1>
+<h1><%= (t :inscrip) %></h1>
 
 <%= form_for(@user) do |f| %>
     <% if @user.errors.any? %>
@@ -14,18 +14,18 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :name %><br />
+      <%= f.label (t :cip) %><br />
       <%= f.text_field :name %>
     </div>
     <div class="field">
-      <%= f.label :password %><br />
+      <%= f.label (t :pass) %><br />
       <%= f.password_field :password %>
     </div>
     <div class="field">
-      <%= f.label :password_confirmation, "Confirmation" %><br />
+      <%= f.label (t :pass_conf), "Confirmation" %><br />
       <%= f.password_field :password_confirmation %>
     </div>
     <div class="actions">
-      <%= f.submit "Inscription" %>
+      <%= f.submit (t :inscrip) %>
     </div>
 <% end %>

@@ -1,8 +1,8 @@
-<h1>Listing users</h1>
+<h1><%= (t :liste_user) %></h1>
 
 <table>
   <tr>
-    <th>Name</th>
+    <th><%= (t :nom_user) %></th>
     <th>Hashed password</th>
     <th>Salt</th>
     <th></th>
@@ -13,13 +13,13 @@
 <% @users.each do |user| %>
   <tr>
     <td><%= user.name %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to (t :voir), user %></td>
+    <td><%= link_to (t :editer), edit_user_path(user) %></td>
+    <td><%= link_to (t :detruire), user, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to (t :nouveau_user), new_user_path %>
