@@ -128,3 +128,8 @@ en:
   proj: "project(s)"
   prof_aucun_proj: "This teacher is not attached to any project."
   gerer_proj_prof: "Manage projects of teacher"
+
+#uploads
+  edit_upload: "Editing Uploads"
+  liste_upload: "List of uploads"
+  nouveau_upload: "New Upload"

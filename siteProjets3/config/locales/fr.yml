@@ -128,3 +128,8 @@ fr:
   proj: "projet(s)"
   prof_aucun_proj: "Ce professeur n'est rattaché à aucun projet."
   gerer_proj_prof: "Gérer les projets du professeur"
+
+#uploads
+  edit_upload: "Editer un chargement"
+  liste_upload: "Liste des chargements"
+  nouveau_upload: "Nouveau chargement"
