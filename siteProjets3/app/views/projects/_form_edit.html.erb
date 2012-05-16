@@ -24,22 +24,18 @@
       <%= f.text_area :shortDescription, :rows => '5', :cols => '40' %>
     </p>
     <%= f.hidden_field :invisible, :value => FALSE %>
-    <p>
-      <% if (@project.file.url)==nil %>
-          Picture :
-          <%= f.file_field :file %>
-          ( only jpg,png,jpeg,gif )
-      <% else %>
-           Picture :
-          <%=  f.file_field :file %>
-          ( only jpg,png,jpeg,gif )
-      <% end %>
-
-    </p>
-    <p>
-      Pdf :
-      <%= f.file_field :pdf %>
-    </p>
-    <p><%= f.submit %></p>
+    <% @uploads.each do |upload| %>
+    <%= form_for upload do |f2| %>
+        Picture :
+        <%=f2.file_field :file %>
+        ( only jpg,png,jpeg,gif )
+        </p>
+        <p>
+          Pdf :
+          <%= f2.file_field :pdf %>
+        </p>
+        <p><%= f2.submit 'Upload Project' %></p>
+    <% end  %>
+        <% end %>
 <% end %>
 

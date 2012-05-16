@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :authorize, :except => [:index,:show]
+  before_filter :authorize, :except => [:index, :show]
   before_filter :get_annee
 
   def roll
@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
     @annees = Annee.all
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @projects }
+      format.xml { render :xml => @projects }
     end
   end
 
@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
     @uploads = Upload.where(:project_id => @project.id)
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @project }
+      format.xml { render :xml => @project }
     end
   end
 
@@ -44,12 +44,13 @@ class ProjectsController < ApplicationController
     #@uploads = Upload.find(:all, :limit => 10, :order => "updated_at DESC")
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @projects }
+      format.xml { render :xml => @projects }
     end
   end
 
   def edit
     @project = @annee.projects.find(params[:id])
+    @uploads = Upload.where(:project_id => @project.id)
     #@uploads = Upload.find(:all, :limit => 10, :order => "updated_at DESC")
   end
 
@@ -77,29 +78,35 @@ class ProjectsController < ApplicationController
 
   def update
     @project = @annee.projects.find(params[:id])
+    @upload = Upload.where(:project_id => @project.id)
 
-    respond_to do |format|
-      if @project.update_attributes(params[:project])
-        #flash[:notice] = 'Le projet a été mis à jour.'
-        format.html { redirect_to([@annee, @project]) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
+    if @upload.update(@upload,params[:upload])
+      respond_to do |format|
+        if @project.update_attributes(params[:project])
+          flash[:notice] = 'Le projet a ete mis a jour.'
+          format.html { redirect_to([@annee, @project]) }
+          format.xml { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml { render :xml => @project.errors, :status => :unprocessable_entity }
+        end
       end
     end
   end
 
   def destroy
     @project = @annee.projects.find(params[:id])
+    @upload = Upload.where(:project_id => @project.id)
+    @upload.destroy(@upload)
     @project.destroy
-    #flash[:notice] = 'Le projet a été détruit.'
+    flash[:notice] = 'Le projet a ete detruit.'
 
     respond_to do |format|
       format.html { redirect_to(annee_projects_path(@annee)) }
-      format.xml  { head :ok }
+      format.xml { head :ok }
     end
   end
+
   private
   def get_annee
     @annee = Annee.find(params[:annee_id])
