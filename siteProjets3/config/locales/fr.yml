@@ -36,6 +36,19 @@ fr:
   proj_name: "Project Name"
   descrip: "Description"
   short_descrip: "Short description"
+  img: "Image"
+  seul: "Seulement"
+  suppr_img: "Supprimer cette image"
+  add_img: "Ajouter une image"
+  suppr_pdf: "Supprimer ce pdf"
+  add_pdf: "Ajouter un pdf"
+  edit_proj: "Editer un projet"
+  liste_proj: "Liste des projets"
+  nouveau_proj: "Nouveau projet"
+  etu: "étudiants"
+  img_agrandir: "Agrandir"
+  pdf_telecharger: "Télécharger"
+
 
 
 # Menu projet année
