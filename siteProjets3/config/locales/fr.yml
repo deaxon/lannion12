@@ -133,3 +133,11 @@ fr:
   edit_upload: "Editer un chargement"
   liste_upload: "Liste des chargements"
   nouveau_upload: "Nouveau chargement"
+
+#users
+  nom_user: "Nom"
+  edit_user: "Editer un utilisateur"
+  liste_user: "Liste des utilisateurs"
+  nouveau_user: "Nouvel utilisateur"
+  inscrip: "Inscription"
+

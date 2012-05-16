@@ -133,3 +133,10 @@ en:
   edit_upload: "Editing Uploads"
   liste_upload: "List of uploads"
   nouveau_upload: "New Upload"
+
+#users
+  nom_user: "Name"
+  edit_user: "Editing User"
+  liste_user: "List of users"
+  nouveau_user: "New User"
+  inscrip: "Register"
