@@ -1,13 +1,13 @@
 <h1><%= h @project.projectName %> (<%= h @project.annee.year %>)</h1>
 <p>
   <b>Description brève:</b>
-<p><%= output = @project.shortDescription %></p>
+<p><%= output = @project.shortDescription.bbcode_to_html({}, false) %></p>
 </p>
 
 <p>
   <b>Description:</b>
 <div id="page">
-  <p><%= output = @project.description %></P>
+  <p><%= output = @project.description.bbcode_to_html({}, false) %></P>
 </div>
 </p
 <p>
