@@ -96,3 +96,25 @@ fr:
         less_than_or_equal_to: "doit être inférieur ou égal à %{count}"
         odd: "doit être impair"
         even: "doit être pair"
+
+#Etudiants
+  nom_etu: "Nom de l'étudiant"
+  prenom_etu: "Prénom de l'étudiant"
+  cip_etu: "CIP de l'étudiant"
+  inactif: "Inactif"
+  creer_etu: "Créer étudiant"
+  edit_etu: "Editer un étudiant"
+  nouveau_etu: "Nouvel étudiant"
+  liste_etu: "Liste des étudiants"
+  gerer_proj_etu: "Gérer les projets de l'etudiant"
+  semestre: "Semestre"
+  et: "et"
+  projets_de: "Project(s) de"
+  relie_aucun_proj: "N'est relié à aucun projet."
+  ajout_proj: "Ajouter un projet"
+  tous_proj: "est déjà dans tout les projets"
+  ajouter: "Ajouter"
+  les_2: "Les deux"
+
+
+#Professeurs

@@ -95,3 +95,26 @@ en:
         less_than_or_equal_to: "doit être inférieur ou égal à %{count}"
         odd: "doit être impair"
         even: "doit être pair"
+
+
+
+#Etudiants
+  nom_etu: "Student name"
+  prenom_etu:  "Student first name"
+  cip_etu: "CIP Student"
+  inactif: "Inactive"
+  creer_etu: "Create student"
+  edit_etu: "Editing student"
+  nouveau_etu: "New Student"
+  liste_etu: "List of students"
+  gerer_proj_etu: "Manage projects of student"
+  semestre: "Semester"
+  et: "and"
+  projets_de: "Project(s)"
+  relie_aucun_proj: "No project."
+  ajout_proj: "Add a project"
+  tous_proj: "is already in all projects"
+  ajouter: "Add"
+  les_2: "both"
+
+#Professeurs
