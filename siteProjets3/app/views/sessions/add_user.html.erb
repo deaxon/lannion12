@@ -1,5 +1,5 @@
-Entrer les détails de l'utilisateur
+<%= (t :details_user) %>
 
 <%= render 'form' %>
 
-<p><%= link_to "Back to administration", :controller => 'sessions', :action => 'index' %></p>
+<p><%= link_to (t :retour_admin), :controller => 'sessions', :action => 'index' %></p>

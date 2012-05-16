@@ -1,18 +1,18 @@
-<h1>Accès à la partie Administration</h1>
-<p>Merci de vous identifier</p>
+<h1><%= (t :acces_admin) %></h1>
+<p><%= (t :merci_identif) %></p>
 <%= form_for(:session, :url => sessions_path) do |f| %>
 
     <div class="field">
-      <%= f.label :name, "Code cip" %><br />
+      <%= f.label (t :cip) %><br />
       <%= f.text_field :name %>
     </div>
     <div class="field">
-      <%= f.label :password, "Mot de passe" %><br />
+      <%= f.label (t :pass) %><br />
       <%= f.password_field :password %>
     </div>
     <div class="actions">
-      <%= f.submit "Login" %>
+      <%= f.submit  (t :login) %>
     </div>
 <% end %>
 
-<p>Not registrer yet ? <%= link_to "Sign up", signup_path %></p>
+<p><%= (t :no_register) %><%= link_to (t :sign_up), signup_path %></p>

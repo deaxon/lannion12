@@ -1,24 +1,24 @@
-<h1>Administration</h1>
+<h1><%= (t :admin) %></h1>
 <p>
 <li>
-  <titre><%= 'Administrateurs' %></titre>
+  <titre><%= (t :admin_user) %></titre>
 </li>
-<ul><%= link_to "Liste", :controller => 'sessions', :action => 'list_users' %></ul>
+<ul><%= link_to (t :liste_admin), :controller => 'sessions', :action => 'list_users' %></ul>
 
 <li>
-  <titre><%= 'Projets' %></titre>
+  <titre><%= (t :projects) %></titre>
 </li>
-<ul><%= link_to "Gestion des années", :controller => 'annees' %></ul>
-<ul><%= link_to "Gestion des professeurs", :controller => 'teachers' %></ul>
-<ul><%= link_to "Gestion des étudiants", :controller => 'students' %></ul>
-<li> Liste des projets par année</li>
+<ul><%= link_to (t :gestion_annees), :controller => 'annees' %></ul>
+<ul><%= link_to (t :gestion_prof), :controller => 'teachers' %></ul>
+<ul><%= link_to (t :gestion_etu), :controller => 'students' %></ul>
+<li> <%= (t :liste_projets_annees) %></li>
 <ul>
   <% @annees.each do |annee| %>
       <li><%= link_to annee.year, annee_projects_path(annee) %></li>
   <% end %></ul>
 
 <li>
-  <titre><%= 'Autres' %></titre>
+  <titre><%= (t :autres) %></titre>
 </li>
-<ul><%= link_to "Déconnexion", :controller => 'sessions', :action => 'logout' %></ul>
+<ul><%= link_to (t :deconnexion), :controller => 'sessions', :action => 'logout' %></ul>
 </p>
