@@ -160,3 +160,8 @@ fr:
 #footer
   labo: "Laboratoire"
 
+#Activites pedagogiques
+  titre_act_peda: "Activité pédagogique de génie électrique et informatique"
+  lien1: "Projet de conception spécialisé I"
+  lien2: "Projet de conception spécialisé II"
+
