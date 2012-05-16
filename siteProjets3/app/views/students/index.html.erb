@@ -2,8 +2,8 @@
 
 <% @students.each do |student| %>
     <ul><li>
-    <p>    <%=h student.studentName %>
-      <%=h student.studentFirstName %>
+    <p> <b>   <%=h student.studentName %>
+      <%=h student.studentFirstName %>  </b>
       (CIP : <%=h student.cip %>)     :
       <% if student.inactif ==  TRUE %>
           <%= image_tag("horsligne.png", :size => '20x20') %>

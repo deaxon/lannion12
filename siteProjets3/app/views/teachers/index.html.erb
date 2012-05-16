@@ -3,9 +3,9 @@
 
 <% @teachers.each do |teacher| %>
     <ul><li>
-    <p>
+    <p> <b>
       <%=h teacher.teacherFirstName  %>
-      <%=h teacher.teacherName %>
+      <%=h teacher.teacherName %>  </b>
       (CIP : <%=h teacher.cipTeacher  %>)
       <% if teacher.inactifTeacher ==  TRUE %>
           <%= image_tag("horsligne.png", :size => '20x20') %>
