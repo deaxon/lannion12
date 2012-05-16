@@ -14,16 +14,58 @@ en:
   equipe: "Developed by"
   retour: "Back"
 
+# Annees
+  voir: "Show"
+  editer_annee: "Editing year"
+  liste_annee: "List of years"
+  annee: "Year"
+  nouvelle_annee: "New Year"
+  creer: "Create"
+  retour: "Back"
+  editer: "Edit"
+
+#legende
+  legende: "Legend"
+  editer: "Edit"
+  hors_ligne: "Offline"
+  en_ligne: "Online"
+  publier: "Publish or Offline"
+  detruire: "Delete"
+
 # Projets
   list_proj: "Project listing"
+  proj_name: "Nom du projet"
+  descrip: "Description"
+  short_descrip: "Courte description"
   
 # Menu projet année
   annees: "Years"
   
-#Login
-  user: "CIP code"
+#Sessions
+  cip: "CIP"
   pass: "Password"
-
+  pass_conf: "Password Confirmation"
+  add_user: "Add User"
+  details_user: "Enter user's details"
+  retour_admin: "Back to administration"
+  gestion_admin: "Managing Administrator"
+  ajouter: "Add"
+  confirm_sure: "Are you sure ?"
+  login: "Login"
+  no_register: "Not register yet ?"
+  sign_up: "Sign up"
+  acces_admin: "Access to the administration section"
+  merci_identif: "Thank to identify you"
+  admin: "Administration"
+  admin_user: "Administrator"
+  liste_admin: "List of administrator"
+  projects: "Projects"
+  gestion_annees: "Manage Years"
+  gestion_prof: "Manage teachers"
+  gestion_etu: "Manage students"
+  liste_projets_annees: "List of projects per year"
+  autres: "Others"
+  deconnexion: "Logout"
 
 # Messages d'erreurs (validation)
   activerecord:

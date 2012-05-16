@@ -13,15 +13,60 @@ fr:
   equipe: "Site développé par l'équipe"
   retour: "Retour"
 
+# Annees
+  voir: "Voir"
+  editer_annee: "Editer une année"
+  liste_annee: "Liste des années"
+  annee: "Année"
+  nouvelle_annee: "Nouvelle année"
+  creer: "Créer"
+  retour: "Retour"
+  editer: "Editer"
+
+#legende
+  legende: "Légende"
+  editer: "Editer"
+  hors_ligne: "Hors ligne"
+  en_ligne: "En ligne"
+  publier: "Publier ou passer hors ligne"
+  detruire: "Supprimer"
+
 # Projets
-  list_proj: "Listing projets"
+  list_proj: "Liste des projets"
+  proj_name: "Project Name"
+  descrip: "Description"
+  short_descrip: "Short description"
+
 
 # Menu projet année
   annees: "Années"
 
-# Login
-  user: "Code CIP"
+# Sessions
+  cip: "CIP"
   pass: "Mot de passe"
+  pass_conf: "Confirmation"
+  add_user: "Ajouter"
+  details_user: "Entrer les détails de l'utilisateur"
+  retour_admin: "Retour à l'administration"
+  gestion_admin: "Gestion des administrateurs"
+  ajouter: "Ajouter"
+  confirm_sure: "Etes-vous sur ?"
+  login: "Connexion"
+  no_register: "Pas encore inscrit ?"
+  sign_up: "S'inscrire"
+  acces_admin: "Accès à la partie Administration"
+  merci_identif: "Merci de vous identifier"
+  admin: "Administration"
+  admin_user: "Administrateur"
+  liste_admin: "Liste des administrateurs"
+  projects: "Projets"
+  gestion_annees: "Gestion des années"
+  gestion_prof: "Gestion des professeurs"
+  gestion_etu: "Gestion des étudiants"
+  liste_projets_annees: "Liste des projets par année"
+  autres: "Autres"
+  deconnexion: "Déconnexion"
+
 
 # Messages d'erreurs (validation)
   activerecord:
