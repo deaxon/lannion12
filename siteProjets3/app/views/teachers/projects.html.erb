@@ -4,12 +4,11 @@
     <%= form_tag(project_remove_teacher_path(@teacher)) do %>
 
         <% @semesters.each do |semester| %>
-            <%= semester.getNameProject %> (<%=h semester.semesterTeacher %>)
+            <%= semester.getNameProject %> (Semestre : <%=h semester.semesterTeacher %>)
             <%= check_box_tag "projects[]", semester.project_id %><br />
             <br />
         <% end %>
-
-        <%= submit_tag "Enlever le(s) projet(s) sélectionné(s) pour le prof" %>
+        <%= image_submit_tag("detruire.png", :size => '20x20')%>
     <% end %>
 <% else %>
     <p>N'est relié à aucun projet.</p>
