@@ -14,6 +14,7 @@ fr:
   equipe: "Site développé par l'équipe"
   retour: "Retour"
 
+
 # Annees
   voir: "Voir"
   editer_annee: "Editer une année"
@@ -53,8 +54,6 @@ fr:
   img_proj: "Image(s) du projet"
   pdf_proj: "Pdf du projet"
   edit_proj_button: "Editer Projet"
-
-
 
 # Menu projet année
   annees: "Années"
@@ -167,3 +166,37 @@ fr:
   lien1: "Projet de conception spécialisé I"
   lien2: "Projet de conception spécialisé II"
 
+ #Onglet projet
+ title_proj: "Format standard d'envoi de la description de votre projet"
+ descript_proj1:  "Pour que votre projet soit ajouté sur ce site, vous devez envoyer votre description ainsi que les images et pdf par email à l'adresse suivante : "
+ email:
+ descript_proj2:
+ descript_proj3:
+ text_b:
+ text_i:
+ text_u:
+ text_size:
+ text_color:
+ text_url:
+ text_email:
+ text_code:
+ text_quote:
+ descript_proj4:
+ text_title:
+ descript_proj5.1:
+ mot_breve:
+ descript_proj5.2:
+ descript_proj6.1:
+ mot_complete:
+ descript_proj6.2:
+ mot_par_exemple:
+ descript_proj6.3:
+ mot_cout:
+ descript_proj6.4:
+ mot_duree:
+ descript_proj6.5:
+ descript_proj6.6:
+ mot_site_du_projet:
+ descript_proj6.7:
+ mot_adresse_mail:
+ descript_proj7:
