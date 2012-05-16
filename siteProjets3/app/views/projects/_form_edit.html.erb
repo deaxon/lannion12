@@ -12,15 +12,15 @@
     <% end %>
 
     <p>
-      <%= f.label :projectName %><br/>
+      <%= f.label (t :proj_name) %><br/>
       <%= f.text_field :projectName %>
     </p>
     <p>
-      <%= f.label :description %><br/>
+      <%= f.label (t :descrip) %><br/>
       <%= f.text_area :description, :rows => '10', :cols => '40' %>
     </p>
     <p>
-      <%= f.label :shortDescription %><br/>
+      <%= f.label (t :short_descrip) %><br/>
       <%= f.text_area :shortDescription, :rows => '5', :cols => '40' %>
     </p>
     <%= f.hidden_field :invisible, :value => FALSE %>
@@ -30,13 +30,13 @@
           <%= image_tag(upload.object.file.url(:thumb)) if upload.object.file? %>
         </p>
         <p>
-          Picture :
+          <%= (t :img) %> :
           <%= upload.file_field :file %>
-          ( only jpg, png, jpeg, gif )
+          ( <%= (t :seul) %> jpg, png, jpeg, gif )
         </p>
-        <%= upload.link_to_remove "Remove this image" %>
+        <%= upload.link_to_remove (t :suppr_img) %>
     <% end %>
-    <%= f.link_to_add "Add image", :uploads %>   <br/>
+    <%= f.link_to_add (t :add_img), :uploads %>   <br/>
 
     <%= f.fields_for :pdf_uploads do |pdf_upload| %>
         <p>
@@ -46,9 +46,9 @@
           Pdf :
           <%= pdf_upload.file_field :pdf %>
         </p>
-        <%= pdf_upload.link_to_remove "Remove this pdf" %>
+        <%= pdf_upload.link_to_remove (t :suppr_pdf) %>
     <% end %>
-    <%= f.link_to_add "Add pdf", :pdf_uploads %>
+    <%= f.link_to_add (t :add_pdf), :pdf_uploads %>
     <p><%= f.submit %></p>
 <% end %>
 

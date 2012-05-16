@@ -1,7 +1,7 @@
-<h1>Liste des projets (<%=h @annee.year %>)</h1>
+<h1><%= (t :liste_proj) %> (<%=h @annee.year %>)</h1>
 <br />
 <% if signed_in? %>
-    <%= link_to 'New project', new_annee_project_path %> || <%= link_to "Retour à l'administration", :controller => 'sessions', :action => 'index'  %>
+    <%= link_to (t :nouveau_proj), new_annee_project_path %> || <%= link_to (t :retour_admin), :controller => 'sessions', :action => 'index'  %>
 
 
     <% @projects.each do |project| %>
@@ -14,17 +14,17 @@
             <% else %>
                 <%= image_tag("enligne.png", :size => '20x20') %> <%= link_to image_tag("publier.png", :size => '20x20'), :action => 'horsligne', :id => project, :annee_id => @annee %>
             <% end %>
-            | <%= link_to image_tag("detruire.png", :size => '20x20'), project_delete_url(@annee, project),:confirm => "You sure?"  %>
+            | <%= link_to image_tag("detruire.png", :size => '20x20'), project_delete_url(@annee, project),:confirm => (t :confirm_sure)  %>
 
           </p>
-            <p><%=h project.students.count %> étudiants</p>
+            <p><%=h project.students.count %> <%= (t :etu) %></p>
           </li>
             </ul>
 
     <% end %>
 
 
-    <p><%= link_to 'New Project', new_annee_project_path %> || <%= link_to "Retour à l'administration", :controller => 'sessions', :action => 'index' %></p>
+    <p><%= link_to (t :nouveau_proj), new_annee_project_path %> || <%= link_to (t :retour_admin), :controller => 'sessions', :action => 'index' %></p>
 <% else %>
     <%= render(:partial => "layouts/menu_projet_annee") %>
 

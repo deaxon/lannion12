@@ -1,7 +1,7 @@
-<h1>Edit Project</h1>
+<h1><%= (t :edit_proj) %></h1>
 
 <%= render 'form' %>
 
 
-<%= link_to 'Show', [@annee, @project] %>
-<%= link_to 'Back', annee_projects_path(@annee) %>
+<%= link_to (t :voir), [@annee, @project] %>
+<%= link_to (t :retour), annee_projects_path(@annee) %>
