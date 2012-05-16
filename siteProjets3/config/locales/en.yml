@@ -52,6 +52,7 @@ en:
   creer_proj: "Create project"
   img_proj: "Project's picture(s)"
   pdf_proj: "Project's pdf"
+  edit_proj_button: "Edit project"
   
 # Menu projet année
   annees: "Years"
