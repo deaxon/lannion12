@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
   end
 
   def horsligne
+    @project = @annee.projects.find(params[:id])
     @project.invisible = TRUE
     @project.save
     redirect_to(annee_projects_path(@annee))
@@ -65,6 +66,24 @@ class ProjectsController < ApplicationController
 
   def update
     @project = @annee.projects.find(params[:id])
+    if params[:project][:uploads_attributes]
+      params[:project][:uploads_attributes].each_key { |key|
+        if params[:project][:uploads_attributes][key.to_sym][:_destroy]=="1"
+          @upload = Upload.find(params[:project][:uploads_attributes][key.to_sym][:id])
+          @upload.destroy
+          params[:project][:uploads_attributes].delete(key.to_sym)
+        end
+      }
+    end
+    if params[:project][:pdf_uploads_attributes]
+      params[:project][:pdf_uploads_attributes].each_key { |key|
+        if params[:project][:pdf_uploads_attributes][key.to_sym][:_destroy]=="1"
+          @pdf_upload = PdfUpload.find(params[:project][:pdf_uploads_attributes][key.to_sym][:id])
+          @pdf_upload.destroy
+          params[:project][:pdf_uploads_attributes].delete(key.to_sym)
+        end
+      }
+    end
     respond_to do |format|
       if @project.update_attributes(params[:project])
         flash[:notice] = 'Le projet a ete mis a jour.'
@@ -79,10 +98,12 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project = @annee.projects.find(params[:id])
+    @uploads = Upload.where(:attachable_id => @project.id)
+    @uploads.destroy(@uploads)
+    @pdf_uploads = PdfUpload.where(:attachable_id => @project.id)
+    @pdf_uploads.destroy(@pdf_uploads)
     @project.destroy
 
-    PdfUpload.where(:attachable_id => @project.id).destroy
-    Upload.where(:attachable_id => @project.id).destroy
     flash[:notice] = 'Le projet a ete detruit.'
 
     respond_to do |format|
