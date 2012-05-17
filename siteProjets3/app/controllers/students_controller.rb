@@ -5,8 +5,21 @@ class StudentsController < ApplicationController
   def projects
     @student = Student.find(params[:id])
     @projects = @student.projects
-    @trimesters = Trimester.find(:all, :conditions => { :student_id => @student,
-                                                        :project_id => @projects})
+    @trimesters = Trimester.find(:all, :conditions => { :student_id => @student, :project_id => @projects})
+  end
+
+  def publier
+    @student = Student.find(params[:id])
+    @student.inactif = FALSE
+    @student.save
+    redirect_to(students_path)
+  end
+
+  def horsligne
+    @student = Student.find(params[:id])
+    @student.inactif = TRUE
+    @student.save
+    redirect_to(students_path)
   end
 
   def project_add

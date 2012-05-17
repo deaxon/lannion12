@@ -1,25 +1,27 @@
 <%= title(t :year_list) %>
 <h1><%= (t :year_list) %></h1>
 
-<p><%= link_to (t :new_year), new_annee_path %> | <%= link_to (t :back), :controller => 'sessions', :action => 'index' %></p>
+<% if (@annees.count >= 10) %>
+    <p><%= link_to (t :new_year), new_annee_path %> | <%= link_to (t :back_admin), :controller => 'sessions', :action => 'index' %></p>
+<% end %>
 
 <br/>
 
 <% @annees.each do |annee| %>
     <p>
     <%=h annee.year %>  :
-        <%= link_to image_tag("editer.png", :size => '20x20'), edit_annee_path(annee) %>
+        <%= link_to image_tag("editer.png", :size => '20x20', :title => (t :edit)), edit_annee_path(annee) %>
          <% if annee.invisible_annee ==  TRUE %>
-            <%= image_tag("horsligne.png", :size => '20x20') %> <%= link_to image_tag("publier.png", :size => '20x20'), :action => 'publier', :id => annee %>
+            <%= image_tag("horsligne.png", :size => '20x20', :title => (t :offline)) %> <%= link_to image_tag("publier.png", :size => '20x20', :title => (t :publish)), :action => 'publier', :id => annee %>
         <% else %>
-            <%= image_tag("enligne.png", :size => '20x20') %> <%= link_to image_tag("publier.png",:size => '20x20'), :action => 'horsligne', :id => annee %>
+            <%= image_tag("enligne.png", :size => '20x20', :title => (t :online)) %> <%= link_to image_tag("publier.png",:size => '20x20', :title => (t :publish)), :action => 'horsligne', :id => annee %>
         <% end %>
     </p>
 <% end %>
 <br />
 
 
-<p><%= link_to (t :new_year), new_annee_path %> | <%= link_to (t :back), :controller => 'sessions', :action => 'index' %></p>
+<p><%= link_to (t :new_year), new_annee_path %> | <%= link_to (t :back_admin), :controller => 'sessions', :action => 'index' %></p>
 
 
 <%= render(:partial => "layouts/legende_admin") %>

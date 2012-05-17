@@ -50,7 +50,6 @@ en:
   create: "Create"
   pict_proj: "Project's picture(s)"
   pdf_proj: "Project's pdf"
-  edit_proj_button: "Edit"
   error_project: "error(s) prohibited this project from being saved :"
   
 # Years projects menu
@@ -74,7 +73,7 @@ en:
   admin: "Administration"
   admin_user: "Administrator"
   list_admin: "List of administrator"
-  projects: "Projects"
+  projects: "Project(s)"
   manage_years: "Manage Years"
   manage_teachers: "Manage teachers"
   manage_students: "Manage students"
@@ -129,6 +128,7 @@ en:
   all_proj: "is already in all projects"
   both: "both"
   error_student: "error prohibited this student from being saved :"
+  students: "Student(s)"
 
 # Teachers
   teacher_name: "Teacher Name"
@@ -142,6 +142,7 @@ en:
   no_project_teacher: "This teacher is not attached to any project."
   manage_teacher_projects: "Manage projects of teacher"
   error_teacher: "error prohibited this teacher from being saved :"
+  teachers: "Teacher(s)"
 
 # Uploads
   edit_upload: "Editing Uploads"

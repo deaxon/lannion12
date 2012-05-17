@@ -1,6 +1,6 @@
 <%= title(t :edit_student) %> <%= title ": " + @student.studentFirstName %> <%= title " " + @student.studentName.upcase %>
 <h1><%= (t :edit_student) %></h1>
 
-<%= render 'form' %>
+<%= render 'form_edit' %>
 
 <%= link_to (t :back), students_path %>

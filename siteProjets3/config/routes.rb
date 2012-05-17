@@ -4,18 +4,22 @@ SiteProjets3::Application.routes.draw do
 
   get "semesters/destroy"
 
-  resources :teachers
-  resources :students
   resources :uploads
 
   get 'sessions/add_user'
   get 'annees/publier'
+  get 'annees/horsligne'
   get 'projects/publier'
   get 'projects/horsligne'
-  get 'annees/horsligne'
+  get 'teachers/publier'
+  get 'teachers/horsligne'
+  get 'students/publier'
+  get 'students/horsligne'
   get 'sessions/list_users'
   post 'sessions/delete_user'
 
+  resources :teachers
+  resources :students
   resources :annees do
     resources :projects
   end

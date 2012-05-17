@@ -54,7 +54,6 @@ fr:
   create_proj: "Créer projet"
   pict_proj: "Image(s) du projet"
   pdf_proj: "Pdf du projet"
-  edit_proj_button: "Editer"
   error_project: "erreur(s) a/ont empêchée(s) ce projet d'être créé :"
 
 # Menu projet année
@@ -78,7 +77,7 @@ fr:
   admin: "Administration"
   admin_user: "Administrateur"
   list_admin: "Liste des administrateurs"
-  projects: "Projets"
+  projects: "Projet(s)"
   manage_years: "Gestion des années"
   manage_teachers: "Gestion des professeurs"
   manage_students: "Gestion des étudiants"
@@ -135,6 +134,7 @@ fr:
   ajouter: "Ajouter"
   both: "Les deux"
   error_student: "erreur a empêchée cet étudiant d'être créé :"
+  students: "Etudiant(s)"
 
 # Professeurs
   teacher_name: "Nom du professeur"
@@ -148,6 +148,7 @@ fr:
   no_project_teacher: "Ce professeur n'est rattaché à aucun projet."
   manage_teacher_projects: "Gérer les projets du professeur"
   error_teacher: "erreur a empêchée ce professeur d'être créé :"
+  teachers: "Professeur(s)"
 
 # Uploads
   edit_upload: "Editer un chargement"

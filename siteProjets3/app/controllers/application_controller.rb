@@ -1,3 +1,5 @@
+#commentaires BB code_8to_html
+require 'bb-ruby'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery

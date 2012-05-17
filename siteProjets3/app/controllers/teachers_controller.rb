@@ -5,8 +5,21 @@ class TeachersController < ApplicationController
   def projects
     @teacher = Teacher.find(params[:id])
     @projects = @teacher.projects
-    @semesters = Semester.find(:all, :conditions => { :teacher_id => @teacher,
-                                                        :project_id => @projects})
+    @semesters = Semester.find(:all, :conditions => { :teacher_id => @teacher, :project_id => @projects})
+  end
+
+  def publier
+    @teacher = Teacher.find(params[:id])
+    @teacher.inactif = FALSE
+    @teacher.save
+    redirect_to(teachers_path)
+  end
+
+  def horsligne
+    @teacher = Teacher.find(params[:id])
+    @teacher.inactif = TRUE
+    @teacher.save
+    redirect_to(teachers_path)
   end
 
   def project_add

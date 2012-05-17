@@ -1,21 +1,24 @@
 <%= title(t :list_proj) %>
 <h1><%= (t :list_proj) %> (<%=h @annee.year %>)</h1>
-<br />
+
 <% if signed_in? %>
-    <%= link_to (t :new_proj), new_annee_project_path %> || <%= link_to (t :back_admin), :controller => 'sessions', :action => 'index'  %>
+    <% if (@projects.count >= 5) %>
+        <br /> <%= link_to (t :new_proj), new_annee_project_path %> | <%= link_to (t :back_admin), :controller => 'sessions', :action => 'index'  %>
+    <% end %>
 
-
+ <br/>
     <% @projects.each do |project| %>
 
         <ul>
           <li><p><%= link_to project.projectName, [@annee, project] %>   :
-          <%= link_to image_tag("editer.png", :size => '20x20'), edit_annee_project_path(@annee, project) %>
-            | <% if project.invisible ==  TRUE %>
-                <%= image_tag("horsligne.png", :size => '20x20') %> <%= link_to image_tag("publier.png",:size => '20x20'), :action => 'publier', :id => project, :annee_id => @annee %>
+          <%= link_to image_tag("editer.png", :size => '20x20', :title => (t :edit)), edit_annee_project_path(@annee, project) %>
+            <%= link_to image_tag("voir.png",:size => '20x20', :title => (t :show)), :action => 'show', :id => project, :annee_id => @annee %>
+            <% if project.invisible ==  TRUE %>
+                <%= image_tag("horsligne.png", :size => '20x20', :title => (t :offline)) %> <%= link_to image_tag("publier.png",:size => '20x20', :title => (t :publish)), :action => 'publier', :id => project, :annee_id => @annee %>
             <% else %>
-                <%= image_tag("enligne.png", :size => '20x20') %> <%= link_to image_tag("publier.png", :size => '20x20'), :action => 'horsligne', :id => project, :annee_id => @annee %>
+                <%= image_tag("enligne.png", :size => '20x20', :title => (t :online)) %> <%= link_to image_tag("publier.png", :size => '20x20', :title => (t :publish)), :action => 'horsligne', :id => project, :annee_id => @annee %>
             <% end %>
-            | <%= link_to image_tag("detruire.png", :size => '20x20'), project_delete_url(@annee, project),:confirm => (t :confirm_sure)  %>
+            <%= link_to image_tag("detruire.png", :size => '20x20', :title => (t :delete)), project_delete_url(@annee, project),:confirm => (t :confirm_sure)  %>
 
           </p>
             <p><%=h project.students.count %> <%= (t :student) %></p>
@@ -23,7 +26,7 @@
             </ul>
 
     <% end %>
-    <p><%= link_to (t :new_proj), new_annee_project_path %> || <%= link_to (t :back_admin), :controller => 'sessions', :action => 'index' %></p>
+    <p><%= link_to (t :new_proj), new_annee_project_path %> | <%= link_to (t :back_admin), :controller => 'sessions', :action => 'index' %></p>
     <%= render(:partial => "layouts/legende_project") %>
 <% else %>
     <%= render(:partial => "layouts/menu_projet_annee") %>

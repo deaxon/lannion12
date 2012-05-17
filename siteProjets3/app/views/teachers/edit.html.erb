@@ -1,27 +1,6 @@
 <%= title(t :edit_teacher) %> <%= title ": " + @teacher.teacherFirstName %> <%= title " " + @teacher.teacherName.upcase %>
 <h1><%= (t :edit_teacher)%></h1>
 
-<%= form_for(@teacher) do |f| %>
-
-    <p>
-      <%= f.label (t :teacher_name) %><br />
-      <%= f.text_field :teacherName %>
-    </p>
-    <p>
-      <%= f.label (t :teacher_firstname) %><br />
-      <%= f.text_field :teacherFirstName %>
-    </p>
-    <p>
-      <%= f.label (t :teacher_cip) %><br />
-      <%= f.text_field :cipTeacher %>
-    </p>
-    <p>
-      <%= f.label (t :inactive_teacher) %><br />
-      <%= f.check_box :inactifTeacher %>
-    </p>
-    <p>
-      <%= f.submit (t :edit) %>
-    </p>
-<% end %>
+<%= render 'form_edit' %>
 
 <%= link_to (t :back), teachers_path %>

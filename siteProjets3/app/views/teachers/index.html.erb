@@ -1,6 +1,12 @@
 <%= title(t :teacher_list) %>
 <h1><%= (t :teacher_list) %></h1>
 
+<% if (@teachers.count >= 5) %>
+    <p><%= link_to (t :new_teacher), new_teacher_path %> |
+      <%= link_to (t :back_admin), :controller => 'sessions', :action => 'index' %></p>
+<% end %>
+
+<br/>
 
 <% @teachers.each do |teacher| %>
     <ul><li>
@@ -8,14 +14,13 @@
         <%=h teacher.teacherFirstName  %>
         <%=h teacher.teacherName %>  </b>
         (<%= (t :cip) %> : <%=h teacher.cipTeacher  %>)
+        <%=  link_to image_tag("editer.png", :size => '20x20', :title => (t :edit)), edit_teacher_path(teacher) %>
+        <%=  link_to image_tag("voir.png", :size => '20x20', :title => (t :show)), teacher %>
         <% if teacher.inactifTeacher ==  TRUE %>
-            <%= image_tag("horsligne.png", :size => '20x20') %>
+            <%= image_tag("horsligne.png", :size => '20x20', :title => (t :offline)) %> <%= link_to image_tag("publier.png",:size => '20x20', :title => (t :publish)), :action => 'publier', :id => teacher%>
         <% else %>
-            <%= image_tag("enligne.png", :size => '20x20') %>
+            <%= image_tag("enligne.png", :size => '20x20', :title => (t :online)) %> <%= link_to image_tag("publier.png",:size => '20x20', :title => (t :publish)), :action => 'horsligne', :id => teacher%>
         <% end %>
-        <%=  link_to image_tag("voir.png", :size => '20x20'), teacher %>
-        <%=  link_to image_tag("editer.png", :size => '20x20'), edit_teacher_path(teacher) %>
-
       <p> <%=h teacher.projects.count %> <%= (t :proj) %>
       </p>
       </p>
@@ -25,7 +30,7 @@
 
 <br />
 
-<p><%= link_to (t :new_teacher), new_teacher_path %> ||
+<p><%= link_to (t :new_teacher), new_teacher_path %> |
   <%= link_to (t :back_admin), :controller => 'sessions', :action => 'index' %></p>
 
 <%= render(:partial => "layouts/legende_admin") %>

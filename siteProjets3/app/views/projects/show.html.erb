@@ -2,7 +2,7 @@
 <h1><%= h @project.projectName %> (<%= h @project.annee.year %>)</h1>
 <p>
   <b><%= (t :short_descrip) %> : </b>
-<p><%= output = @project.shortDescription %></p>
+<p><%= @project.shortDescription.bbcode_to_html %></p>
 </p>
 
 <p>
@@ -30,14 +30,14 @@
 <% end %>
 
 <% if (@project.students.count > 0) %>
-    <h3>Students</h3>
+    <h3><%= t :students %></h3>
     <% @trimesters.each do |student| %>
         <li><%= h student.getStudentFirstName %> <%= h student.getStudentName %></li>
     <% end %>
 <% end %>
 
 <% if (@project.teachers.count > 0) %>
-    <h3>Teachers</h3>
+    <h3><%= t :teachers %></h3>
     <% @semesters.each do |teacher| %>
         <li><%= h teacher.getTeacherFirstName %> <%= h teacher.getTeacherName %></li>
     <% end %>
@@ -45,7 +45,7 @@
 <br/>
 <% if signed_in? %>
     <div id="projet_admin">
-      <%= link_to image_tag("editer.png"), edit_annee_project_path(@annee, @project) %>
+      <%= link_to (t :edit), :controller => 'projects', :action => 'edit' %>
       <%= link_to (t :back), :controller => 'projects', :annee_id => @annee %> <br/>
     </div>
 <% else %>
