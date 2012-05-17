@@ -25,7 +25,7 @@
     </p>
     <%= f.hidden_field :invisible, :value => FALSE %>
 
-    <p><b><%= (t :pict_proj) %> </b> ( <%= (t :only) %> jpg, png, jpeg, gif )  </p>
+    <p><b><%= (t :pict_proj) %> </b> (.jpg, .png, .jpeg, .gif  <%= (t :only) %>)  </p>
     <%= f.fields_for :uploads do |upload| %>
         <p>
           <%= image_tag(upload.object.file.url(:thumb)) if upload.object.file? %>
@@ -51,6 +51,6 @@
 
     <% end %>
     <%= f.link_to_add (t :add_pdf), :pdf_uploads %>
-    <p><%= f.submit  (t :create_proj) %></p>
+    <p><%= f.submit  (t :create) %></p>
 <% end %>
 

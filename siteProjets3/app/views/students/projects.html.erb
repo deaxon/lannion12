@@ -1,4 +1,4 @@
-<%= title(t :projects_of) %>
+<%= title(t :projects_of) %> <%= title " " + @student.studentFirstName %>  <%= title " " + @student.studentName %>
 <h1><%= (t :projects_of)%> <%= @student.studentFirstName %> <%= @student.studentName %></h1>
 <p><i>S7 : <%= (t :semester) %> 7 | S8 : <%= (t :semester) %> 8 | 78 : <%= (t :semester) %> 7 <%= (t :and) %> 8</i></p>
 <% if @projects.length > 0 %>

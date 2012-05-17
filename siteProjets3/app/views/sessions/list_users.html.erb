@@ -2,9 +2,9 @@
 <h1><%= (t :manage_admin) %></h1>
 <ul>
   <% for user in @users %>
-      <li><%= link_to image_tag("detruire.png", :size => '20x20') ,user, :method => :delete, :confirm => (t :confirm_sure),
-              :title => "Delete #{user.name}" %>
-        <%= h(user.name) %>
+      <li><%= h(user.name) %>
+        <%= link_to image_tag("detruire.png", :size => '20x20') ,user, :method => :delete, :confirm => (t :confirm_sure),
+                    :title => "Delete #{user.name}" %>
       </li>
   <% end %>
 </ul>

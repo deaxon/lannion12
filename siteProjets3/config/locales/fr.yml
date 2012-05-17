@@ -24,9 +24,9 @@ fr:
   create: "Créer"
   retour: "Retour"
   edit: "Editer"
-  error_year: "erreur a empêchée cette année d'être créée :"
+  error_year: "erreur(s) a/ont empêchée(s) cette année d'être créée :"
 
-#legende
+# Legende
   legend: "Légende"
   edit: "Editer"
   offline: "Hors ligne"
@@ -54,7 +54,7 @@ fr:
   create_proj: "Créer projet"
   pict_proj: "Image(s) du projet"
   pdf_proj: "Pdf du projet"
-  edit_proj_button: "Editer Projet"
+  edit_proj_button: "Editer"
   error_project: "erreur(s) a/ont empêchée(s) ce projet d'être créé :"
 
 # Menu projet année
@@ -101,8 +101,8 @@ fr:
         invalid: "n'est pas valide"
         confirmation: "ne concorde pas avec la confirmation"
         accepted: "doit être accepté(e)"
-        empty: "doit être rempli(e)"
-        blank: "doit être rempli(e)"
+        empty: "doit être rempli"
+        blank: "doit être rempli"
         too_long: "est trop long (pas plus de %{count} caractères)"
         too_short: "est trop court (au moins %{count} caractères)"
         wrong_length: "ne fait pas la bonne longueur (doit comporter %{count} caractères)"
@@ -116,13 +116,13 @@ fr:
         odd: "doit être impair"
         even: "doit être pair"
 
-#Etudiants
+# Etudiants
   student_name: "Nom de l'étudiant"
   student_firstname: "Prénom de l'étudiant"
   student_cip: "CIP de l'étudiant"
   inactive: "Inactif"
   create_student: "Créer étudiant"
-  edit_student: "Editer un étudiant"
+  edit_student: "Edition de l'étudiant "
   new_student: "Nouvel étudiant"
   student_list: "Liste des étudiants"
   manage_student_proj: "Gérer les projets de l'etudiant"
@@ -136,7 +136,7 @@ fr:
   both: "Les deux"
   error_student: "erreur a empêchée cet étudiant d'être créé :"
 
-#Professeurs
+# Professeurs
   teacher_name: "Nom du professeur"
   teacher_firstname: "Prénom du professeur"
   teacher_cip: "CIP du professeur"
@@ -149,12 +149,12 @@ fr:
   manage_teacher_projects: "Gérer les projets du professeur"
   error_teacher: "erreur a empêchée ce professeur d'être créé :"
 
-#uploads
+# Uploads
   edit_upload: "Editer un chargement"
   list_upload: "Liste des chargements"
   new_upload: "Nouveau chargement"
 
-#users
+# Utilisateurs
   user_name: "Nom"
   edit_user: "Editer un utilisateur"
   list_user: "Liste des utilisateurs"
@@ -162,15 +162,16 @@ fr:
   register: "Inscription"
   error_user: "erreur a empêchée cet utilisateur d'être créé :"
 
-#footer
+# Pied de page
   lab: "Laboratoire"
 
-#Activites pedagogiques
+# Activites pedagogiques
   title_course: "Activité pédagogique de génie électrique et informatique"
   link1: "Projet de conception spécialisé I"
   lien2: "Projet de conception spécialisé II"
 
-#Onglet projet
+# Onglet projet
+  compo_proj: "Composition d'un projet"
   title_proj: "Format standard d'envoi de la description de votre projet"
   descript_proj1: "Pour que votre projet soit ajouté sur ce site, vous devez envoyer votre description ainsi que les images et pdf par email à l'adresse suivante : "
   email: ""

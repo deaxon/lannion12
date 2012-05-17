@@ -21,9 +21,8 @@ en:
   year_list: "List of years"
   year: "Year"
   new_year: "New Year"
-  create: "Create"
   edit: "Edit"
-  error_year: "error prohibited this year from being saved :"
+  error_year: "error(s) prohibited this year from being saved :"
 
 # Legend
   legend: "Legend"
@@ -48,10 +47,10 @@ en:
   student: "students"
   enlarge_pict: "Enlarge"
   pdf_dl: "Download"
-  create_proj: "Create project"
+  create: "Create"
   pict_proj: "Project's picture(s)"
   pdf_proj: "Project's pdf"
-  edit_proj_button: "Edit project"
+  edit_proj_button: "Edit"
   error_project: "error(s) prohibited this project from being saved :"
   
 # Years projects menu
@@ -118,8 +117,7 @@ en:
   student_firstname:  "Student first name"
   student_cip: "CIP Student"
   inactive: "Inactive"
-  create_student: "Create student"
-  edit_student: "Editing student"
+  edit_student: "Editing the student "
   new_student: "New Student"
   student_list: "List of students"
   manage_student_proj: "Manage student's projects"
@@ -167,7 +165,7 @@ en:
   lien2: "Specialized design project II"
 
 # Projects menu
-
+  compo_proj: "Project composition"
   title_proj: "Standard format to send the description of your project"
   descript_proj1: "To add your project on this web site, you need to send the description plus the pictures and pdf by mail to the following adress :"
   email: ""

@@ -1,4 +1,5 @@
-<%= title @student.studentName %>
+<%= title @student.studentFirstName %> <%= title " " + @student.studentName.upcase %>
+<h1><%= @student.studentFirstName %> <%= " " + @student.studentName.upcase %></h1>
 <p id="notice"><%= notice %></p>
 
 <p>

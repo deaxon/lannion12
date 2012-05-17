@@ -13,22 +13,36 @@
 </p>
 <p>
   <% for upload in @project.uploads %>
+    <p>
+      <% if (upload.file.url) %>
+          <%= link_to image_tag(upload.file.url(:thumb)), upload.file_url %>  <br/>
+          <%= link_to((t :enlarge_pict), upload.file_url) %>
+      <% end %>
       <p>
-        <% if (upload.file.url) %>
-            <%= link_to image_tag(upload.file.url(:thumb)), upload.file_url %>  <br/>
-            <%= link_to((t :enlarge_pict), upload.file_url) %>
-        <% end %>
-        <p>
-  <% end %>
-  <% for pdf_upload in @project.pdf_uploads %>
+<% end %>
+<% for pdf_upload in @project.pdf_uploads %>
+    <p>
+      <% if (pdf_upload.pdf.url) %>
+          <%= link_to image_tag("PDF_Logo.jpg", :size => '50x50'), pdf_upload.pdf.url %>  <br/>
+          <%= link_to (t :pdf_dl), pdf_upload.pdf.url %>
+      <% end %>
       <p>
-        <% if (pdf_upload.pdf.url) %>
-            <%= link_to image_tag("PDF_Logo.jpg", :size => '50x50'), pdf_upload.pdf.url %>  <br/>
-            <%= link_to (t :pdf_dl), pdf_upload.pdf.url %>
-        <% end %>
-        <p>
-  <% end %>
+<% end %>
 
+<% if (@project.students.count > 0) %>
+    <h3>Students</h3>
+    <% @trimesters.each do |student| %>
+        <li><%= h student.getStudentFirstName %> <%= h student.getStudentName %></li>
+    <% end %>
+<% end %>
+
+<% if (@project.teachers.count > 0) %>
+    <h3>Teachers</h3>
+    <% @semesters.each do |teacher| %>
+        <li><%= h teacher.getTeacherFirstName %> <%= h teacher.getTeacherName %></li>
+    <% end %>
+<% end %>
+<br/>
 <% if signed_in? %>
     <div id="projet_admin">
       <%= link_to image_tag("editer.png"), edit_annee_project_path(@annee, @project) %>
@@ -37,4 +51,3 @@
 <% else %>
     <%= link_to (t :back), :controller => 'projects', :annee_id => @annee %> <br/>
 <% end %>
-

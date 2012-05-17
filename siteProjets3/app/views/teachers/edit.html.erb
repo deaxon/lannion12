@@ -1,4 +1,4 @@
-<%= title(t :edit_teacher) %>
+<%= title(t :edit_teacher) %> <%= title ": " + @teacher.teacherFirstName %> <%= title " " + @teacher.teacherName.upcase %>
 <h1><%= (t :edit_teacher)%></h1>
 
 <%= form_for(@teacher) do |f| %>
@@ -24,5 +24,4 @@
     </p>
 <% end %>
 
-<%= link_to (t :show), @teacher %> |
 <%= link_to (t :back), teachers_path %>
