@@ -1,5 +1,9 @@
 SiteProjets3::Application.routes.draw do
 
+  get "trimesters/destroy"
+
+  get "semesters/destroy"
+
   resources :teachers
   resources :students
   resources :uploads

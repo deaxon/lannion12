@@ -100,10 +100,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project = @annee.projects.find(params[:id])
-    @uploads = Upload.where(:attachable_id => @project.id)
-    @uploads.destroy(@uploads)
-    @pdf_uploads = PdfUpload.where(:attachable_id => @project.id)
-    @pdf_uploads.destroy(@pdf_uploads)
+
     @project.destroy
 
     flash[:notice] = 'Le projet a ete detruit.'
