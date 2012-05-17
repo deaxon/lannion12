@@ -50,7 +50,7 @@ class AnneesController < ApplicationController
   # POST /annees
   # POST /annees.xml
   def create
-    @annee = Annee.new(params[:annee])
+    @annee = Annee.new(params[:year])
 
     respond_to do |format|
       if @annee.save
@@ -71,7 +71,7 @@ class AnneesController < ApplicationController
     @annee = Annee.find(params[:id])
 
     respond_to do |format|
-      if @annee.update_attributes(params[:annee])
+      if @annee.update_attributes(params[:year])
         #flash[:notice] = 'Année mise à jour.'
         format.html { redirect_to(annees_path) }
         format.xml  { head :ok }

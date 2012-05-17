@@ -1,36 +1,36 @@
-<%= title(t :projets_de) %>
-<h1><%= (t :projets_de)%> <%= @student.studentFirstName %> <%= @student.studentName %></h1>
-<p><i>S7 : <%= (t :semestre) %> 7 | S8 : <%= (t :semestre) %> 8 | 78 : <%= (t :semestre) %> 7 <%= (t :et) %> 8</i></p>
+<%= title(t :projects_of) %>
+<h1><%= (t :projects_of)%> <%= @student.studentFirstName %> <%= @student.studentName %></h1>
+<p><i>S7 : <%= (t :semester) %> 7 | S8 : <%= (t :semester) %> 8 | 78 : <%= (t :semester) %> 7 <%= (t :and) %> 8</i></p>
 <% if @projects.length > 0 %>
     <%= form_tag(project_remove_student_path(@student)) do %>
 
         <% @trimesters.each do |trimester| %>
-            <%= trimester.getNameProject %> (<%= (t :semestre) %> : <%=h trimester.semester %>)
+            <%= trimester.getNameProject %> (<%= (t :semester) %> : <%=h trimester.semester %>)
             <%= check_box_tag "projects[]", trimester.project_id %><br />
             <br />
         <% end %>
         <%= image_submit_tag("detruire.png", :size => '20x20') %>
     <% end %>
 <% else %>
-    <p><%= (t :relie_aucun_proj) %></p>
+    <p><%= (t :no_proj) %></p>
 <% end %>
 
 
-<h2><%= (t :ajout_proj) %></h2>
+<h2><%= (t :add_proj) %></h2>
 
 <% if @student.projects.count < Project.count then %>
     <%= form_tag(project_add_path, :method => :post, :multipart => true)  do  %>
         <%= select_tag(:project, options_from_collection_for_select(@student.unenrolled_projects, :id, :projectName)) %>
-        <br /><br /><%= (t :semestre) %> :<br />
+        <br /><br /><%= (t :semester) %> :<br />
         <%= label "S7", "S7" %> <%= radio_button_tag :semester, 'S7' %><br />
         <%= label "S8", "S8" %> <%= radio_button_tag :semester, 'S8' %><br />
-        <%= label (t :les_2),(t :les_2) %> <%= radio_button_tag :semester, '78', true %><br />
+        <%= label (t :both),(t :both) %> <%= radio_button_tag :semester, '78', true %><br />
         <br />
 
-        <%= submit_tag (t :ajouter) %>
+        <%= submit_tag (t :add) %>
     <% end %>
 <% else %>
-    <p><%=h @student.studentFirstName %> <%=h @student.studentName %> <%= (t :tous_proj) %></p>
+    <p><%=h @student.studentFirstName %> <%=h @student.studentName %> <%= (t :all_proj) %></p>
 <% end %>
 
 <p><%= link_to (t :back), @student %> </p>

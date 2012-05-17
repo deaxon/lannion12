@@ -2,17 +2,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b><%= (t :nom_prof) %> </b>
+  <b><%= (t :teacher_name) %> </b>
   <%= @teacher.teacherName %>
 </p>
 
 <p>
-  <b><%= (t :prenom_prof) %> </b>
+  <b><%= (t :teacher_firstname) %> </b>
   <%= @teacher.teacherFirstName %>
 </p>
 
 <p>
-  <b><%= (t :cip_prof) %> </b>
+  <b><%= (t :teacher_cip) %> </b>
   <%= @teacher.cipTeacher %>
 </p>
 <p>
@@ -20,12 +20,12 @@
   <% if @teacher.projects.count > 0 %>
       <%= @teacher.projects.collect {|c| c.projectName}.join(", ") %>
   <% else %>
-      <%= (t :prof_aucun_proj) %>
+      <%= (t :no_project_teacher) %>
   <% end %>
 </p>
 
 
-<%= link_to (t :gerer_proj_prof), :id => @teacher, :action => 'projects' %>
-<%= link_to (t :editer), edit_teacher_path(@teacher) %> |
+<%= link_to (t :manage_teacher_projects), :id => @teacher, :action => 'projects' %>
+<%= link_to (t :edit), edit_teacher_path(@teacher) %> |
 <%= link_to (t :back), teachers_path %>
 <br/>

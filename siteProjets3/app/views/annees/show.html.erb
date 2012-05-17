@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b><%= (t :annee) %></b>
+  <b><%= (t :year) %></b>
   <%= @annee.year %>
 </p>
 
 
-<%= link_to (t :editer), edit_annee_path(@annee) %> |
+<%= link_to (t :edit), edit_annee_path(@annee) %> |
 <%= link_to (t :back), annees_path %>

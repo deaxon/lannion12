@@ -1,5 +1,5 @@
-<%= title(t :gestion_admin) %>
-<h1><%= (t :gestion_admin) %></h1>
+<%= title(t :manage_admin) %>
+<h1><%= (t :manage_admin) %></h1>
 <ul>
   <% for user in @users %>
       <li><%= link_to image_tag("detruire.png", :size => '20x20') ,user, :method => :delete, :confirm => (t :confirm_sure),
@@ -9,6 +9,6 @@
   <% end %>
 </ul>
 
-<%= link_to (t :ajouter), :controller => 'sessions', :action => 'add_user' %>   <%= link_to (t :retour_admin), :controller => 'sessions', :action => 'index' %>
+<%= link_to (t :add), :controller => 'sessions', :action => 'add_user' %>   <%= link_to (t :back_admin), :controller => 'sessions', :action => 'index' %>
 <br/>
 <br/>

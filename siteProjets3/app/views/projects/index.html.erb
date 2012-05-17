@@ -1,8 +1,8 @@
-<%= title(t :liste_proj) %>
-<h1><%= (t :liste_proj) %> (<%=h @annee.year %>)</h1>
+<%= title(t :list_proj) %>
+<h1><%= (t :list_proj) %> (<%=h @annee.year %>)</h1>
 <br />
 <% if signed_in? %>
-    <%= link_to (t :nouveau_proj), new_annee_project_path %> || <%= link_to (t :retour_admin), :controller => 'sessions', :action => 'index'  %>
+    <%= link_to (t :new_proj), new_annee_project_path %> || <%= link_to (t :back_admin), :controller => 'sessions', :action => 'index'  %>
 
 
     <% @projects.each do |project| %>
@@ -18,14 +18,14 @@
             | <%= link_to image_tag("detruire.png", :size => '20x20'), project_delete_url(@annee, project),:confirm => (t :confirm_sure)  %>
 
           </p>
-            <p><%=h project.students.count %> <%= (t :etu) %></p>
+            <p><%=h project.students.count %> <%= (t :student) %></p>
           </li>
             </ul>
 
     <% end %>
 
 
-    <p><%= link_to (t :nouveau_proj), new_annee_project_path %> || <%= link_to (t :retour_admin), :controller => 'sessions', :action => 'index' %></p>
+    <p><%= link_to (t :new_proj), new_annee_project_path %> || <%= link_to (t :back_admin), :controller => 'sessions', :action => 'index' %></p>
 <% else %>
     <%= render(:partial => "layouts/menu_projet_annee") %>
 

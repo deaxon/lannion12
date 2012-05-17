@@ -12,20 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label (t :nom_etu) %><br />
+    <%= f.label (t :student_name) %><br />
     <%= f.text_field :studentName %>
   </div>
   <div class="field">
-    <%= f.label (t :prenom_etu) %><br />
+    <%= f.label (t :student_firstname) %><br />
     <%= f.text_field :studentFirstName %>
   </div>
   <div class="field">
-    <%= f.label (t :cip_etu) %><br />
+    <%= f.label (t :student_cip) %><br />
     <%= f.text_field :cip %>
   </div>
   <div class="field">
-    <%= f.label (t :inactif) %><br />
-    <%= f.check_box :inactif %>
+    <%= f.label (t :inactive) %><br />
+    <%= f.check_box :inactive %>
   </div>
   <div class="actions">
     <%= f.submit%>

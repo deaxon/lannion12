@@ -8,7 +8,7 @@ class AnneesControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:annees)
+    assert_not_nil assigns(:years)
   end
 
   test "should get new" do
@@ -18,10 +18,10 @@ class AnneesControllerTest < ActionController::TestCase
 
   test "should create annee" do
     assert_difference('Annee.count') do
-      post :create, annee: { invisible_annee: @annee.invisible_annee, year: @annee.year }
+      post :create, year: { invisible_annee: @annee.invisible_annee, year: @annee.year }
     end
 
-    assert_redirected_to annee_path(assigns(:annee))
+    assert_redirected_to annee_path(assigns(:year))
   end
 
   test "should show annee" do
@@ -35,8 +35,8 @@ class AnneesControllerTest < ActionController::TestCase
   end
 
   test "should update annee" do
-    put :update, id: @annee, annee: { invisible_annee: @annee.invisible_annee, year: @annee.year }
-    assert_redirected_to annee_path(assigns(:annee))
+    put :update, id: @annee, year: { invisible_annee: @annee.invisible_annee, year: @annee.year }
+    assert_redirected_to annee_path(assigns(:year))
   end
 
   test "should destroy annee" do

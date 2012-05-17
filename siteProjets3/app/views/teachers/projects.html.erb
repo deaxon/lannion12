@@ -1,36 +1,36 @@
-<%= title(t :projets_de) %>
-<h1><%= t :projets_de %> <%= @teacher.teacherFirstName %> <%= @teacher.teacherName %></h1>
-<p><i>S7 : <%= (t :semestre) %> 7 | S8 : <%= (t :semestre) %> 8 | 78 : <%= (t :semestre) %> 7 <%= (t :et) %> 8</i></p>
+<%= title(t :projects_of) %>
+<h1><%= t :projects_of %> <%= @teacher.teacherFirstName %> <%= @teacher.teacherName %></h1>
+<p><i>S7 : <%= (t :semester) %> 7 | S8 : <%= (t :semester) %> 8 | 78 : <%= (t :semester) %> 7 <%= (t :and) %> 8</i></p>
 <% if @projects.length > 0 %>
     <%= form_tag(project_remove_teacher_path(@teacher)) do %>
 
         <% @semesters.each do |semester| %>
-            <%= semester.getNameProject %> (<%= (t :semestre) %> : <%=h semester.semesterTeacher %>)
+            <%= semester.getNameProject %> (<%= (t :semester) %> : <%=h semester.semesterTeacher %>)
             <%= check_box_tag "projects[]", semester.project_id %><br />
             <br />
         <% end %>
         <%= image_submit_tag("detruire.png", :size => '20x20')%>
     <% end %>
 <% else %>
-    <p><%= (t :relie_aucun_proj) %></p>
+    <p><%= (t :no_proj) %></p>
 <% end %>
 
 
-<h2><%= (t :ajout_proj) %></h2>
+<h2><%= (t :add_proj) %></h2>
 
 <% if @teacher.projects.count < Project.count then %>
     <%= form_tag(project_add_teacher_path, :method => :post, :multipart => true)  do  %>
         <%= select_tag(:project, options_from_collection_for_select(@teacher.unenrolled_teacher_projects, :id, :projectName)) %>
-        <br /><br /><%= (t :semestre) %> :<br />
+        <br /><br /><%= (t :semester) %> :<br />
         <%= label "S7", "S7" %> <%= radio_button_tag :semesterTeacher, 'S7' %><br />
         <%= label "S8", "S8" %> <%= radio_button_tag :semesterTeacher, 'S8' %><br />
-        <%= label (t :les_2), (t :les_2) %> <%= radio_button_tag :semesterTeacher, '78', true %><br />
+        <%= label (t :both), (t :both) %> <%= radio_button_tag :semesterTeacher, '78', true %><br />
         <br />
 
-        <%= submit_tag (t :ajouter) %>
+        <%= submit_tag (t :add) %>
     <% end %>
 <% else %>
-    <p><%=h @teacher.teacherFirstName %> <%=h @teacher.teacherName %> <%= (t :tous_proj) %></p>
+    <p><%=h @teacher.teacherFirstName %> <%=h @teacher.teacherName %> <%= (t :all_proj) %></p>
 <% end %>
 
 <p><%= link_to (t :back), @teacher %> </p>

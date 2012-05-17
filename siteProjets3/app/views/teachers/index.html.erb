@@ -1,5 +1,5 @@
-<%= title(t :liste_prof) %>
-<h1><%= (t :liste_prof) %></h1>
+<%= title(t :teacher_list) %>
+<h1><%= (t :teacher_list) %></h1>
 
 
 <% @teachers.each do |teacher| %>
@@ -25,7 +25,7 @@
 
 <br />
 
-<p><%= link_to (t :nouveau_prof), new_teacher_path %> ||
-  <%= link_to (t :retour_admin), :controller => 'sessions', :action => 'index' %></p>
+<p><%= link_to (t :new_teacher), new_teacher_path %> ||
+  <%= link_to (t :back_admin), :controller => 'sessions', :action => 'index' %></p>
 
 <%= render(:partial => "layouts/legende_admin") %>

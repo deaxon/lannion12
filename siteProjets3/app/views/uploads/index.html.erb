@@ -1,4 +1,4 @@
-<h1><%= (t :liste_upload) %></h1>
+<h1><%= (t :list_upload) %></h1>
 
 <table>
   <tr>
@@ -9,13 +9,13 @@
 
 <% @uploads.each do |upload| %>
   <tr>
-    <td><%= link_to (t :voir), upload %></td>
-    <td><%= link_to (t :editer), edit_upload_path(upload) %></td>
-    <td><%= link_to (t :detruire), upload, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to (t :show), upload %></td>
+    <td><%= link_to (t :edit), edit_upload_path(upload) %></td>
+    <td><%= link_to (t :delete), upload, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to (t :nouveau_upload), new_upload_path %>
+<%= link_to (t :new_upload), new_upload_path %>

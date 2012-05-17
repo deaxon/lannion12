@@ -15,79 +15,76 @@ en:
   back: "Back"
   title_app: "Projects"
 
-# Annees
-  voir: "Show"
-  editer_annee: "Editing year"
-  liste_annee: "List of years"
-  annee: "Year"
-  nouvelle_annee: "New Year"
-  creer: "Create"
-  retour: "Back"
-  editer: "Edit"
+# Years
+  show: "Show"
+  edit_year: "Editing year"
+  year_list: "List of years"
+  year: "Year"
+  new_year: "New Year"
+  create: "Create"
+  edit: "Edit"
   error_year: "error prohibited this year from being saved :"
 
-#legende
-  legende: "Legend"
-  editer: "Edit"
-  hors_ligne: "Offline"
-  en_ligne: "Online"
-  publier: "Publish or Offline"
-  detruire: "Delete"
+# Legend
+  legend: "Legend"
+  offline: "Offline"
+  online: "Online"
+  publish: "Publish or Offline"
+  delete: "Delete"
 
-# Projets
+# Projects
   proj_name: "Project Name"
   descrip: "Description"
   short_descrip: "Short description"
-  list_proj: "Project listing"
-  img: "Picture"
-  seul: "Only"
-  suppr_img: "Remove this picture"
-  add_img: "Add picture"
-  suppr_pdf: "Remove this pdf"
+  list_proj: "List of projects"
+  pict: "Picture"
+  only: "Only"
+  delete_pict: "Remove this picture"
+  add_pict: "Add picture"
+  delete_pdf: "Remove this pdf"
   add_pdf: "Add pdf"
   edit_proj: "Edit project"
-  liste_proj: "List of projects"
-  nouveau_proj: "New project"
-  etu: "students"
-  img_agrandir: "Enlarge"
-  pdf_telecharger: "Download"
-  creer_proj: "Create project"
-  img_proj: "Project's picture(s)"
+  new_proj: "New project"
+  student: "students"
+  enlarge_pict: "Enlarge"
+  pdf_dl: "Download"
+  create_proj: "Create project"
+  pict_proj: "Project's picture(s)"
   pdf_proj: "Project's pdf"
   edit_proj_button: "Edit project"
   error_project: "error(s) prohibited this project from being saved :"
   
-# Menu projet année
-  annees: "Years"
+# Years projects menu
+  years: "Years"
   
-#Sessions
+# Sessions
   cip: "CIP"
   pass: "Password"
   pass_conf: "Password Confirmation"
   add_user: "Add User"
   details_user: "Enter user's details"
-  retour_admin: "Back to administration"
-  gestion_admin: "Managing Administrator"
-  ajouter: "Add"
+  back_admin: "Back to administration"
+  manage_admin: "Managing Administrator"
+  add: "Add"
   confirm_sure: "Are you sure ?"
   login: "Login"
   no_register: "Not register yet ?"
   sign_up: "Sign up"
-  acces_admin: "Access to the administration section"
-  merci_identif: "Thank to identify you"
+  access_admin: "Access to the administration section"
+  thanks_id: "Thanks to identify you"
   admin: "Administration"
   admin_user: "Administrator"
-  liste_admin: "List of administrator"
+  list_admin: "List of administrator"
   projects: "Projects"
-  gestion_annees: "Manage Years"
-  gestion_prof: "Manage teachers"
-  gestion_etu: "Manage students"
-  liste_projets_annees: "List of projects per year"
-  autres: "Others"
+  manage_years: "Manage Years"
+  manage_teachers: "Manage teachers"
+  manage_students: "Manage students"
+  years_projects_list: "List of projects per year"
+  others: "Others"
   deconnexion: "Logout"
   error_session: "error prohibited this session from being saved :"
 
-# Messages d'erreurs (validation)
+# Errors message (validation)
   activerecord:
     errors:
       template:
@@ -116,63 +113,60 @@ en:
         odd: "must be odd"   #impaire
         even: "must be even" #pair
 
-
-
-#Etudiants
-  nom_etu: "Student name"
-  prenom_etu:  "Student first name"
-  cip_etu: "CIP Student"
-  inactif: "Inactive"
-  creer_etu: "Create student"
-  edit_etu: "Editing student"
-  nouveau_etu: "New Student"
-  liste_etu: "List of students"
-  gerer_proj_etu: "Manage projects of student"
-  semestre: "Semester"
-  et: "and"
-  projets_de: "Project(s)"
-  relie_aucun_proj: "No project."
-  ajout_proj: "Add a project"
-  tous_proj: "is already in all projects"
-  ajouter: "Add"
-  les_2: "both"
+# Students
+  student_name: "Student name"
+  student_firstname:  "Student first name"
+  student_cip: "CIP Student"
+  inactive: "Inactive"
+  create_student: "Create student"
+  edit_student: "Editing student"
+  new_student: "New Student"
+  student_list: "List of students"
+  manage_student_proj: "Manage student's projects"
+  semester: "Semester"
+  and: "and"
+  projects_of: "Project(s)"
+  no_proj: "No project."
+  add_proj: "Add a project"
+  all_proj: "is already in all projects"
+  both: "both"
   error_student: "error prohibited this student from being saved :"
 
-#Professeurs
-  nom_prof: "Teacher Name"
-  prenom_prof: "Teacher First Name"
-  cip_prof: "CIP Teacher"
-  edit_prof: "Editing Teacher"
-  inactif_prof: "Inactive ? (Warning, if you passed the teacher to inactive, you erase his links with the projects)"
-  liste_prof: "List of teachers"
-  nouveau_prof: "New Teacher"
+# Teachers
+  teacher_name: "Teacher Name"
+  teacher_firstname: "Teacher First Name"
+  teacher_cip: "CIP Teacher"
+  edit_teacher: "Editing Teacher"
+  inactive_teacher: "Inactive ? (Warning, if the teacher become inactive, you erase his links with the projects)"
+  teacher_list: "List of teachers"
+  new_teacher: "New Teacher"
   proj: "project(s)"
-  prof_aucun_proj: "This teacher is not attached to any project."
-  gerer_proj_prof: "Manage projects of teacher"
+  no_project_teacher: "This teacher is not attached to any project."
+  manage_teacher_projects: "Manage projects of teacher"
   error_teacher: "error prohibited this teacher from being saved :"
 
-#uploads
+# Uploads
   edit_upload: "Editing Uploads"
-  liste_upload: "List of uploads"
-  nouveau_upload: "New Upload"
+  list_upload: "List of uploads"
+  new_upload: "New Upload"
 
-#users
-  nom_user: "Name"
+# Users
+  user_name: "Name"
   edit_user: "Editing User"
-  liste_user: "List of users"
-  nouveau_user: "New User"
-  inscrip: "Register"
+  list_user: "List of users"
+  new_user: "New User"
+  register: "Register"
   error_user: "error prohibited this user from being saved:"
 
-#footer
-  labo: "Laboratory"
+# Footer
+  lab: "Laboratory"
 
-#activites pedagogique
-  titre_act_peda: "Courses of Electrical and Computer Engineering"
-  lien1: "Specialized design project I"
+# Courses
+  title_course: "Courses of Electrical and Computer Engineering"
+  link1: "Specialized design project I"
   lien2: "Specialized design project II"
 
-#onglet projet
+# Projects menu
 
   title_proj: "Standard format to send the description of your project"
   descript_proj1: "To add your project on this web site, you need to send the description plus the pictures and pdf by mail to the following adress :"
@@ -191,19 +185,19 @@ en:
   descript_proj4: "Example of personalization page with tags :"
   text_title: "Example project"
   descript_proj5_1: "A "
-  mot_breve: "short"
+  word_short: "short"
   descript_proj5_2: " description to briefly present your project."
   descript_proj6_1: "A "
-  mot_complete: "complete"
+  word_complete: "complete"
   descript_proj6_2: "description, can be organize into several sections, which must contain the informations about your project. "
-  mot_par_exemple: "For example"
+  word_for_example: "For example"
   descript_proj6_3: " its "
-  mot_cout: "cost"
+  word_cost: "cost"
   descript_proj6_4: ", its "
-  mot_duree: "duration"
+  word_duration: "duration"
   descript_proj6_5: " etc..."
   descript_proj6_6: "You must indicate team's members and also framing teachers. You can also give your "
-  mot_site_du_projet: "project web site"
+  word_site_proj: "project web site"
   descript_proj6_7: " if you have one, or your email adress : "
-  mot_adresse_mail: "emailadress@domainname"
+  word_mail: "emailadress@domainname"
   descript_proj7: "That give :"

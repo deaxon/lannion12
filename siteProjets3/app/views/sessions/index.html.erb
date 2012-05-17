@@ -4,22 +4,22 @@
 <li>
   <titre><%= (t :admin_user) %></titre>
 </li>
-<ul><%= link_to (t :liste_admin), :controller => 'sessions', :action => 'list_users' %></ul>
+<ul><%= link_to (t :list_admin), :controller => 'sessions', :action => 'list_users' %></ul>
 
 <li>
   <titre><%= (t :projects) %></titre>
 </li>
-<ul><%= link_to (t :gestion_annees), :controller => 'annees' %></ul>
-<ul><%= link_to (t :gestion_prof), :controller => 'teachers' %></ul>
-<ul><%= link_to (t :gestion_etu), :controller => 'students' %></ul>
-<li> <%= (t :liste_projets_annees) %></li>
+<ul><%= link_to (t :manage_years), :controller => 'annees' %></ul>
+<ul><%= link_to (t :manage_teachers), :controller => 'teachers' %></ul>
+<ul><%= link_to (t :manage_students), :controller => 'students' %></ul>
+<li> <%= (t :years_projects_list) %></li>
 <ul>
   <% @annees.each do |annee| %>
       <li><%= link_to annee.year, annee_projects_path(annee) %></li>
   <% end %></ul>
 
 <li>
-  <titre><%= (t :autres) %></titre>
+  <titre><%= (t :others) %></titre>
 </li>
 <ul><%= link_to (t :deconnexion), :controller => 'sessions', :action => 'logout' %></ul>
 </p>

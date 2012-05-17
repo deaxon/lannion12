@@ -2,12 +2,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b><%= (t :nom_etu) %> : </b>
+  <b><%= (t :student_name) %> : </b>
   <%= @student.studentName %>
 </p>
 
 <p>
-  <b><%= (t :prenom_etu) %> : </b>
+  <b><%= (t :student_firstname) %> : </b>
   <%= @student.studentFirstName %>
 </p>
 
@@ -17,8 +17,8 @@
 </p>
 
 
-<%= link_to (t :gerer_proj_etu), :id => @student, :action => 'projects' %>
+<%= link_to (t :manage_student_proj), :id => @student, :action => 'projects' %>
 
-<%= link_to (t :editer), edit_student_path(@student) %> |
+<%= link_to (t :edit), edit_student_path(@student) %> |
 <%= link_to (t :back), students_path %>
 <br/>

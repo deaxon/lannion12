@@ -1,5 +1,5 @@
-<%= title(t :liste_etu) %>
-<h1><%= (t :liste_etu) %></h1>
+<%= title(t :student_list) %>
+<h1><%= (t :student_list) %></h1>
 
 <% @students.each do |student| %>
     <ul><li>
@@ -22,6 +22,6 @@
 
 <br />
 
-<p><%= link_to (t :nouveau_etu), new_student_path %> || <%= link_to (t :retour_admin), :controller => 'sessions', :action => 'index' %></p>
+<p><%= link_to (t :new_student), new_student_path %> || <%= link_to (t :back_admin), :controller => 'sessions', :action => 'index' %></p>
 
 <%= render(:partial => "layouts/legende_admin") %>
