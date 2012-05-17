@@ -2,15 +2,12 @@ class SessionsController < ApplicationController
   before_filter :authorize, :except => [:new , :create]
 
   def new
-    @titre = "Login"
+    @title = "Login"
   end
 
    def add_user
      @user = User.new(params[:user])
-     if request.post? and @user.save
-     flash.now[:notice] = "Utilisateur #{@user.name} cree"
-      @user = User.new
-     end
+
    end
 
   def index
@@ -38,12 +35,13 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:session][:name],
                              params[:session][:password])
     if user.nil?
-      flash.now[:error] = "Combinaison Email/Mot de passe invalide."
-      @titre = "S'identifier"
+      flash[:notice] = "Combinaison nom/Mot de passe invalide."
+      @title = "S'identifier"
       render 'new'
     else
       sign_in user
       redirect_to(:controller => "sessions", :action => "index")
+      flash[:notice] = "Connecte"
     end
   end
 
@@ -54,5 +52,6 @@ class SessionsController < ApplicationController
   def logout
     sign_out
     redirect_to root_path
+    flash[:notice] = "Deconnecte"
   end
 end

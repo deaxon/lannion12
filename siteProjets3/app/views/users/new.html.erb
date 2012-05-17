@@ -1,31 +1,6 @@
-<h1><%= (t :inscrip) %></h1>
+<%= title(t :edit_user) %>
+<h1><%= (t :edit_user) %></h1>
 
-<%= form_for(@user) do |f| %>
-    <% if @user.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<%= render 'form' %>
 
-          <ul>
-            <% @user.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
-
-    <div class="field">
-      <%= f.label (t :cip) %><br />
-      <%= f.text_field :name %>
-    </div>
-    <div class="field">
-      <%= f.label (t :pass) %><br />
-      <%= f.password_field :password %>
-    </div>
-    <div class="field">
-      <%= f.label (t :pass_conf), "Confirmation" %><br />
-      <%= f.password_field :password_confirmation %>
-    </div>
-    <div class="actions">
-      <%= f.submit (t :inscrip) %>
-    </div>
-<% end %>
+<%= link_to (t :retour), users_path %>

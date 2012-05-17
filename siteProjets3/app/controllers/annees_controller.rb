@@ -28,7 +28,7 @@ class AnneesController < ApplicationController
 
   def show
     @annee = Annee.find(params[:id])
-    titre = @annee.year
+    @title = @annee.year
   end
 
   # GET /annees/new

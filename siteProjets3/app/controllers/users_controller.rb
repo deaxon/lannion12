@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @titre = @user.name
+    @title = @user.name
   end
 
   def index
@@ -13,23 +13,23 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @titre = "Register"
+    @title = "Register"
   end
 
   def create
     @user = User.new(params[:user])
     if @user.save
-      sign_in @user
-      flash[:success] = "Welcome on the application Example !"
-      redirect_to(:controller => "sessions", :action => "index")
+      #sign_in @user
+      flash[:notice] = "Utilisateur #{@user.name} cree"
+      redirect_to(:controller => "sessions", :action => :list_users)
     else
-      @titre = "Sign up"
+      @title = "Sign up"
       render 'new'
     end
   end
 
   def edit
-    @titre = "Edit profile"
+    @title = "Edit profile"
   end
 
   def update
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
       flash[:success] = "Profile update."
       redirect_to @user
     else
-      @titre = "Edit profile"
+      @title = "Edit profile"
       render 'edit'
     end
   end
@@ -46,6 +46,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+    flash[:notice] = "Utilisateur #{@user.name} destroy"
      redirect_to(:controller => 'sessions', :action => 'list_users')
   end
 

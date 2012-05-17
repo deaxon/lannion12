@@ -1,7 +1,7 @@
 <%= form_for(@user) do |f| %>
     <% if @user.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this session from being saved:</h2>
+          <h2><%= pluralize(@user.errors.count, (t :error_session)) %></h2>
 
           <ul>
             <% @user.errors.full_messages.each do |msg| %>
@@ -13,7 +13,7 @@
 
     <% form_for :user do |form| %>
         <p>
-          <label for="user_name"><%= (t :cip) %> : </label>
+          <label for="user_name"><%= (t :nom_user) %> : </label>
           <%= form.text_field :name, :size => 40 %>
         </p>
 

@@ -1,4 +1,5 @@
-<h1>Projet(s) de <%= @teacher.teacherFirstName %> <%= @teacher.teacherName %></h1>
+<%= title(t :projets_de) %>
+<h1><%= t :projets_de %> <%= @teacher.teacherFirstName %> <%= @teacher.teacherName %></h1>
 <p><i>S7 : <%= (t :semestre) %> 7 | S8 : <%= (t :semestre) %> 8 | 78 : <%= (t :semestre) %> 7 <%= (t :et) %> 8</i></p>
 <% if @projects.length > 0 %>
     <%= form_tag(project_remove_teacher_path(@teacher)) do %>

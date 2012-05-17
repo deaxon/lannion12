@@ -1,7 +1,7 @@
 <%= form_for(@student) do |f| %>
   <% if @student.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+      <h2><%= pluralize(@student.errors.count, (t :error_student)) %></h2>
 
       <ul>
       <% @student.errors.full_messages.each do |msg| %>

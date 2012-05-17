@@ -13,6 +13,7 @@ en:
   droits: "All rights reserved"
   equipe: "Developed by"
   retour: "Back"
+  title_app: "Projects"
 
 # Annees
   voir: "Show"
@@ -23,6 +24,7 @@ en:
   creer: "Create"
   retour: "Back"
   editer: "Edit"
+  error_year: "error prohibited this year from being saved :"
 
 #legende
   legende: "Legend"
@@ -53,6 +55,7 @@ en:
   img_proj: "Project's picture(s)"
   pdf_proj: "Project's pdf"
   edit_proj_button: "Edit project"
+  error_project: "error(s) prohibited this project from being saved :"
   
 # Menu projet année
   annees: "Years"
@@ -82,6 +85,7 @@ en:
   liste_projets_annees: "List of projects per year"
   autres: "Others"
   deconnexion: "Logout"
+  error_session: "error prohibited this session from being saved :"
 
 # Messages d'erreurs (validation)
   activerecord:
@@ -132,6 +136,7 @@ en:
   tous_proj: "is already in all projects"
   ajouter: "Add"
   les_2: "both"
+  error_student: "error prohibited this student from being saved :"
 
 #Professeurs
   nom_prof: "Teacher Name"
@@ -144,6 +149,7 @@ en:
   proj: "project(s)"
   prof_aucun_proj: "This teacher is not attached to any project."
   gerer_proj_prof: "Manage projects of teacher"
+  error_teacher: "error prohibited this teacher from being saved :"
 
 #uploads
   edit_upload: "Editing Uploads"
@@ -156,7 +162,7 @@ en:
   liste_user: "List of users"
   nouveau_user: "New User"
   inscrip: "Register"
-
+  error_user: "error prohibited this user from being saved:"
 
 #footer
   labo: "Laboratory"
@@ -196,7 +202,7 @@ en:
   descript_proj6_4: ", its "
   mot_duree: "duration"
   descript_proj6_5: " etc..."
-  descript_proj6_6: "You can also give your "
+  descript_proj6_6: "You must indicate team's members and also framing teachers. You can also give your "
   mot_site_du_projet: "project web site"
   descript_proj6_7: " if you have one, or your email adress : "
   mot_adresse_mail: "emailadress@domainname"

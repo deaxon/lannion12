@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <%= javascript_include_tag "application" %>
-  <title>Projets S7-S8</title>
+  <title><%= content_for?(:title) ? yield(:title) : (t :title_app) + " S7 - S8" %></title>
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= csrf_meta_tag %>
 
