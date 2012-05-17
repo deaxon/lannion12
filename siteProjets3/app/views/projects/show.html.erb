@@ -8,9 +8,9 @@
 <p>
   <b><%= (t :descrip) %> : </b>
 <div id="page">
-  <p><%= output = @project.description %></P>
+  <p><%= output = @project.description %></p>
 </div>
-</p
+</p>
 <p>
   <% for upload in @project.uploads %>
       <p>
@@ -32,9 +32,9 @@
 <% if signed_in? %>
     <div id="projet_admin">
       <%= link_to image_tag("editer.png"), edit_annee_project_path(@annee, @project) %>
-      <%= link_to (t :retour), :controller => 'projects', :annee_id => @annee %> <br/>
+      <%= link_to (t :back), :controller => 'projects', :annee_id => @annee %> <br/>
     </div>
 <% else %>
-    <%= link_to (t :retour), :controller => 'projects', :annee_id => @annee %> <br/>
+    <%= link_to (t :back), :controller => 'projects', :annee_id => @annee %> <br/>
 <% end %>
 
