@@ -23,19 +23,22 @@
             </ul>
 
     <% end %>
-
-
     <p><%= link_to (t :new_proj), new_annee_project_path %> || <%= link_to (t :back_admin), :controller => 'sessions', :action => 'index' %></p>
+    <%= render(:partial => "layouts/legende_project") %>
 <% else %>
     <%= render(:partial => "layouts/menu_projet_annee") %>
-
     <% @projects.each do |project| %>
-        <% if project.invisible ==  FALSE %>
-
-        <p><%= link_to project.projectName, :action => 'show', :id => project, :annee_id => @annee  %>
-          <%=h project.shortDescription %></p>
-            <% end %>
+        <% if project.invisible == FALSE %>
+            <ul>
+              <li><h1><%=h project.projectName %></h1></li>
+              <p>
+                <b><%= (t :short_descrip) %> : </b>
+                <%= output = project.shortDescription %>
+              </p>
+              <p> <%= link_to "Show", [@annee, project]%></p>
+            </ul>
+        <% end %>
     <% end %>
 <% end %>
 
-<%= render(:partial => "layouts/legende_project") %>
+

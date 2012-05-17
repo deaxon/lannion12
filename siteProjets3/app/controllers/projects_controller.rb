@@ -31,6 +31,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = @annee.projects.find(params[:id])
+    @semesters = Semester.where(:project_id => @project.id)
+    @trimesters = Trimester.where(:project_id => @project.id)
     respond_to do |format|
       format.html # show.html.erb
       format.xml { render :xml => @project }
