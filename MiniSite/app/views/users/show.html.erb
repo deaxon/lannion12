@@ -1,12 +1,12 @@
 <table class="profile" summary="Information profil">
   <tr>
     <td>
-      <h1><%= @user.nom %>'s Profile</h1>
+      <h1><%= @user.name %>'s Profile</h1>
     </td>
   </tr>
   <tr>
     <td>
-      <strong>Nom : </strong> <%= @user.nom %><br />
+      <strong>Nom : </strong> <%= @user.name %><br />
       <strong>Email : </strong> <%= @user.email %><br />
       <strong>URL profile : </strong>  <%= link_to user_path(@user), @user %>
     </td>

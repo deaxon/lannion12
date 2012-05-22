@@ -17,7 +17,7 @@
     <% if signed_in? %>
         <table>
           <tr>
-            <td>Logged in as <%= link_to current_user[:nom], user_path(current_user) %> </td>
+            <td>Logged in as <%= link_to current_user[:name], user_path(current_user) %> </td>
             <td><%= button_to "", logout_path, :method => :delete, :class => "buttonLogOut", :style => "cursor:pointer" %></td>
           </tr>
         </table>
